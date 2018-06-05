@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using Assets._Scripts.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : NetworkBehaviour
+[RequireComponent(typeof(PlayerAbilitiesController))]
+
+internal class PlayerMovement : NetworkBehaviour
 {
     protected float MovementSpeed = 5f;
     protected float RotationSpeed = 100f;
