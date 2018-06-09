@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class Ability
+namespace Assets._Scripts.Abilities
 {
-    protected string Name { get; set; }
+    abstract class Ability
+    {
+        protected string Name { get; set; }
 
-    protected int ManaCost { get; set; }
+        protected int ManaCost { get; set; }
 
-    protected int StaminaCost { get; set; }
+        protected int StaminaCost { get; set; }
 
-    protected float Cooldown { get; set; }
+        protected float Cooldown { get; set; }
 
-    protected float Range { get; set; }
+        protected float Range { get; set; }
 
+    }
 }

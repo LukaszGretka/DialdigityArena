@@ -8,8 +8,6 @@ namespace Assets._Scripts.Characters
 {
     internal class Warrior : MeleeClass, ICharacterAbilities
     {
-
-
         public void DefaultAttack()
         {
             throw new NotImplementedException();

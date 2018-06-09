@@ -10,7 +10,6 @@ public class PlayerCameraController : MonoBehaviour
     private Transform playerTransform;
     private Vector3 cameraOffset;
 
-
     private void Awake ()
     {
         playerTransform = GetComponent<Transform>();
