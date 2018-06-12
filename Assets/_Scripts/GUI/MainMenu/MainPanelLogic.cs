@@ -12,7 +12,6 @@ public class MainPanelLogic : MonoBehaviour
 
     private List<GameObject> panelsList;
  
-
     private void Start()
     {
         panelsList = new List<GameObject>
@@ -21,7 +20,8 @@ public class MainPanelLogic : MonoBehaviour
             GameSettingsPanel,
             ExitPanel
         };
-        panelsList.ForEach(x => x.SetActive(false)); //hide every panel if it active
+
+        DisableAllPanels(); //hide every panel if it active
     }
 
     #region ButtonClicksMethods
@@ -66,7 +66,7 @@ public class MainPanelLogic : MonoBehaviour
 
     public void DeclineButtonClick()
     {
-        panelsList.ForEach(x => x.SetActive(false));
+        DisableAllPanels();
     }
     #endregion
 
@@ -81,5 +81,10 @@ public class MainPanelLogic : MonoBehaviour
 
         panelsList.ForEach(x => x.SetActive(false));
         panelsList.Find(x => x.name == panel.name).SetActive(true);
+    }
+
+    private void DisableAllPanels()
+    {
+        panelsList.ForEach(x => x.SetActive(false));
     }
 }
