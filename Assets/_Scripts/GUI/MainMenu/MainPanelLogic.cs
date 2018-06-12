@@ -8,6 +8,7 @@ public class MainPanelLogic : MonoBehaviour
 {
     [SerializeField] private GameObject CharacterSelectionPanel;
     [SerializeField] private GameObject GameSettingsPanel;
+    [SerializeField] private GameObject ExitPanel;
 
     private List<GameObject> panelsList;
  
@@ -17,7 +18,8 @@ public class MainPanelLogic : MonoBehaviour
         panelsList = new List<GameObject>
         {
             CharacterSelectionPanel,
-            GameSettingsPanel
+            GameSettingsPanel,
+            ExitPanel
         };
         panelsList.ForEach(x => x.SetActive(false)); //hide every panel if it active
     }
@@ -52,10 +54,20 @@ public class MainPanelLogic : MonoBehaviour
     }
 
     public void ExitButtonClick()
-    {
-        Application.Quit();
+    {       
+        SetPanelActive(ExitPanel);     
     }
 
+    public void ConfirmButtonClick()
+    {
+        Application.Quit();
+        Debug.Log("Application closing");
+    }
+
+    public void DeclineButtonClick()
+    {
+        panelsList.ForEach(x => x.SetActive(false));
+    }
     #endregion
 
     private void SetPanelActive(GameObject panel)
