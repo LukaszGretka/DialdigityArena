@@ -1,11 +1,4 @@
-﻿using Assets._Scripts.Abilities;
-using Assets._Scripts.Characters;
-using Assets._Scripts.Characters.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting;
-using System.Text;
+﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -13,7 +6,7 @@ namespace Assets._Scripts.Player
 {
     class PlayerClassManager : NetworkBehaviour
     {
-        [SerializeField] private ICharacterClass characterClass;
+        private ICharacterClass characterClass; //holds main characterClass object attached to the game object prefab
 
         private void Awake()
         {
@@ -22,8 +15,8 @@ namespace Assets._Scripts.Player
 
         private void Start()
         {
-            characterClass.GetCharacterAbilitiesList().ForEach(x => Debug.Log(x.Name));
+            Debug.Log(characterClass.GetFirstSpecialAbility().Name);
+            Debug.Log(characterClass.GetCurrentHealth());
         }
-
     }
 }

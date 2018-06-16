@@ -2,17 +2,15 @@
 using Assets._Scripts.Abilities.WarriorAbilities;
 using Assets._Scripts.Abilities.WarriorAbilities.Special;
 using Assets._Scripts.Characters.Abstract;
+using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Player;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace Assets._Scripts.Characters
 {
     [RequireComponent(typeof(PlayerAbilitiesController))]
-    internal class Warrior : MeleeCharacterClass, ICharacterAbilities, ICharacterClass
+    internal class Warrior : MeleeCharacterClass, ICharacterClass
     {
         //Those variable was made to allow user set stats from the unity inspector
         [SerializeField] private int Health;
@@ -29,56 +27,76 @@ namespace Assets._Scripts.Characters
 
             base.SetBasicStatistics();
 
-            SetFirstDefaultAbility(new Swipe());
-            SetSecondDefaultAbility(new Block());
-            SetFirstSpecialAbility(new BrutalStrike());
-            SetSecondSpecialAbility(new Leap());
-            SetThirdSpecialAbility(new Bash());
+            base.SetFirstDefaultAbility(new Swipe());
+            base.SetSecondDefaultAbility(new Block());
+            base.SetFirstSpecialAbility(new BrutalStrike());
+            base.SetSecondSpecialAbility(new Leap());
+            base.SetThirdSpecialAbility(new Bash());
         }
 
-        public List<IAbility> GetCharacterAbilitiesList()
+        public new List<IAbility> GetCharacterAbilitiesList()
         {
-            var list = new List<IAbility>()
-            {
-                FirstDefaultAbility,
-                SecondDefaultAbility,
-                FirstSpecialAbility,
-                SecondSpecialAbility,
-                ThirdSpecialAbility
-            };
-
-            if (list.Any(x => x.Equals(null)))
-            {
-                Debug.LogError("Not all abilities has been set");
-            }
-
-            return list;
-
+            return base.GetCharacterAbilitiesList();
         }
 
-        public void SetFirstDefaultAbility(IAbility ability)
+        public new IAbility GetFirstDefaultAbility()
         {
-            FirstDefaultAbility = ability;
+            return base.GetFirstDefaultAbility();
         }
 
-        public void SetSecondDefaultAbility(IAbility ability)
+        public new IAbility GetSecondDefaultAbility()
         {
-            SecondDefaultAbility = ability;
+            return base.GetSecondDefaultAbility();
         }
 
-        public void SetFirstSpecialAbility(IAbility ability)
+        public new IAbility GetFirstSpecialAbility()
         {
-            FirstSpecialAbility = ability;
+            return base.GetFirstSpecialAbility();
         }
 
-        public void SetSecondSpecialAbility(IAbility ability)
+        public new IAbility GetSecondSpecialAbility()
         {
-            SecondSpecialAbility = ability;
+            return base.GetSecondSpecialAbility();
         }
 
-        public void SetThirdSpecialAbility(IAbility ability)
+        public new IAbility GetThirdSpecialAbility()
         {
-            ThirdSpecialAbility = ability;
+            return base.GetThirdSpecialAbility();
+        }
+
+        int ICharacterClass.GetCurrentHealth()
+        {
+            return CurrentHealth;
+        }
+
+        int ICharacterClass.GetCurrentMana()
+        {
+            return CurrentMana;
+        }
+
+        int ICharacterClass.GetCurrentStamina()
+        {
+            return CurrentStamina;
+        }
+
+        public float GetAttackRange()
+        {
+            return DefaultAttackRange;
+        }
+
+        public int GetMaximumHealth()
+        {
+            return MaximumHealth;
+        }
+
+        public int GetMaximumMana()
+        {
+            return MaximumMana;
+        }
+
+        public int GetMaximumStamina()
+        {
+            return MaximumStamina;
         }
     }
 }

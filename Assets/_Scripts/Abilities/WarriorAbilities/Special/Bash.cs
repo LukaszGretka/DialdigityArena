@@ -8,7 +8,6 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Special
     internal class Bash : IAbility
     {
         //add effects (contitions implementation)
-
         public string Name { get; private set; } = "Bash";
 
         public float BaseDamage { get; private set; } = 10f;
