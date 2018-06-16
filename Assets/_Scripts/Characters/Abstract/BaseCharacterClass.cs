@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Assets._Scripts.Abilities;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace Assets._Scripts.Characters.Abstract
 {
@@ -20,6 +16,12 @@ namespace Assets._Scripts.Characters.Abstract
 
         protected float DefaultAttackRange { get; set; }
 
+        protected IAbility FirstDefaultAbility { get; set; }
+        protected IAbility SecondDefaultAbility { get; set; }
+        protected IAbility FirstSpecialAbility { get; set; }
+        protected IAbility SecondSpecialAbility { get; set; }
+        protected IAbility ThirdSpecialAbility { get; set; }
+
         protected void SetBasicStatistics()
         {
             SetStartingHealth();
@@ -27,53 +29,52 @@ namespace Assets._Scripts.Characters.Abstract
             SetStartingStamina();
         }
 
-
         protected void SetMaximumHealth(int health)
         {
-            if (health != default(int))
+            if (health > default(int))
             {
                 MaximumHealth = health;
             }
             else
             {
                 //TODO : remove magic strings in this method and others
-                Debug.LogError("Please fill Health value");
+                Debug.LogError("Invalid Health value");
             }
         }
 
         protected void SetMaximumMana(int mana)
         {
-            if (mana != default(int))
+            if (mana >= default(int))
             {
                 MaximumMana = mana;
             }
             else
             {
-                Debug.LogError("Please fill Mana value");
+                Debug.LogError("Invalid Mana value");
             }
         }
 
         protected void SetMaximumStamina(int stamina)
         {
-            if (stamina != default(int))
+            if (stamina >= default(int))
             {
                 MaximumStamina = stamina;
             }
             else
             {
-                Debug.LogError("Please fill Stamina value");
+                Debug.LogError("Invalid Stamina value");
             }
         }
 
         protected void SetAttackRange(int range)
         {
-            if (range != default(float))
+            if (range >= default(float))
             {
                 DefaultAttackRange = range;
             }
             else
             {
-                Debug.LogError("Please fill Range value");
+                Debug.LogError("Invalid Default Attack Range value");
             }
         }
 

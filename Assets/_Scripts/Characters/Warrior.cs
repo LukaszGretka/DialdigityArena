@@ -20,37 +20,7 @@ namespace Assets._Scripts.Characters
         [SerializeField] private int Stamina;
         [SerializeField] private int AttackRange;
 
-        public IAbility FirstDefaultAbility
-        {
-            get { return FirstDefaultAbility; }
-            private set { value = new Swipe(); }
-        }
-
-        public IAbility SecondDefaultAbility
-        {
-            get { return SecondDefaultAbility; }
-            private set { value = new Block(); }
-        }
-
-        public IAbility FirstSpecialAbility
-        {
-            get { return FirstSpecialAbility; }
-            private set { value = new BrutalStrike(); }
-        }
-
-        public IAbility SecondSpecialAbility
-        {
-            get { return SecondSpecialAbility; }
-            private set { value = new Leap(); }
-        }
-
-        public IAbility ThirdSpecialAbility
-        {
-            get { return ThirdSpecialAbility; }
-            private set { value = new Bash(); }
-        }
-
-        private void Start()
+        private void Awake()
         {
             base.SetMaximumHealth(Health);
             base.SetMaximumMana(Mana);
@@ -58,6 +28,57 @@ namespace Assets._Scripts.Characters
             base.SetAttackRange(AttackRange);
 
             base.SetBasicStatistics();
+
+            SetFirstDefaultAbility(new Swipe());
+            SetSecondDefaultAbility(new Block());
+            SetFirstSpecialAbility(new BrutalStrike());
+            SetSecondSpecialAbility(new Leap());
+            SetThirdSpecialAbility(new Bash());
+        }
+
+        public List<IAbility> GetCharacterAbilitiesList()
+        {
+            var list = new List<IAbility>()
+            {
+                FirstDefaultAbility,
+                SecondDefaultAbility,
+                FirstSpecialAbility,
+                SecondSpecialAbility,
+                ThirdSpecialAbility
+            };
+
+            if (list.Any(x => x.Equals(null)))
+            {
+                Debug.LogError("Not all abilities has been set");
+            }
+
+            return list;
+
+        }
+
+        public void SetFirstDefaultAbility(IAbility ability)
+        {
+            FirstDefaultAbility = ability;
+        }
+
+        public void SetSecondDefaultAbility(IAbility ability)
+        {
+            SecondDefaultAbility = ability;
+        }
+
+        public void SetFirstSpecialAbility(IAbility ability)
+        {
+            FirstSpecialAbility = ability;
+        }
+
+        public void SetSecondSpecialAbility(IAbility ability)
+        {
+            SecondSpecialAbility = ability;
+        }
+
+        public void SetThirdSpecialAbility(IAbility ability)
+        {
+            ThirdSpecialAbility = ability;
         }
     }
 }

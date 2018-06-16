@@ -8,14 +8,14 @@ namespace Assets._Scripts.Characters.Abstract
 {
     public interface ICharacterAbilities
     {
-        IAbility FirstDefaultAbility { get; }
+        void SetFirstDefaultAbility(IAbility ability);
 
-        IAbility SecondDefaultAbility { get; }
+        void SetSecondDefaultAbility(IAbility ability);
 
-        IAbility FirstSpecialAbility { get; }
+        void SetFirstSpecialAbility(IAbility ability);
 
-        IAbility SecondSpecialAbility { get; }
+        void SetSecondSpecialAbility(IAbility ability);
 
-        IAbility ThirdSpecialAbility { get; }
+        void SetThirdSpecialAbility(IAbility ability);
     }
 }

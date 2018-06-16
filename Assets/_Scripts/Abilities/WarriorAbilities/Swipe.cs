@@ -7,46 +7,18 @@ namespace Assets._Scripts.Abilities.WarriorAbilities
 {
     internal class Swipe : IAbility
     {
-        public string Name
-        {
-            get { return Name; }
-            private set { value = "Swipe"; }
-        }
+        public string Name { get; private set; } = "Swipe";
 
-        public float BaseDamage
-        {
-            get { return BaseDamage; }
-            private set { value = 10f; }
-        }
+        public float BaseDamage { get; private set; } = 10f;
 
-        public int ManaCost
-        {
-            get { return ManaCost; }
-            private set { value = 0; }
-        }
+        public int ManaCost { get; private set; } = 0;
 
-        public int StaminaCost
-        {
-            get { return StaminaCost; }
-            private set { value = 0; }
-        }
+        public int StaminaCost { get; private set; } = 0;
 
-        public float Cooldown
-        {
-            get { return Cooldown; }
-            private set { value = 1; }
-        }
+        public float Cooldown { get; private set; } = 1f;
 
-        public float Range
-        {
-            get { return Range; }
-            private set { value = 2f; }
-        }
+        public float Range { get; private set; } = 2f;
 
-        public bool IsRanged
-        {
-            get { return IsRanged; }
-            private set { value = false; }
-        }
+        public bool IsRanged { get; private set; } = false;
     }
 }

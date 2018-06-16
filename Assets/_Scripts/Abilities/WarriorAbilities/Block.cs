@@ -7,46 +7,18 @@ namespace Assets._Scripts.Abilities.WarriorAbilities
 {
     internal class Block : IAbility
     {
-        public string Name
-        {
-            get { return Name; }
-            private set { value = "Block"; }
-        }
+        public string Name { get; private set; } = "Block";
 
-        public float BaseDamage
-        {
-            get { return BaseDamage; }
-            private set { value = 0f; }
-        }
+        public float BaseDamage { get; private set; } = 0f;
 
-        public int ManaCost
-        {
-            get { return ManaCost; }
-            private set { value = 0; }
-        }
+        public int ManaCost { get; private set; } = 0;
 
-        public int StaminaCost
-        {
-            get { return StaminaCost; }
-            private set { value = 1; }
-        }
+        public int StaminaCost { get; private set; } = 1;
 
-        public float Cooldown
-        {
-            get { return Cooldown; }
-            private set { value = 8; }
-        }
+        public float Cooldown { get; private set; } = 8f;
 
-        public float Range
-        {
-            get { return Range; }
-            private set { value = 0f; }
-        }
+        public float Range { get; private set; } = 0f;
 
-        public bool IsRanged
-        {
-            get { return IsRanged; }
-            private set { value = false; }
-        }
+        public bool IsRanged { get; private set; } = false;
     }
 }
