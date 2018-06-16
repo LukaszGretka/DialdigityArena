@@ -25,6 +25,7 @@ internal class PlayerMovement : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
+            Debug.Log("Not local player");
             return;
         }
 

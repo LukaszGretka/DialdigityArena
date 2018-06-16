@@ -1,36 +1,17 @@
-﻿using Assets._Scripts.Characters.Abstract;
+﻿using Assets._Scripts.Abilities;
+using Assets._Scripts.Characters.Abstract;
+using Assets._Scripts.Player;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets._Scripts.Characters
 {
-    internal class Mage : RangedClass, ICharacterAbilities
+    [RequireComponent(typeof(PlayerAbilitiesController))]
+    internal class Mage : RangedCharacterClass
     {
-        public void DefaultAttack()
-        {
-            throw new NotImplementedException();
-        }
 
-        public void CastFirstAbility()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CastFourthAbility()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CastSecondAbility()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CastThirdAbility()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

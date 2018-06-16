@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets._Scripts.Abilities;
+using Assets._Scripts.Characters.Abstract;
+using Assets._Scripts.Player;
+using System;
 using UnityEngine;
 
-public class Ranger : MonoBehaviour {
+namespace Assets._Scripts.Characters
+{
+    [RequireComponent(typeof(PlayerAbilitiesController))]
+    internal class Ranger : RangedCharacterClass
+    {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 }
