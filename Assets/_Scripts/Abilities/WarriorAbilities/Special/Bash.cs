@@ -21,5 +21,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Special
         public float Range { get; private set; } = 1f;
 
         public bool IsRanged { get; private set; } = false;
+
+        public float CastingTime { get; private set; } = 0f;
     }
 }

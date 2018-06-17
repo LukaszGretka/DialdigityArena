@@ -19,5 +19,7 @@ namespace Assets._Scripts.Abilities
         float Range { get; }
 
         bool IsRanged { get; }
+        
+        float CastingTime { get; }
     }
 }

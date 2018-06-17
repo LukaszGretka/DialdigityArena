@@ -24,6 +24,9 @@ GameObject:
   - component: {fileID: 114278168306419860}
   - component: {fileID: 114030491490541276}
   - component: {fileID: 114264330807890530}
+  - component: {fileID: 114520720609759518}
+  - component: {fileID: 114341271898507406}
+  - component: {fileID: 114911147402927116}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Untagged
@@ -337,6 +340,28 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 15
   m_InterpolateMovement: 1
+--- !u!114 &114341271898507406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160201051623034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d41e9fb30de544884e463e88812b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114520720609759518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160201051623034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83051a6bb3741124ba64431ea9fef711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114906793723544696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,6 +394,21 @@ MonoBehaviour:
     i15: 163
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114911147402927116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160201051623034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd03ccafdd87f24c9ecd632c9936d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 75
+  Mana: 0
+  Stamina: 15
+  AttackRange: 8
 --- !u!135 &135091393349660822
 SphereCollider:
   m_ObjectHideFlags: 1

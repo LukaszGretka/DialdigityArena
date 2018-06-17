@@ -4,20 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities
+namespace Assets._Scripts.Abilities.RangerAbilities
 {
-    /// <summary>
-    /// This class has been made to represent default ability (for example to allow return some object in IAbility methods returns)
-    /// </summary>
-    internal class DefaultAbility : IAbility
+    class Dodge : IAbility
     {
-        public string Name { get; private set; } = "Default";
+        public string Name { get; private set; } = "Dodge";
 
         public float BaseDamage { get; private set; } = 0f;
 
         public int ManaCost { get; private set; } = 0;
 
-        public int StaminaCost { get; private set; } = 0;
+        public int StaminaCost { get; private set; } = 1;
 
         public float Cooldown { get; private set; } = 0f;
 
@@ -26,5 +23,6 @@ namespace Assets._Scripts.Abilities
         public bool IsRanged { get; private set; } = false;
 
         public float CastingTime { get; private set; } = 0f;
+
     }
 }

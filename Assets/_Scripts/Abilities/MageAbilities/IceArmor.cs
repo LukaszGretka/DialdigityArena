@@ -4,22 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities
+namespace Assets._Scripts.Abilities.MageAbilities
 {
-    /// <summary>
-    /// This class has been made to represent default ability (for example to allow return some object in IAbility methods returns)
-    /// </summary>
-    internal class DefaultAbility : IAbility
+    internal class IceArmor : IAbility
     {
-        public string Name { get; private set; } = "Default";
+        public string Name { get; private set; } = "Ice Armor";
 
         public float BaseDamage { get; private set; } = 0f;
 
-        public int ManaCost { get; private set; } = 0;
+        public int ManaCost { get; private set; } = 4;
 
         public int StaminaCost { get; private set; } = 0;
 
-        public float Cooldown { get; private set; } = 0f;
+        public float Cooldown { get; private set; } = 30f;
 
         public float Range { get; private set; } = 0f;
 
