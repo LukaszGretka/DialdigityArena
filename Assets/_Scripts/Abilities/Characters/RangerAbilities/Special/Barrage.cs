@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities.RangerAbilities.Special
+namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 {
-   internal class Barrage : IAbility
+    internal class Barrage : IAbility
     {
         public string Name { get; private set; } = "Barrage";
 

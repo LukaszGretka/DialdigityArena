@@ -1,10 +1,9 @@
 ﻿using Assets._Scripts.Abilities;
-using Assets._Scripts.Abilities.RangerAbilities;
-using Assets._Scripts.Abilities.RangerAbilities.Special;
+using Assets._Scripts.Abilities.Characters.RangerAbilities;
+using Assets._Scripts.Abilities.Characters.RangerAbilities.Special;
 using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Player;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,17 +12,12 @@ namespace Assets._Scripts.Characters
     [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Ranger : RangedCharacterClass, ICharacterClass
     {
-        [SerializeField] private int Health;
-        [SerializeField] private int Mana;
-        [SerializeField] private int Stamina;
-        [SerializeField] private int AttackRange;
-
         private void Awake()
         {
-            base.SetMaximumHealth(Health);
-            base.SetMaximumMana(Mana);
-            base.SetMaximumStamina(Stamina);
-            base.SetAttackRange(AttackRange);
+            base.SetMaximumHealth(inspectorHealth);
+            base.SetMaximumMana(inspectorMana);
+            base.SetMaximumStamina(inspectorStamina);
+            base.SetAttackRange(inspectorAttackRange);
 
             base.SetBasicStatistics();
 
@@ -32,7 +26,6 @@ namespace Assets._Scripts.Characters
             base.SetFirstSpecialAbility(new PoisonArrow());
             base.SetSecondSpecialAbility(new PenetratingShot());
             base.SetThirdSpecialAbility(new Barrage());
-
         }
 
         public new List<IAbility> GetCharacterAbilitiesList()

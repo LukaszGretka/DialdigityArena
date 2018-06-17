@@ -405,10 +405,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd03ccafdd87f24c9ecd632c9936d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 75
-  Mana: 0
-  Stamina: 15
-  AttackRange: 8
+  inspectorHealth: 100
+  inspectorMana: 10
+  inspectorStamina: 5
+  inspectorAttackRange: 5
 --- !u!135 &135091393349660822
 SphereCollider:
   m_ObjectHideFlags: 1

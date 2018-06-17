@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities.RangerAbilities
+namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 {
     internal class Shoot : IAbility
     {
-        public string Name { get; private set; } = "Block";
+        public string Name { get; private set; } = "Shoot";
 
         public float BaseDamage { get; private set; } = 6f;
 

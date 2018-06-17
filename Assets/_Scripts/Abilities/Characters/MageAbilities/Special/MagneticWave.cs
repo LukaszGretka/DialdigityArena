@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities.MageAbilities.Special
+namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 {
     internal class MagneticWave : IAbility
     {

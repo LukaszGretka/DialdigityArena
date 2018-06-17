@@ -307,10 +307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb3bf28a16366548b8a033e52370be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspectorHealth: 10
+  inspectorHealth: 150
   inspectorMana: 20
   inspectorStamina: 30
-  inspectorAttackRange: 1
+  inspectorAttackRange: 0
 --- !u!114 &114232916165725586
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities.MageAbilities
+namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 {
-    internal class MagicMissile : IAbility
+    internal class PenetratingShot : IAbility
     {
-        public string Name { get; private set; } = "Magic Missile";
+        public string Name { get; private set; } = "Penetrating Shot";
 
-        public float BaseDamage { get; private set; } = 5f;
+        public float BaseDamage { get; private set; } = 6f;
 
         public int ManaCost { get; private set; } = 2;
 
@@ -18,10 +18,11 @@ namespace Assets._Scripts.Abilities.MageAbilities
 
         public float Cooldown { get; private set; } = 1f;
 
-        public float Range { get; private set; } = 6f;
+        public float Range { get; private set; } = 10f;
 
         public bool IsRanged { get; private set; } = true;
 
-        public float CastingTime { get; private set; } = 0f;
+        public float CastingTime { get; private set; } = 2.5f;
+
     }
 }

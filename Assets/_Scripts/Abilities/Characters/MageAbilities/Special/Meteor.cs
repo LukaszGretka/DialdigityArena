@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities.MageAbilities.Special
+namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 {
     internal class Meteor : IAbility
     {
-
         public string Name { get; private set; } = "Meteor";
 
         public float BaseDamage { get; private set; } = 15f;

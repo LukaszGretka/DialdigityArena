@@ -1,6 +1,6 @@
 ﻿using Assets._Scripts.Abilities;
-using Assets._Scripts.Abilities.WarriorAbilities;
-using Assets._Scripts.Abilities.WarriorAbilities.Special;
+using Assets._Scripts.Abilities.Characters.WarriorAbilities;
+using Assets._Scripts.Abilities.Characters.WarriorAbilities.Special;
 using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Player;
