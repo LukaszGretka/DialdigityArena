@@ -4,9 +4,11 @@ using UnityEngine.Networking;
 
 namespace Assets._Scripts.Player
 {
+    [RequireComponent(typeof(ICharacterClass))]
     class PlayerClassManager : NetworkBehaviour
     {
-        private ICharacterClass characterClass; //holds main characterClass object attached to the game object prefab
+        //holds main characterClass object attached to the game object prefab
+        public ICharacterClass characterClass;
 
         private void Awake()
         {
@@ -15,8 +17,15 @@ namespace Assets._Scripts.Player
 
         private void Start()
         {
-            Debug.Log(characterClass.GetFirstSpecialAbility().Name);
-            Debug.Log(characterClass.GetCurrentHealth());
+            CheckCharacterClassValidation();
+        }
+
+        private void CheckCharacterClassValidation()
+        {
+            if (characterClass == null)
+            {
+                Debug.LogError("Current class do not impelement ICharacterClass");
+            }
         }
     }
 }

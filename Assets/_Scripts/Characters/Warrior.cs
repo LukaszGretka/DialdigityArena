@@ -12,18 +12,12 @@ namespace Assets._Scripts.Characters
     [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Warrior : MeleeCharacterClass, ICharacterClass
     {
-        //Those variable was made to allow user set stats from the unity inspector
-        [SerializeField] private int Health;
-        [SerializeField] private int Mana;
-        [SerializeField] private int Stamina;
-        [SerializeField] private int AttackRange;
-
         private void Awake()
         {
-            base.SetMaximumHealth(Health);
-            base.SetMaximumMana(Mana);
-            base.SetMaximumStamina(Stamina);
-            base.SetAttackRange(AttackRange);
+            base.SetMaximumHealth(inspectorHealth);
+            base.SetMaximumMana(inspectorMana);
+            base.SetMaximumStamina(inspectorStamina);
+            base.SetAttackRange(inspectorAttackRange);
 
             base.SetBasicStatistics();
 

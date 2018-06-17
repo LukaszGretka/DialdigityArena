@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114913616844638332}
   - component: {fileID: 114289415835437120}
   - component: {fileID: 114749872387935328}
-  - component: {fileID: 114202399264797098}
+  - component: {fileID: 114190098030078774}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -296,7 +296,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114202399264797098
+--- !u!114 &114190098030078774
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -307,10 +307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb3bf28a16366548b8a033e52370be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
-  Mana: 10
-  Stamina: 3
-  AttackRange: 1
+  inspectorHealth: 10
+  inspectorMana: 20
+  inspectorStamina: 30
+  inspectorAttackRange: 1
 --- !u!114 &114232916165725586
 MonoBehaviour:
   m_ObjectHideFlags: 1

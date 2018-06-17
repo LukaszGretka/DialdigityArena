@@ -7,6 +7,12 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
 {
     abstract partial class BaseCharacterClass
     {
+        //Those variable was made to allow a user set basic statistics from the level of Unity inspector
+        [SerializeField] protected int inspectorHealth;
+        [SerializeField] protected int inspectorMana;
+        [SerializeField] protected int inspectorStamina;
+        [SerializeField] protected int inspectorAttackRange;
+
         protected void SetBasicStatistics()
         {
             SetStartingHealth();
