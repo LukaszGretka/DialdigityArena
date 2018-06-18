@@ -1,14 +1,36 @@
 fileFormatVersion: 2
-guid: 64e9a15196d76744d93d3edd35b28e54
+guid: 65449954eb9a2ca4787dca6108a07120
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Blade
+    100002: Crossguard
+    100004: //RootNode
+    100006: Helve
+    100008: Pommel
+    100010: Tip
+    400000: Blade
+    400002: Crossguard
+    400004: //RootNode
+    400006: Helve
+    400008: Pommel
+    400010: Tip
     2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: dummyShield
+    2300000: Blade
+    2300002: Crossguard
+    2300004: Helve
+    2300006: Pommel
+    2300008: Tip
+    3300000: Blade
+    3300002: Crossguard
+    3300004: Helve
+    3300006: Pommel
+    3300008: Tip
+    4300000: Pommel
+    4300002: Helve
+    4300004: Crossguard
+    4300006: Blade
+    4300008: Tip
   externalObjects: {}
   materials:
     importMaterials: 1
