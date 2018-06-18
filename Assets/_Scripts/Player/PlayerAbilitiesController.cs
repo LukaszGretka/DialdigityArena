@@ -26,16 +26,19 @@ namespace Assets._Scripts.Player
 
         private void Update()
         {
+            KeyboardInputHandler();
             GetMouseButtonClick();
         }
 
         private void GetMouseButtonClick()
         {
+            //check incoming input for left mouse button
             if (Input.GetMouseButtonDown(0)) 
             {
                 abilitiesManager.CastFirstDefaultAbility();
             }
 
+            //check incoming input for right mouse button
             if (Input.GetMouseButtonDown(1)) 
             {
                 abilitiesManager.CastSecondDefaultAbility();
@@ -44,7 +47,8 @@ namespace Assets._Scripts.Player
 
         private void KeyboardInputHandler()
         {
-
+            string inputKey = Input.inputString;
+            //TODO Kamil - swich case for Q, E, F and add abilitiesManager.CastxxxxxxDefaultAbility() for each cases
         }
 
     }
