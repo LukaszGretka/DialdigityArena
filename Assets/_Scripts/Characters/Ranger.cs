@@ -1,9 +1,12 @@
 ﻿using Assets._Scripts.Abilities;
+using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Abilities.Characters.RangerAbilities;
+using Assets._Scripts.Abilities.Characters.RangerAbilities.Logic;
 using Assets._Scripts.Abilities.Characters.RangerAbilities.Special;
 using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Player;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -91,6 +94,42 @@ namespace Assets._Scripts.Characters
         public int GetMaximumStamina()
         {
             return MaximumStamina;
+        }
+
+        public Action GetFirstDefaultAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetSecondDefaultAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetFirstSpecialAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetSecondSpecialAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetThirdSpecialAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetAbilityImplementation()
+        {
+            throw new NotImplementedException();
+        }
+
+        IAbilityImplementation ICharacterClass.GetAbilityImplementation()
+        {
+            //TODO check if it dont couse high memory usage (it's should't but still..)
+            return new RangerAbilitiesLogic();
         }
     }
 }

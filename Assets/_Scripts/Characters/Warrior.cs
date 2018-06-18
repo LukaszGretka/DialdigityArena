@@ -1,9 +1,12 @@
 ﻿using Assets._Scripts.Abilities;
+using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Abilities.Characters.WarriorAbilities;
 using Assets._Scripts.Abilities.Characters.WarriorAbilities.Special;
+using Assets._Scripts.Abilities.WarriorAbilities.Logic;
 using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Player;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +15,8 @@ namespace Assets._Scripts.Characters
     [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Warrior : MeleeCharacterClass, ICharacterClass
     {
+        WarriorAbilitiesLogic warriorAbilitiesLogic = new WarriorAbilitiesLogic();
+
         private void Awake()
         {
             base.SetMaximumHealth(inspectorHealth);
@@ -91,6 +96,36 @@ namespace Assets._Scripts.Characters
         public int GetMaximumStamina()
         {
             return MaximumStamina;
+        }
+
+        public Action GetFirstDefaultAbilityImplementation()
+        {
+            return warriorAbilitiesLogic.FirstDefaultAbilityImplementation();
+        }
+
+        public Action GetSecondDefaultAbilityImplementation()
+        {
+            return warriorAbilitiesLogic.SecondDefaultAbilityImplementation();
+        }
+
+        public Action GetFirstSpecialAbilityImplementation()
+        {
+            return warriorAbilitiesLogic.FirstSpecialAbilityImplementation();
+        }
+
+        public Action GetSecondSpecialAbilityImplementation()
+        {
+            return warriorAbilitiesLogic.SecondSpecialAbilityImplementation();
+        }
+
+        public Action GetThirdSpecialAbilityImplementation()
+        {
+            return warriorAbilitiesLogic.ThirdSpecialAbilityImplementation();
+        }
+
+        public IAbilityImplementation GetAbilityImplementation()
+        {
+            return new WarriorAbilitiesLogic();
         }
     }
 }

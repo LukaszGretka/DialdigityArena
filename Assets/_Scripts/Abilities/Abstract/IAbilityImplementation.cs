@@ -8,11 +8,11 @@ namespace Assets._Scripts.Abilities.Abstract
 {
     public interface IAbilityImplementation
     {
-        void GetFirstDefaultAbilityImplementation();
-        void GetSecondDefaultAbilityImplementation();
+        Action FirstDefaultAbilityImplementation();
+        Action SecondDefaultAbilityImplementation();
 
-        void GetFirstSpecialAbilityImplementation();
-        void GetSecondSpecialAbilityImplementation();
-        void GetThirdSpecialAbilityImplementation();
+        Action FirstSpecialAbilityImplementation();
+        Action SecondSpecialAbilityImplementation();
+        Action ThirdSpecialAbilityImplementation();
     }
 }

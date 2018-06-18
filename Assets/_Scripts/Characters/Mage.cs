@@ -1,9 +1,12 @@
 ﻿using Assets._Scripts.Abilities;
+using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Abilities.Characters.MageAbilities;
+using Assets._Scripts.Abilities.Characters.MageAbilities.Logic;
 using Assets._Scripts.Abilities.Characters.MageAbilities.Special;
 using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Player;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -91,6 +94,36 @@ namespace Assets._Scripts.Characters
         public int GetMaximumStamina()
         {
             return MaximumStamina;
+        }
+
+        public Action GetFirstDefaultAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetSecondDefaultAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetFirstSpecialAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetSecondSpecialAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Action GetThirdSpecialAbilityImplementation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IAbilityImplementation GetAbilityImplementation()
+        {
+            return new MageAbilitiesLogic();
         }
     }
 }

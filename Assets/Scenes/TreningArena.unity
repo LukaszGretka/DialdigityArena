@@ -164,15 +164,13 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1160201051623034, guid: e9776565328adfd468ccba2799887da3,
+  m_PlayerPrefab: {fileID: 1933305426522564, guid: 3a35e92e8c1301843aa10eb18dd309db,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: TreningArena
   m_OnlineScene: 
-  m_SpawnPrefabs:
-  - {fileID: 1624118894088256, guid: f09abbb9de1befc4a84e4fe6c8e293b9, type: 2}
-  - {fileID: 0}
+  m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -617,7 +615,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 81
   orthographic: 1
   orthographic size: 12
   m_Depth: -1
@@ -791,7 +789,7 @@ Prefab:
     - target: {fileID: 224825226079676488, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 178.51006
+      value: 178.50998
       objectReference: {fileID: 0}
     - target: {fileID: 224856972164492374, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}
@@ -812,6 +810,10 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.x
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233307159712392, guid: 295754304fdfcd6468ef58e7ec9e3bf1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 295754304fdfcd6468ef58e7ec9e3bf1, type: 2}

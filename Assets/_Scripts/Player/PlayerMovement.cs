@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 internal class PlayerMovement : NetworkBehaviour
 {
     protected float MovementSpeed = 5f;
-    protected float RotationSpeed = 100f;
+    protected float RotationSpeed = 0.1f; // TODO add rotation speed
 
     private Rigidbody playerRigidbody;
     private Vector3 playerMovementVector;
