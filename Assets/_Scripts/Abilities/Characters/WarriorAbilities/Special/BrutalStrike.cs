@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 {
     internal class BrutalStrike : IAbility

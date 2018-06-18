@@ -13,29 +13,40 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         {
             return () =>
             {
-                Debug.Log("im in the first degault ability impelemntation");
+                Debug.Log("im in the first default ability implementation");
             };
         }
 
         public Action FirstSpecialAbilityImplementation()
         {
-            // TODO Kamil implement anoymous function for each abilities in every class just like up ^
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.Log("im in the first special ability implementation");
+            };
         }
 
         public Action SecondDefaultAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.Log("im in the second default ability implementation");
+            };
         }
 
         public Action SecondSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.Log("im in the second special ability implementation");
+            };
         }
 
         public Action ThirdSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.Log("im in the third special ability implementation");
+            };
         }
     }
 }

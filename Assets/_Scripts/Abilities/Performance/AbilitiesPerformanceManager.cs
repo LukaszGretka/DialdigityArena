@@ -1,8 +1,6 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using System;
-using UnityEngine;
-using UnityEngine.Networking;
 
 namespace Assets._Scripts.Abilities.Performance
 {

@@ -1,11 +1,6 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Abilities.Performance;
-using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -47,9 +42,23 @@ namespace Assets._Scripts.Player
 
         private void KeyboardInputHandler()
         {
-            string inputKey = Input.inputString;
-            //TODO Kamil - swich case for Q, E, F and add abilitiesManager.CastxxxxxxDefaultAbility() for each cases
-        }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                abilitiesManager.CastFirstSpecialAbility();
+                Debug.Log("Pressed Q");
+            }
 
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                abilitiesManager.CastSecondSpecialAbility();
+                Debug.Log("Pressed E");
+            }
+
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                abilitiesManager.CastSecondSpecialAbility();
+                Debug.Log("Pressed R");
+            }
+        }
     }
 }
