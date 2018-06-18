@@ -19,6 +19,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
 
         public Action FirstSpecialAbilityImplementation()
         {
+            // TODO Kamil implement anoymous function for each abilities in every class just like up ^
             throw new NotImplementedException();
         }
 
