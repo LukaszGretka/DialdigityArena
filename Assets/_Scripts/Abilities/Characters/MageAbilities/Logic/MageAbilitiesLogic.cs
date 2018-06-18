@@ -1,19 +1,20 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
-using Assets._Scripts.Characters;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
+namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
 {
-    class WarriorAbilitiesLogic : IAbilityImplementation
+    internal class MageAbilitiesLogic : IAbilityImplementation
     {
-        private static Warrior warrior = new Warrior();
-
         public Action FirstDefaultAbilityImplementation()
         {
             return () =>
             {
-                Debug.Log("im in the first degault ability impelemntation");
+                Debug.Log("Im mage first default ability implementation method!");
             };
         }
 

@@ -1,20 +1,17 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
-using Assets._Scripts.Characters;
 using System;
-using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
+namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
 {
-    class WarriorAbilitiesLogic : IAbilityImplementation
+    internal class RangerAbilitiesLogic : IAbilityImplementation
     {
-        private static Warrior warrior = new Warrior();
-
         public Action FirstDefaultAbilityImplementation()
         {
-            return () =>
-            {
-                Debug.Log("im in the first degault ability impelemntation");
-            };
+            throw new NotImplementedException();
         }
 
         public Action FirstSpecialAbilityImplementation()

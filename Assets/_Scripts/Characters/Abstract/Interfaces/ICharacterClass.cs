@@ -1,4 +1,6 @@
 ﻿using Assets._Scripts.Abilities;
+using Assets._Scripts.Abilities.Abstract;
+using System;
 using System.Collections.Generic;
 
 namespace Assets._Scripts.Characters.Abstract.Interfaces
@@ -21,5 +23,13 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         IAbility GetSecondSpecialAbility();
         IAbility GetThirdSpecialAbility();
         List<IAbility> GetCharacterAbilitiesList();
+
+        IAbilityImplementation GetAbilityImplementation();
+
+        Action GetFirstDefaultAbilityImplementation();
+        Action GetSecondDefaultAbilityImplementation();
+        Action GetFirstSpecialAbilityImplementation();
+        Action GetSecondSpecialAbilityImplementation();
+        Action GetThirdSpecialAbilityImplementation();
     }
 }
