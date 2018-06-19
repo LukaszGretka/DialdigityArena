@@ -41,8 +41,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
             else
             {
-                //TODO : remove magic strings in this method and others
-                Debug.LogError("Invalid Health value");
+                Debug.LogError(ErrorMessages.InvalidHealthValue);
             }
         }
 
@@ -54,7 +53,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
             else
             {
-                Debug.LogError("Invalid Mana value");
+                Debug.LogError(ErrorMessages.InvalidManaValue);
             }
         }
 
@@ -66,7 +65,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
             else
             {
-                Debug.LogError("Invalid Stamina value");
+                Debug.LogError(ErrorMessages.InvalidStaminaValue);
             }
         }
 
@@ -78,7 +77,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
             else
             {
-                Debug.LogError("Invalid Attack Range value");
+                Debug.LogError(ErrorMessages.InvalidRangeValue);
             }
         }
 
@@ -91,7 +90,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
             else
             {
-                Debug.LogError("Can't set starting health - maximum health was not set");
+                Debug.LogError(ErrorMessages.CannotSetMaximumHealthValue);
             }
         }
 
@@ -103,7 +102,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
             else
             {
-                Debug.LogError("Can't set starting mana - maximum mana was not set");
+                Debug.LogError(ErrorMessages.CannotSetMaximumManaValue);
             }
         }
 
@@ -115,7 +114,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
             else
             {
-                Debug.LogError("Can't set starting stamina - maximum stamina was not set");
+                Debug.LogError(ErrorMessages.CannotSetMaximumStaminaValue);
             }
         }
     }

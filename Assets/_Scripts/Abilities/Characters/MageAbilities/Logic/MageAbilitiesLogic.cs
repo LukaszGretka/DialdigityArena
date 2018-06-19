@@ -10,28 +10,40 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
         {
             return () =>
             {
-                Debug.Log("Im mage first default ability implementation method!");
+                Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
             };
         }
 
         public Action FirstSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.FirstSpecialAbilityDebug);
+            };
         }
 
         public Action SecondDefaultAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            { 
+                Debug.LogError(ErrorMessages.SecondDefaultAbilityDebug);
+            };
         }
 
         public Action SecondSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.SecondSpecialAbilityDebug);
+            };
         }
 
         public Action ThirdSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.ThirdSpecialAbilityDebug);
+            };
         }
     }
 }

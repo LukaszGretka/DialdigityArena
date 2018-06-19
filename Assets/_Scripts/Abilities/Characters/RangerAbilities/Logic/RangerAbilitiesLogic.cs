@@ -1,5 +1,6 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using System;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
 {
@@ -7,27 +8,42 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
     {
         public Action FirstDefaultAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
+            };
         }
 
         public Action FirstSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.FirstSpecialAbilityDebug);
+            };
         }
 
         public Action SecondDefaultAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.SecondDefaultAbilityDebug);
+            };
         }
 
         public Action SecondSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.SecondSpecialAbilityDebug);
+            };
         }
 
         public Action ThirdSpecialAbilityImplementation()
         {
-            throw new NotImplementedException();
+            return () =>
+            {
+                Debug.LogError(ErrorMessages.ThirdSpecialAbilityDebug);
+            };
         }
     }
 }

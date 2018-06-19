@@ -24,7 +24,7 @@ namespace Assets._Scripts.Player
         {
             if (characterClass == null)
             {
-                Debug.LogError("Current class do not implementing ICharacterClass interface");
+                Debug.LogError(ErrorMessages.ClassNotImlementingICharacterClassInterface);
             }
         }
     }

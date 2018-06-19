@@ -164,14 +164,14 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1160201051623034, guid: e9776565328adfd468ccba2799887da3,
+  m_PlayerPrefab: {fileID: 1793248334980344, guid: b39f200afc19834479226e28927a0264,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: TreningArena
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1624118894088256, guid: f09abbb9de1befc4a84e4fe6c8e293b9, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -923,7 +923,7 @@ Prefab:
     - target: {fileID: 224825226079676488, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 178.51
+      value: 235.43156
       objectReference: {fileID: 0}
     - target: {fileID: 224856972164492374, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}

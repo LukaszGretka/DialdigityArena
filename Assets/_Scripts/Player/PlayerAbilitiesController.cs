@@ -56,7 +56,7 @@ namespace Assets._Scripts.Player
 
             else if (Input.GetKeyDown(KeyCode.R))
             {
-                abilitiesManager.CastSecondSpecialAbility();
+                abilitiesManager.CastThirdSpecialAbility();
                 Debug.Log("Pressed R");
             }
         }

@@ -20,22 +20,22 @@ namespace Assets._Scripts.Abilities.Performance
 
         public void CastSecondDefaultAbility()
         {
-            throw new NotImplementedException();
+            abilityImplementation.SecondDefaultAbilityImplementation().Invoke();
         }
 
         public void CastFirstSpecialAbility()
         {
-            throw new NotImplementedException();
+            abilityImplementation.FirstSpecialAbilityImplementation().Invoke();
         }
 
         public void CastSecondSpecialAbility()
         {
-            throw new NotImplementedException();
+            abilityImplementation.SecondSpecialAbilityImplementation().Invoke();
         }
 
         public void CastThirdSpecialAbility()
         {
-            throw new NotImplementedException();
+            abilityImplementation.ThirdSpecialAbilityImplementation().Invoke();
         }
     }
 }

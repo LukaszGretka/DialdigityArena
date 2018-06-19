@@ -45,7 +45,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
 
             if (abilitiesList.Any(x => x != null))
             {
-                Debug.LogError("Not all abilities has been set");
+                Debug.LogError(ErrorMessages.NotAllAbilitiesSetDebug);
             }
 
             return abilitiesList;
@@ -55,7 +55,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         {
             if (FirstDefaultAbility == null)
             {
-                Debug.LogError("First Default Ability was not set");
+                Debug.LogError(ErrorMessages.FirstDefaultAbilityNotSet);
                 FirstDefaultAbility = new DefaultAbility();
             }
 
@@ -65,7 +65,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         {
             if (SecondDefaultAbility == null)
             {
-                Debug.LogError("Second Default Ability was not set");
+                Debug.LogError(ErrorMessages.SecondDefaultAbilityNotSet);
                 SecondDefaultAbility = new DefaultAbility();
             }
 
@@ -76,7 +76,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         {
             if (FirstSpecialAbility == null)
             {
-                Debug.LogError("First Special Ability was not set");
+                Debug.LogError(ErrorMessages.FirstSpecialAbilityNotSet);
                 FirstSpecialAbility = new DefaultAbility();
             }
 
@@ -87,7 +87,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         {
             if (SecondSpecialAbility == null)
             {
-                Debug.LogError("Second Special Ability was not set");
+                Debug.LogError(ErrorMessages.SecondSpecialAbilityNotSet);
                 SecondSpecialAbility = new DefaultAbility();
             }
 
@@ -98,7 +98,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         {
             if (ThirdSpecialAbility == null)
             {
-                Debug.LogError("ThirdSpecialAbility was not set");
+                Debug.LogError(ErrorMessages.ThirdSpecialAbilityNotSet);
                 ThirdSpecialAbility = new DefaultAbility();
             }
 

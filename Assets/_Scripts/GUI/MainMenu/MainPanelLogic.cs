@@ -1,4 +1,5 @@
 ﻿
+using Assets;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -34,7 +35,7 @@ public class MainPanelLogic : MonoBehaviour
             return;
         }
 
-        Debug.LogError("Matchmaking is not implemented yet");
+        Debug.LogError(ErrorMessages.MatchmakingError);
     }
 
     public void TreningModeButtonClick()
@@ -73,8 +74,8 @@ public class MainPanelLogic : MonoBehaviour
     {
         if (!panelsList.Contains(panel))
         {
-            Debug.LogError("Panels list don't contains current panel: " + panel.name + 
-                            ". Please add current panel to panelList");
+            Debug.LogError(ErrorMessages.PanelList + panel.name + 
+                            ErrorMessages.PleaseAddPanel);
             return;
         }
 

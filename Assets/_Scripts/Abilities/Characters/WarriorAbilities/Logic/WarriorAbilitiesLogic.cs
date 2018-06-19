@@ -13,7 +13,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         {
             return () =>
             {
-                Debug.Log("im in the first default ability implementation");
+                Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
             };
         }
 
@@ -21,7 +21,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         {
             return () =>
             {
-                Debug.Log("im in the first special ability implementation");
+                Debug.LogError(ErrorMessages.FirstSpecialAbilityDebug);
             };
         }
 
@@ -29,7 +29,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         {
             return () =>
             {
-                Debug.Log("im in the second default ability implementation");
+                Debug.LogError(ErrorMessages.SecondDefaultAbilityDebug);
             };
         }
 
@@ -37,7 +37,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         {
             return () =>
             {
-                Debug.Log("im in the second special ability implementation");
+                Debug.LogError(ErrorMessages.SecondSpecialAbilityDebug);
             };
         }
 
@@ -45,7 +45,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         {
             return () =>
             {
-                Debug.Log("im in the third special ability implementation");
+                Debug.LogError(ErrorMessages.ThirdSpecialAbilityDebug);
             };
         }
     }
