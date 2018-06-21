@@ -17,7 +17,7 @@ namespace Assets._Scripts.Characters
     {
         private void Awake()
         {
-            base.SetMaximumHealth(inspectorHealth);
+            //base.SetMaximumHealth(inspectorHealth);
             base.SetMaximumMana(inspectorMana);
             base.SetMaximumStamina(inspectorStamina);
             base.SetAttackRange(inspectorAttackRange);
