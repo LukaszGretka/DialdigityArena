@@ -20,6 +20,7 @@ namespace Assets._Scripts.OutputMessages
         public const string ThirdSpecialAbilityNotSet = "Third Special Ability was not set";
 
         public const string WrongTypeOfAbility = "Can't perform action for this type of ability.";
+        public const string TargetIsDead = "Target is dead.";
         #endregion
 
         #region Statistics errors
