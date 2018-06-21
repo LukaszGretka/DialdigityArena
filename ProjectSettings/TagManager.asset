@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GUI
   - GlobalScriptHolder
+  - Target
   layers:
   - Default
   - TransparentFX

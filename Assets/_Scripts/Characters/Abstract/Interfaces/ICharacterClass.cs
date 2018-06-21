@@ -26,7 +26,7 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
 
         IAbilityImplementation GetAbilityImplementation();
 
-        Action GetFirstDefaultAbilityImplementation();
+        void GetFirstDefaultAbilityImplementation();
         Action GetSecondDefaultAbilityImplementation();
         Action GetFirstSpecialAbilityImplementation();
         Action GetSecondSpecialAbilityImplementation();

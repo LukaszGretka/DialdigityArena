@@ -1,4 +1,5 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
+using Assets._Scripts.OutputMessages;
 using System;
 using UnityEngine;
 
@@ -6,12 +7,9 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
 {
     internal class RangerAbilitiesLogic : IAbilityImplementation
     {
-        public Action FirstDefaultAbilityImplementation()
+        public void FirstDefaultAbilityImplementation()
         {
-            return () =>
-            {
                 Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
-            };
         }
 
         public Action FirstSpecialAbilityImplementation()

@@ -96,7 +96,7 @@ namespace Assets._Scripts.Characters
             return MaximumStamina;
         }
 
-        public Action GetFirstDefaultAbilityImplementation()
+        public void GetFirstDefaultAbilityImplementation()
         {
             throw new System.NotImplementedException();
         }

@@ -4,7 +4,7 @@ namespace Assets._Scripts.Abilities.Abstract
 {
     public interface IAbilityImplementation
     {
-        Action FirstDefaultAbilityImplementation();
+        void FirstDefaultAbilityImplementation();
         Action SecondDefaultAbilityImplementation();
 
         Action FirstSpecialAbilityImplementation();

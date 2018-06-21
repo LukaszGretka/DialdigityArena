@@ -1,8 +1,10 @@
 ﻿
-namespace Assets
+namespace Assets._Scripts.OutputMessages
 {
     internal static class ErrorMessages
     {
+        #region Abilities errors
+
         public const string FirstDefaultAbilityDebug = "Im first default ability implementation method!";
         public const string FirstSpecialAbilityDebug = "Im first special ability implementation method!";
         public const string SecondDefaultAbilityDebug = "Im second default ability implementation method!";
@@ -17,6 +19,11 @@ namespace Assets
         public const string SecondSpecialAbilityNotSet = "Second Special Ability was not set";
         public const string ThirdSpecialAbilityNotSet = "Third Special Ability was not set";
 
+        public const string WrongTypeOfAbility = "Can't perform action for this type of ability.";
+        #endregion
+
+        #region Statistics errors
+
         public const string InvalidHealthValue = "Invalid Health value";
         public const string InvalidManaValue = "Invalid Mana value";
         public const string InvalidStaminaValue = "Invalid Stamina value";
@@ -26,10 +33,15 @@ namespace Assets
         public const string CannotSetMaximumManaValue = "Can't set starting mana - maximum mana was not set";
         public const string CannotSetMaximumStaminaValue = "Can't set starting stamina - maximum stamina was not set";
 
+        #endregion
+
+        #region Others errors
         public const string MatchmakingError = "Matchmaking is not implemented yet";
         public const string PanelList = "Panels list don't contains current panel: ";
         public const string PleaseAddPanel = ". Please add current panel to panelList";
 
         public const string ClassNotImlementingICharacterClassInterface = "Current class do not implementing ICharacterClass interface";
+
+        #endregion
     }
 }

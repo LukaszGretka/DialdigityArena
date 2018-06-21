@@ -1,5 +1,6 @@
 ﻿
 using Assets;
+using Assets._Scripts.OutputMessages;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -74,8 +75,7 @@ public class MainPanelLogic : MonoBehaviour
     {
         if (!panelsList.Contains(panel))
         {
-            Debug.LogError(ErrorMessages.PanelList + panel.name + 
-                            ErrorMessages.PleaseAddPanel);
+            Debug.LogError(ErrorMessages.PanelList + panel.name + ErrorMessages.PleaseAddPanel);
             return;
         }
 

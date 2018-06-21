@@ -1,20 +1,25 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
+using Assets._Scripts.Abilities.Logic;
 using Assets._Scripts.Characters;
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.OutputMessages;
 using System;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
 {
-    class WarriorAbilitiesLogic : IAbilityImplementation
+    class WarriorAbilitiesLogic : MeleeAbilityLogic, IAbilityImplementation
     {
-        private static Warrior warrior = new Warrior();
+        private Warrior warriorClass;
 
-        public Action FirstDefaultAbilityImplementation()
+        public WarriorAbilitiesLogic(Warrior characterClass)
         {
-            return () =>
-            {
-                Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
-            };
+            warriorClass = characterClass;
+        }
+
+        public void FirstDefaultAbilityImplementation()
+        {
+            PerformSingleHit(warriorClass, warriorClass.GetFirstDefaultAbility()); // Swipe
         }
 
         public Action FirstSpecialAbilityImplementation()

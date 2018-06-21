@@ -15,7 +15,7 @@ namespace Assets._Scripts.Abilities.Performance
 
         public void CastFirstDefaultAbility()
         {
-            abilityImplementation.FirstDefaultAbilityImplementation().Invoke();
+            abilityImplementation.FirstDefaultAbilityImplementation();
         }
 
         public void CastSecondDefaultAbility()

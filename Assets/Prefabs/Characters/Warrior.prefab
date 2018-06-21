@@ -46,23 +46,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1457580470063444
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4264939651616566}
-  - component: {fileID: 33584865494674638}
-  - component: {fileID: 23989416717513300}
-  m_Layer: 0
-  m_Name: dummyShield
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1627403994361738
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +94,23 @@ GameObject:
   - component: {fileID: 65605756188935678}
   m_Layer: 0
   m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1728447361882752
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4308614315652412}
+  - component: {fileID: 33150476774074220}
+  - component: {fileID: 23928235290043914}
+  m_Layer: 0
+  m_Name: WarriorShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,19 +189,19 @@ Transform:
   m_Father: {fileID: 4850569553199446}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4264939651616566
+--- !u!4 &4308614315652412
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1457580470063444}
-  m_LocalRotation: {x: 0, y: -0.17364825, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 200, y: 120, z: 120}
+  m_GameObject: {fileID: 1728447361882752}
+  m_LocalRotation: {x: -0, y: -0.15381679, z: -0, w: 0.9880994}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 220, y: 144.6, z: 100}
   m_Children: []
   m_Father: {fileID: 4563795837267214}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -20, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -17.696001, z: 0}
 --- !u!4 &4314017712181492
 Transform:
   m_ObjectHideFlags: 1
@@ -263,10 +263,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1210396102560426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 1, z: 0}
+  m_LocalPosition: {x: -1, y: 1.25, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
-  - {fileID: 4264939651616566}
+  - {fileID: 4308614315652412}
   m_Father: {fileID: 4850569553199446}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -546,12 +546,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23989416717513300
+--- !u!23 &23928235290043914
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1457580470063444}
+  m_GameObject: {fileID: 1728447361882752}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -561,7 +561,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 64e9a15196d76744d93d3edd35b28e54, type: 3}
+  - {fileID: 2100000, guid: 7d1f3f84555dc31468da09f971a4cd9b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -581,6 +581,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!33 &33150476774074220
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728447361882752}
+  m_Mesh: {fileID: 4300000, guid: 7d1f3f84555dc31468da09f971a4cd9b, type: 3}
 --- !u!33 &33173654983571830
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -609,13 +616,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985876192355556}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33584865494674638
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1457580470063444}
-  m_Mesh: {fileID: 4300000, guid: 64e9a15196d76744d93d3edd35b28e54, type: 3}
 --- !u!33 &33690871182386258
 MeshFilter:
   m_ObjectHideFlags: 1

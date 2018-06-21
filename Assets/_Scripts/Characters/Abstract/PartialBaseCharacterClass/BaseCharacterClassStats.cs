@@ -1,4 +1,5 @@
 ﻿
+using Assets._Scripts.OutputMessages;
 using UnityEngine;
 
 namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass

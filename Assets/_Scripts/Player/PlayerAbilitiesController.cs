@@ -54,10 +54,10 @@ namespace Assets._Scripts.Player
                 Debug.Log("Pressed E");
             }
 
-            else if (Input.GetKeyDown(KeyCode.R))
+            else if (Input.GetKeyDown(KeyCode.Space))
             {
                 abilitiesManager.CastThirdSpecialAbility();
-                Debug.Log("Pressed R");
+                Debug.Log("Pressed Space");
             }
         }
     }
