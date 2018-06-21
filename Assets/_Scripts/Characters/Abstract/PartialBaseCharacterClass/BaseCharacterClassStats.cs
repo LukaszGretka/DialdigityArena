@@ -81,8 +81,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
         }
 
-
-        private void SetStartingHealth()
+        internal void SetStartingHealth()
         {
             if (MaximumHealth != default(int))
             {
@@ -96,7 +95,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
 
         private void SetStartingMana()
         {
-            if (MaximumHealth != default(int))
+            if (MaximumMana != default(int))
             {
                 CurrentMana = MaximumMana;
             }
@@ -108,7 +107,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
 
         private void SetStartingStamina()
         {
-            if (MaximumHealth != default(int))
+            if (MaximumStamina != default(int))
             {
                 CurrentStamina = MaximumStamina;
             }

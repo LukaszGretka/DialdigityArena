@@ -31,5 +31,7 @@ namespace Assets
         public const string PleaseAddPanel = ". Please add current panel to panelList";
 
         public const string ClassNotImlementingICharacterClassInterface = "Current class do not implementing ICharacterClass interface";
+
+        public const string TargetIsDead = "Target is dead";
     }
 }
