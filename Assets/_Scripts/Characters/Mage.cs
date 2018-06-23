@@ -76,6 +76,16 @@ namespace Assets._Scripts.Characters
             return CurrentStamina;
         }
 
+        float ICharacterClass.GetHealthRegeneration()
+        {
+            return HealthRegeneration;
+        }
+
+        float ICharacterClass.GetManaRegeneration()
+        {
+            return ManaRegeneration;
+        }
+
         public float GetAttackRange()
         {
             return DefaultAttackRange;

@@ -17,6 +17,10 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         int GetMaximumMana();
         int GetMaximumStamina();
 
+        float GetHealthRegeneration();
+        float GetManaRegeneration();
+        //float GetStaminaRegeneration();
+
         IAbility GetFirstDefaultAbility();
         IAbility GetSecondDefaultAbility();
         IAbility GetFirstSpecialAbility();

@@ -33,6 +33,10 @@ namespace Assets._Scripts.OutputMessages
         public const string CannotSetMaximumHealthValue = "Can't set starting health - maximum health was not set";
         public const string CannotSetMaximumManaValue = "Can't set starting mana - maximum mana was not set";
         public const string CannotSetMaximumStaminaValue = "Can't set starting stamina - maximum stamina was not set";
+        public const string CannotSetHealthRegenerationValue = "Can't set starting health regeneration";
+        public const string CannotSetManaRegenerationValue = "Can't set starting mana regeneration";
+
+
 
         #endregion
 

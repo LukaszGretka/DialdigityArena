@@ -2,6 +2,7 @@
 using UnityEngine;
 using Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass;
 using Assets._Scripts.OutputMessages;
+using System.Collections;
 
 namespace Assets._Scripts.Player
 {
@@ -48,6 +49,12 @@ namespace Assets._Scripts.Player
                 //TODO Remember to change return value
                 return 0;
             }         
+        }
+
+        public IEnumerator HealthRegeneration()
+        {
+            TakeHealing(characterClass.GetHealthRegeneration());
+            yield return new  WaitForSeconds(1f);
         }
     }
 }

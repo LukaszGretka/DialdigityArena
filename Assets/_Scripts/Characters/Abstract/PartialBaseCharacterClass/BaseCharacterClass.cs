@@ -14,6 +14,10 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         protected int MaximumStamina { get; set; }
         protected int CurrentStamina { get; set; }
 
+        protected float HealthRegeneration { get; set; }
+        protected float ManaRegeneration { get; set; }
+        //protected float StaminaRegeneration { get; set; }
+
         protected float DefaultAttackRange { get; set; }
 
         protected IAbility FirstDefaultAbility { get; private set; }

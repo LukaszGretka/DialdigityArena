@@ -11,6 +11,8 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         [SerializeField] protected int inspectorMana;
         [SerializeField] protected int inspectorStamina;
         [SerializeField] protected int inspectorAttackRange;
+        [SerializeField] protected float healthRegeneration;
+        [SerializeField] protected float manaRegeneration;
 
         protected void SetBasicStatistics()
         {
@@ -32,6 +34,11 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         protected int GetCurrentStamina()
         {
             return CurrentStamina;
+        }
+
+        protected float GetHealthRegeneration()
+        {
+            return HealthRegeneration;
         }
 
         protected void SetMaximumHealth(int health)
@@ -70,6 +77,29 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
         }
 
+        protected void SetHealthRegeneration(float healthRegeneration)
+        {
+            if (healthRegeneration >= default(float))
+            {
+                HealthRegeneration = healthRegeneration;
+            }
+            else
+            {
+                Debug.LogError(ErrorMessages.CannotSetHealthRegenerationValue);
+            }
+        }
+
+        protected void SetManaRegeneration(float manaRegeneration)
+        {
+            if (manaRegeneration >= default(float))
+            {
+                ManaRegeneration = manaRegeneration;
+            }
+            else
+            {
+                Debug.LogError(ErrorMessages.CannotSetManaRegenerationValue);
+            }
+        }
         protected void SetAttackRange(int range)
         {
             if (range >= default(float))
