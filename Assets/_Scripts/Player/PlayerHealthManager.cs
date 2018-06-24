@@ -6,33 +6,22 @@ using System.Collections;
 
 namespace Assets._Scripts.Player
 {
-    public class PlayerHealthManager : MonoBehaviour
+    public static class PlayerHealthManager
     {
-        private PlayerClassManager playerClassManager;
-        private BaseCharacterClass baseCharacterClass;
-        private ICharacterClass characterClass;
-
-        void Awake()
+        public static void TakeDamage(this ICharacterClass characterClass, float damage)
         {
-            playerClassManager = GetComponent<PlayerClassManager>();
-            baseCharacterClass = GetComponent<BaseCharacterClass>();
-            characterClass = playerClassManager.characterClass;
-        }
-
-        public float TakeDamage(float damage)
-        {
-            return characterClass.GetCurrentHealth() - damage;
+            characterClass.SetCurrentHealth(characterClass.GetCurrentHealth() - damage);
             //TODO death system - trigger on player dead
         }
 
-        public bool CheckIfPlayerIsDead()
+        public static bool CheckIfPlayerIsDead(this ICharacterClass characterClass)
         {
-            return characterClass.GetCurrentHealth() <= 0f ? true : false;
+            return characterClass.GetCurrentHealth() <= default(float) ? true : false;
         }
 
-        public float TakeHealing(float healingTaken)
+        public static float TakeHealing(this ICharacterClass characterClass, float healingTaken)
         {
-            if (CheckIfPlayerIsDead() == false)
+            if (CheckIfPlayerIsDead(characterClass) == false)
             {
                 if (characterClass.GetCurrentHealth() + healingTaken > characterClass.GetMaximumHealth())
                 {
@@ -51,9 +40,9 @@ namespace Assets._Scripts.Player
             }         
         }
 
-        public IEnumerator HealthRegeneration()
+        public static IEnumerator HealthRegeneration(this ICharacterClass characterClass)
         {
-            TakeHealing(characterClass.GetHealthRegeneration());
+            TakeHealing(characterClass, characterClass.GetHealthRegeneration());
             yield return new  WaitForSeconds(1f);
         }
     }

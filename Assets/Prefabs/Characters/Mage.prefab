@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4455777565096450}
   - component: {fileID: 33090829646954826}
   - component: {fileID: 23095262317561714}
-  - component: {fileID: 135082944017612754}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -57,7 +56,6 @@ GameObject:
   - component: {fileID: 4448784074095256}
   - component: {fileID: 33333172892008258}
   - component: {fileID: 23736471639436466}
-  - component: {fileID: 136581193038507954}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -409,28 +407,5 @@ MonoBehaviour:
   inspectorMana: 50
   inspectorStamina: 0
   inspectorAttackRange: 5
---- !u!135 &135082944017612754
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1159133656769442}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136581193038507954
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1302280229771090}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  inspectorHealthRegeneration: 0
+  inspectorManaRegeneration: 0

@@ -1,15 +1,18 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
+using Assets._Scripts.Abilities.Logic;
 using Assets._Scripts.OutputMessages;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
 {
     internal class MageAbilitiesLogic : IAbilityImplementation
     {
-        public void FirstDefaultAbilityImplementation()
+        public List<AbilityLogicResult> FirstDefaultAbilityImplementation()
         {
             Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
+            throw new NotImplementedException();
         }
 
         public Action FirstSpecialAbilityImplementation()

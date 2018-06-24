@@ -7,19 +7,21 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
 {
     public interface ICharacterClass
     {
-        int GetCurrentHealth();
-        int GetCurrentMana();
-        int GetCurrentStamina();
+        float GetCurrentHealth();
+        float GetCurrentMana();
+        float GetCurrentStamina();
 
         float GetAttackRange();
 
-        int GetMaximumHealth();
-        int GetMaximumMana();
-        int GetMaximumStamina();
+        float GetMaximumHealth();
+        float GetMaximumMana();
+        float GetMaximumStamina();
+
+        void SetCurrentHealth(float changedHealth);
 
         float GetHealthRegeneration();
         float GetManaRegeneration();
-        //float GetStaminaRegeneration();
+        float GetStaminaRegeneration();
 
         IAbility GetFirstDefaultAbility();
         IAbility GetSecondDefaultAbility();

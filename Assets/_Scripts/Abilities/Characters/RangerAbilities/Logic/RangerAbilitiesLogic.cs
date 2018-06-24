@@ -1,15 +1,18 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
+using Assets._Scripts.Abilities.Logic;
 using Assets._Scripts.OutputMessages;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
 {
     internal class RangerAbilitiesLogic : IAbilityImplementation
     {
-        public void FirstDefaultAbilityImplementation()
+        public List<AbilityLogicResult> FirstDefaultAbilityImplementation()
         {
-                Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
+            Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
+            throw new NotImplementedException();
         }
 
         public Action FirstSpecialAbilityImplementation()

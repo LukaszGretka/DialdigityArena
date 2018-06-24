@@ -11,7 +11,7 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 
         public int StaminaCost { get; private set; } = 0;
 
-        public float Cooldown { get; private set; } = 1f;
+        public float CooldownTime { get; private set; } = 1f;
 
         public float Range { get; private set; } = 10f;
 
@@ -19,6 +19,8 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 
         public float CastingTime { get; private set; } = 0f;
 
+        public float HitAngle { get; } = default(float);
 
+        public bool OnCooldown { get; } = default(bool);
     }
 }

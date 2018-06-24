@@ -12,12 +12,16 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public int StaminaCost { get; private set; } = 1;
 
-        public float Cooldown { get; private set; } = 15f;
+        public float CooldownTime { get; private set; } = 15f;
 
         public float Range { get; private set; } = 1f;
 
         public bool IsRanged { get; private set; } = false;
 
         public float CastingTime { get; private set; } = 0f;
+
+        public float HitAngle { get; } = 120f;
+
+        public bool OnCooldown { get; } = default(bool);
     }
 }

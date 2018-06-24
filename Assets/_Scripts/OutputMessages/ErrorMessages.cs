@@ -20,7 +20,7 @@ namespace Assets._Scripts.OutputMessages
         public const string ThirdSpecialAbilityNotSet = "Third Special Ability was not set";
 
         public const string WrongTypeOfAbility = "Can't perform action for this type of ability.";
-        public const string TargetIsDead = "Target is dead.";
+
         #endregion
 
         #region Statistics errors
@@ -36,7 +36,7 @@ namespace Assets._Scripts.OutputMessages
         public const string CannotSetHealthRegenerationValue = "Can't set starting health regeneration";
         public const string CannotSetManaRegenerationValue = "Can't set starting mana regeneration";
 
-
+        public const string TargetIsDead = "Target is dead.";
 
         #endregion
 

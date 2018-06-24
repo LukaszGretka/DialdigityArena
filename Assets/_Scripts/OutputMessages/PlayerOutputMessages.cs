@@ -8,6 +8,10 @@ namespace Assets._Scripts.OutputMessages
 {
     internal static class PlayerOutputMessages
     {
-        // TODO player messages
+        //Abilities cast messages:
+        public const string AbilityCastSuccessful = "Ability Cast Successful";
+        public const string NotEnoughMana = "Not enough mana to cast that ability";
+        public const string NotEnoughStamina = "Not enough stamina to cast that ability";
+        public const string AbilityOnCooldown = "This ability is still on cooldown";
     }
 }

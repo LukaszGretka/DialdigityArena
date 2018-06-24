@@ -11,12 +11,16 @@ namespace Assets._Scripts.Abilities
 
         int StaminaCost { get; }
 
-        float Cooldown { get; }
+        float CooldownTime { get; }
+
+        bool OnCooldown { get; }
 
         float Range { get; }
 
         bool IsRanged { get; }
         
         float CastingTime { get; }
+
+        float HitAngle { get; }
     }
 }

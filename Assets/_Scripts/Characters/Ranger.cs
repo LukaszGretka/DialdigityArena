@@ -31,6 +31,11 @@ namespace Assets._Scripts.Characters
             base.SetThirdSpecialAbility(new Barrage());
         }
 
+        public new void SetCurrentHealth(float changedHealth)
+        {
+            base.SetCurrentHealth(changedHealth);
+        }
+
         public new List<IAbility> GetCharacterAbilitiesList()
         {
             return base.GetCharacterAbilitiesList();
@@ -61,27 +66,27 @@ namespace Assets._Scripts.Characters
             return base.GetThirdSpecialAbility();
         }
 
-        int ICharacterClass.GetCurrentHealth()
+        public float GetCurrentHealth()
         {
             return CurrentHealth;
         }
 
-        int ICharacterClass.GetCurrentMana()
+        public float GetCurrentMana()
         {
             return CurrentMana;
         }
 
-        int ICharacterClass.GetCurrentStamina()
+        public float GetCurrentStamina()
         {
             return CurrentStamina;
         }
 
-        float ICharacterClass.GetHealthRegeneration()
+        public float GetHealthRegeneration()
         {
             return HealthRegeneration;
         }
 
-        float ICharacterClass.GetManaRegeneration()
+        public float GetManaRegeneration()
         {
             return ManaRegeneration;
         }
@@ -91,19 +96,24 @@ namespace Assets._Scripts.Characters
             return DefaultAttackRange;
         }
 
-        public int GetMaximumHealth()
+        public float GetMaximumHealth()
         {
             return MaximumHealth;
         }
 
-        public int GetMaximumMana()
+        public float GetMaximumMana()
         {
             return MaximumMana;
         }
 
-        public int GetMaximumStamina()
+        public float GetMaximumStamina()
         {
             return MaximumStamina;
+        }
+
+        public float GetStaminaRegeneration()
+        {
+            return StaminaRegeneration;
         }
 
         public void GetFirstDefaultAbilityImplementation()
@@ -131,15 +141,9 @@ namespace Assets._Scripts.Characters
             throw new System.NotImplementedException();
         }
 
-        public Action GetAbilityImplementation()
-        {
-            throw new NotImplementedException();
-        }
-
         IAbilityImplementation ICharacterClass.GetAbilityImplementation()
         {
-            //TODO check if it dont couse high memory usage (it's should't but still..)
-            return new RangerAbilitiesLogic();
+            return new RangerAbilitiesLogic();  //TODO check if it dont couse high memory usage (it's should't but still)
         }
     }
 }

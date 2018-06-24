@@ -3,39 +3,50 @@ using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass;
 using Assets._Scripts.OutputMessages;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Logic
 {
     public class MeleeAbilityLogic
     {
-        private float standardHitAngle = 90f;
-
-        internal virtual void PerformSingleHit(MeleeCharacterClass meleeClass, IAbility ability)
+        internal List<AbilityLogicResult> UseAreaMeleeAbility(MeleeCharacterClass meleeClass, IAbility ability)
         {
+            List<AbilityLogicResult> AbilityLogicResultList = new List<AbilityLogicResult>();
+
             if (ability.IsRanged)
             {
                 Debug.LogError(ErrorMessages.WrongTypeOfAbility);
-                return;
+                AbilityLogicResultList.Add(AbilityLogicResult.BuildAbilityLogicResult(null, ability, 0f));
+
+                return AbilityLogicResultList;
             }
 
             Collider[] detectedTargets = Physics.OverlapSphere(meleeClass.transform.position, ability.Range);
 
             if (detectedTargets.Length > 0)
             {
-                foreach (Collider target in detectedTargets)
+                foreach (Collider targetCollider in detectedTargets)
                 {
-                    if (target.CompareTag("Target"))
+                    if (targetCollider.CompareTag("Target"))
                     {
-                        float distanceToTarget = Vector3.Distance(meleeClass.transform.position, target.transform.position);
-                        float angleOfTarget = Vector3.Angle(meleeClass.transform.forward, target.transform.position);
+                        float distanceToTarget = Vector3.Distance(meleeClass.transform.position, targetCollider.transform.position);
+                        Vector3 direction = targetCollider.transform.position - meleeClass.transform.position;
+                        float angleOfTarget = Vector3.Angle(direction, meleeClass.transform.forward);
 
-                        //TODO IMPLEMENT ANGLE FOR HIT
-                        Debug.Log("HIT ON: " + target.name + " distance: " + distanceToTarget + " angle: " + angleOfTarget);
+                        if (angleOfTarget <= (ability.HitAngle * 0.5f))
+                        {
+                            AbilityLogicResultList.Add(AbilityLogicResult.BuildAbilityLogicResult( targetCollider.GetComponent<ICharacterClass>(), 
+                                                                                                   ability,
+                                                                                                   ability.BaseDamage,
+                                                                                                   distanceToTarget,
+                                                                                                   angleOfTarget));
+                        }
                     }
                 }
             }
-        }
 
+            return AbilityLogicResultList;
+        }
     }
 }

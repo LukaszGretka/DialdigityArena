@@ -11,13 +11,17 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 
         public int StaminaCost { get; private set; } = 0;
 
-        public float Cooldown { get; private set; } = 10f;
+        public float CooldownTime { get; private set; } = 10f;
 
         public float Range { get; private set; } = 6f;
 
         public bool IsRanged { get; private set; } = true;
 
         public float CastingTime { get; private set; } = 0f;
+
+        public float HitAngle { get; } = 120f;
+
+        public bool OnCooldown { get; } = default(bool);
 
         //TODO If enemy is shooted by poision arrow he gets poison condition. Make Enum to storage conditions
     }

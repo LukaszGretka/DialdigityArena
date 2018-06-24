@@ -21,6 +21,8 @@ namespace Assets._Scripts.Characters
             base.SetMaximumMana(inspectorMana);
             base.SetMaximumStamina(inspectorStamina);
             base.SetAttackRange(inspectorAttackRange);
+            base.SetHealthRegeneration(inspectorHealthRegeneration);
+            base.SetManaRegeneration(inspectorManaRegeneration);
 
             base.SetBasicStatistics();
 
@@ -30,6 +32,13 @@ namespace Assets._Scripts.Characters
             base.SetSecondSpecialAbility(new Leap());
             base.SetThirdSpecialAbility(new Bash());
         }
+
+        public new void SetCurrentHealth(float changedHealth)
+        {
+            base.SetCurrentHealth(changedHealth);
+        }
+
+        //TODO set current mana and stamina
 
         public new List<IAbility> GetCharacterAbilitiesList()
         {
@@ -61,29 +70,34 @@ namespace Assets._Scripts.Characters
             return base.GetThirdSpecialAbility();
         }
 
-        int ICharacterClass.GetCurrentHealth()
+        public float GetCurrentHealth()
         {
             return CurrentHealth;
         }
 
-        int ICharacterClass.GetCurrentMana()
+        public float GetCurrentMana()
         {
             return CurrentMana;
         }
 
-        int ICharacterClass.GetCurrentStamina()
+        public float GetCurrentStamina()
         {
             return CurrentStamina;
         }
 
-        float ICharacterClass.GetHealthRegeneration()
+        public float GetHealthRegeneration()
         {
             return HealthRegeneration;
         }
 
-        float ICharacterClass.GetManaRegeneration()
+        public float GetManaRegeneration()
         {
             return ManaRegeneration;
+        }
+
+        public float GetStaminaRegeneration()
+        {
+            return StaminaRegeneration;
         }
 
         public float GetAttackRange()
@@ -91,17 +105,17 @@ namespace Assets._Scripts.Characters
             return DefaultAttackRange;
         }
 
-        public int GetMaximumHealth()
+        public float GetMaximumHealth()
         {
             return MaximumHealth;
         }
 
-        public int GetMaximumMana()
+        public float GetMaximumMana()
         {
             return MaximumMana;
         }
 
-        public int GetMaximumStamina()
+        public float GetMaximumStamina()
         {
             return MaximumStamina;
         }

@@ -4,6 +4,7 @@ using Assets._Scripts.Characters;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.OutputMessages;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
@@ -17,9 +18,12 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
             warriorClass = characterClass;
         }
 
-        public void FirstDefaultAbilityImplementation()
+        /// <summary>
+        /// Swipe
+        /// </summary>
+        public List<AbilityLogicResult> FirstDefaultAbilityImplementation()
         {
-            PerformSingleHit(warriorClass, warriorClass.GetFirstDefaultAbility()); // Swipe
+            return UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstDefaultAbility());
         }
 
         public Action FirstSpecialAbilityImplementation()

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Assets._Scripts.Abilities.Logic;
+using System;
+using System.Collections.Generic;
 
 namespace Assets._Scripts.Abilities.Abstract
 {
     public interface IAbilityImplementation
     {
-        void FirstDefaultAbilityImplementation();
+        List<AbilityLogicResult> FirstDefaultAbilityImplementation();
         Action SecondDefaultAbilityImplementation();
 
         Action FirstSpecialAbilityImplementation();

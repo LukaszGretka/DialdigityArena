@@ -5,18 +5,18 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
 {
     abstract partial class BaseCharacterClass : MonoBehaviour
     {
-        protected int MaximumHealth { get; set; }
-        protected int CurrentHealth { get; set; }
+        protected float MaximumHealth { get; private set; }
+        protected float CurrentHealth { get; private set; }
 
-        protected int MaximumMana { get; set; }
-        protected int CurrentMana { get; set; }
+        protected float MaximumMana { get; private set; }
+        protected float CurrentMana { get; private set; }
 
-        protected int MaximumStamina { get; set; }
-        protected int CurrentStamina { get; set; }
+        protected float MaximumStamina { get; private set; }
+        protected float CurrentStamina { get; private set; }
 
-        protected float HealthRegeneration { get; set; }
-        protected float ManaRegeneration { get; set; }
-        //protected float StaminaRegeneration { get; set; }
+        protected float HealthRegeneration { get; private set; }
+        protected float ManaRegeneration { get; private set; }
+        protected float StaminaRegeneration {get; private set; }
 
         protected float DefaultAttackRange { get; set; }
 

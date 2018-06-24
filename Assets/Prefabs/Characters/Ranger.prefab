@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4233283093332992}
   - component: {fileID: 33665025442583476}
   - component: {fileID: 23646995506838362}
-  - component: {fileID: 135091393349660822}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -62,7 +61,6 @@ GameObject:
   - component: {fileID: 4868986121268792}
   - component: {fileID: 33965821579413420}
   - component: {fileID: 23412538685682978}
-  - component: {fileID: 136197240860428118}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -80,7 +78,6 @@ GameObject:
   - component: {fileID: 4139908176291246}
   - component: {fileID: 33745538249615080}
   - component: {fileID: 23326004753022948}
-  - component: {fileID: 65867622195849076}
   m_Layer: 0
   m_Name: Visor
   m_TagString: Untagged
@@ -284,18 +281,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
---- !u!65 &65867622195849076
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1921595056271964}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114030491490541276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,28 +394,5 @@ MonoBehaviour:
   inspectorMana: 10
   inspectorStamina: 5
   inspectorAttackRange: 5
---- !u!135 &135091393349660822
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225539691787874}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136197240860428118
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1653811444473700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  inspectorHealthRegeneration: 0
+  inspectorManaRegeneration: 0
