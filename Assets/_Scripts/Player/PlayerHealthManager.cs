@@ -1,6 +1,5 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using UnityEngine;
-using Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass;
 using Assets._Scripts.OutputMessages;
 using System.Collections;
 
