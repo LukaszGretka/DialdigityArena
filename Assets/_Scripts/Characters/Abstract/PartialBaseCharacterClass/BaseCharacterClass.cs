@@ -19,6 +19,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         protected float StaminaRegeneration {get; private set; }
 
         protected float DefaultAttackRange { get; set; }
+        protected float DefaultMovementSpeed { get; set; }
 
         protected IAbility FirstDefaultAbility { get; private set; }
         protected IAbility SecondDefaultAbility { get; private set; }

@@ -1,4 +1,9 @@
 ﻿
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Characters.Conditions;
+using Assets._Scripts.Conditions;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 {
     internal class MagneticWave : IAbility
@@ -23,7 +28,9 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 
         public bool OnCooldown { get; } = default(bool);
 
-        //TODO Enum, condition - slow
-
+        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
+                                                        {
+                                                            new KeyValuePair<IConditions, float>(new Slow(), 5f)
+                                                        };
     }
 }

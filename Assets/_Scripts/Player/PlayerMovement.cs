@@ -1,4 +1,5 @@
-﻿using Assets._Scripts.Player;
+﻿using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Player;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -6,16 +7,17 @@ using UnityEngine.Networking;
 
 internal class PlayerMovement : NetworkBehaviour
 {
-    protected float MovementSpeed = 5f;
     protected float RotationSpeed = 0.1f; // TODO add rotation speed
 
     private Rigidbody playerRigidbody;
     private Vector3 playerMovementVector;
     private LayerMask groundLayerMask;
+    private ICharacterClass characterClass;
 
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        characterClass = GetComponent<ICharacterClass>();
         groundLayerMask = LayerMask.GetMask("Ground");
     }
 
@@ -27,7 +29,7 @@ internal class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        playerMovementVector = GetUserRawInputNormalized() * Time.deltaTime * MovementSpeed;
+        playerMovementVector = GetUserRawInputNormalized() * Time.deltaTime * characterClass.GetMovementSpeed();
         playerRigidbody.MovePosition(this.transform.position + playerMovementVector);
         playerRigidbody.MoveRotation(GetPlayerRotationByMousePoint());
     }
@@ -56,4 +58,10 @@ internal class PlayerMovement : NetworkBehaviour
         return this.transform.rotation;
     }
 
+    public void PlayerMovementSpeedBoost(float speedValue, float movementSpeedBoostDurationTime)
+    {
+        float basicSpeed = characterClass.GetMovementSpeed();
+
+       //TODO Implementation for movement speed, remake this class to get components from IcharacterClass.Speed;
+    }
 }

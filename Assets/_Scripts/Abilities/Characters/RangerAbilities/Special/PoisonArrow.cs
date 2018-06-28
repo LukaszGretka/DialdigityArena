@@ -1,4 +1,8 @@
 ﻿
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Conditions.Harmful;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 {
     internal class PoisonArrow : IAbility
@@ -22,6 +26,11 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
         public float HitAngle { get; } = 120f;
 
         public bool OnCooldown { get; } = default(bool);
+
+        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
+                                                        {
+                                                            new KeyValuePair<IConditions, float>(new Poison(), 10f)
+                                                        };
 
         //TODO If enemy is shooted by poision arrow he gets poison condition. Make Enum to storage conditions
     }

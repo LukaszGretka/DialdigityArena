@@ -1,9 +1,12 @@
 ﻿
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities
 {
     public interface IAbility
     {
-        string Name { get;}
+        string Name { get; }
 
         float BaseDamage { get; }
 
@@ -18,9 +21,11 @@ namespace Assets._Scripts.Abilities
         float Range { get; }
 
         bool IsRanged { get; }
-        
+
         float CastingTime { get; }
 
         float HitAngle { get; }
+
+        List<KeyValuePair<IConditions, float>> Conditions {get;}
     }
 }

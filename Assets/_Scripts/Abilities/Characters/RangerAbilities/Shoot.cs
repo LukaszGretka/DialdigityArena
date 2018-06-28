@@ -1,4 +1,8 @@
 ﻿
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Conditions;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 {
     internal class Shoot : IAbility
@@ -22,5 +26,10 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
         public float HitAngle { get; } = default(float);
 
         public bool OnCooldown { get; } = default(bool);
+
+        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
+                                                        {
+                                                            
+                                                        };
     }
 }

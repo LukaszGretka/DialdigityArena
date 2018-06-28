@@ -1,4 +1,7 @@
 ﻿
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities.Characters.MageAbilities
 {
     internal class MagicMissile : IAbility
@@ -22,5 +25,10 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
         public float HitAngle { get; } = 360f;
 
         public bool OnCooldown { get; } = default(bool);
+
+        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
+        {
+
+        };
     }
 }

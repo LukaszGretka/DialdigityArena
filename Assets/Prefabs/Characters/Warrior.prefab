@@ -737,9 +737,10 @@ MonoBehaviour:
   inspectorHealth: 50
   inspectorMana: 20
   inspectorStamina: 30
-  inspectorAttackRange: 0
-  inspectorHealthRegeneration: 0
-  inspectorManaRegeneration: 0
+  inspectorAttackRange: 5
+  inspectorMovementSpeed: 10
+  inspectorHealthRegeneration: 1
+  inspectorManaRegeneration: 1
 --- !u!114 &114416743661874518
 MonoBehaviour:
   m_ObjectHideFlags: 1

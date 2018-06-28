@@ -2,6 +2,7 @@
 using UnityEngine;
 using Assets._Scripts.OutputMessages;
 using System.Collections;
+using Assets._Scripts.Abilities;
 
 namespace Assets._Scripts.Player
 {
@@ -11,6 +12,12 @@ namespace Assets._Scripts.Player
         {
             characterClass.SetCurrentHealth(characterClass.GetCurrentHealth() - damage);
             //TODO death system - trigger on player dead
+        }
+
+        public static void TakeDamageWithCondition(this ICharacterClass characterClass, IAbility ability)
+        {
+
+
         }
 
         public static bool CheckIfPlayerIsDead(this ICharacterClass characterClass)
