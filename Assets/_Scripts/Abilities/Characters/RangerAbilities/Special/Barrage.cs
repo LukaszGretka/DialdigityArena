@@ -22,14 +22,10 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
  
         public float CastingTime { get; private set; } = 1.5f;
 
-        public float HitAngle { get; } = 90f;
+        public float HitAngle { get; private set; } = 90f;
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
-        {
-
-        };
-
+        public List<IConditions> Conditions { get; } = new List<IConditions>();
     }
 }

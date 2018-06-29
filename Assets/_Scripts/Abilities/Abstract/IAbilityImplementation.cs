@@ -7,10 +7,10 @@ namespace Assets._Scripts.Abilities.Abstract
     public interface IAbilityImplementation
     {
         void FirstDefaultAbilityImplementation();
-        Action SecondDefaultAbilityImplementation();
+        void SecondDefaultAbilityImplementation();
 
-        Action FirstSpecialAbilityImplementation();
-        Action SecondSpecialAbilityImplementation();
-        Action ThirdSpecialAbilityImplementation();
+        void FirstSpecialAbilityImplementation();
+        void SecondSpecialAbilityImplementation();
+        void ThirdSpecialAbilityImplementation();
     }
 }

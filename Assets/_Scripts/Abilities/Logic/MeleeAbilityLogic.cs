@@ -1,14 +1,12 @@
-﻿using Assets._Scripts.Characters;
-using Assets._Scripts.Characters.Abstract;
+﻿using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
-using Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass;
 using Assets._Scripts.OutputMessages;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Logic
 {
-    public class MeleeAbilityLogic
+    public class MeleeAbilityLogic: MonoBehaviour
     {
         internal List<AbilityLogicResult> UseAreaMeleeAbility(MeleeCharacterClass meleeClass, IAbility ability)
         {

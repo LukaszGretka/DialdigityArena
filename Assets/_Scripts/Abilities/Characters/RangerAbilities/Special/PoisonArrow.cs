@@ -23,15 +23,10 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 
         public float CastingTime { get; private set; } = 0f;
 
-        public float HitAngle { get; } = 120f;
+        public float HitAngle { get; private set; } = 120f;
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
-                                                        {
-                                                            new KeyValuePair<IConditions, float>(new Poison(), 10f)
-                                                        };
-
-        //TODO If enemy is shooted by poision arrow he gets poison condition. Make Enum to storage conditions
+        public List<IConditions> Conditions { get; } = new List<IConditions>() { new Poison() { DurationTime = 10f } };
     }
 }

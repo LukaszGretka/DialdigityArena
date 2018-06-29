@@ -26,6 +26,6 @@ namespace Assets._Scripts.Abilities
 
         float HitAngle { get; }
 
-        List<KeyValuePair<IConditions, float>> Conditions {get;}
+        List<IConditions> Conditions {get;}
     }
 }

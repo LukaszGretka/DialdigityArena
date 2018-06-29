@@ -1,7 +1,5 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Assets._Scripts.Characters.Abstract.Interfaces;
-using Assets._Scripts.Characters.Conditions;
 
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities
 {
@@ -25,13 +23,8 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities
 
         public float HitAngle { get; private set; } = 120f;
 
-        public bool OnCooldown { get; private set; } = default(bool);
+        public bool OnCooldown { get; set; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
-        {
-            new KeyValuePair<IConditions, float>(new Bleeding(), 5f)
-        };
-
-        //public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>(){};
+        public List<IConditions> Conditions { get; } = new List<IConditions>();
     }
 }

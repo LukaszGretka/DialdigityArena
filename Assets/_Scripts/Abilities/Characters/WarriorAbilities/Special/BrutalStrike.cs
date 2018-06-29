@@ -22,13 +22,10 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public float CastingTime { get; private set; } = 0f;
 
-        public float HitAngle { get; } = 90f;
+        public float HitAngle { get; private set; } = 90f;
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions,float>>()
-                                                        {
-                                                            new KeyValuePair<IConditions, float>(new Bleeding(), 5f)
-                                                        };
+        public List<IConditions> Conditions { get; } = new List<IConditions>() { new Bleeding() { DurationTime = 3f } };
     }
 }

@@ -10,17 +10,10 @@ namespace Assets._Scripts.Conditions.Harmful
 
         public float DurationTime { get; set; }
 
-        public float SlowStrength { get; private set; }
+        public float SlowStrength { get; private set; } = default(float);
 
-        public void AddConditionToTarget(ICharacterClass characterClass, float DurationTime)
-        {
-            throw new System.NotImplementedException();
-        }
+        public float DamageReductionValue { get; private set; } = default(float);
 
-        public void RemoveConditionFromTarget(ICharacterClass characterClass)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        public float AttackEvasionValue { get; set; }
     }
 }

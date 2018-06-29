@@ -1,11 +1,12 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Abilities.Logic;
 using Assets._Scripts.Characters;
-using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Conditions;
 using Assets._Scripts.OutputMessages;
 using Assets._Scripts.Player;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
@@ -13,55 +14,47 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
     class WarriorAbilitiesLogic : MeleeAbilityLogic, IAbilityImplementation
     {
         private Warrior warriorClass;
+        private ConditionManager conditionManager;
 
-        public WarriorAbilitiesLogic(Warrior characterClass)
+        private void Awake()
         {
-            warriorClass = characterClass;
+            warriorClass = gameObject.GetComponent<Warrior>();
+            conditionManager = gameObject.AddComponent<ConditionManager>();
         }
 
-        /// <summary> Implementation of first warrior ability - Swipe </summary>
+        /// <summary> Implementation of first warrior ability - Swipe | Multitarget ability | </summary>
         public void FirstDefaultAbilityImplementation()
         {
-            var abilityResultList = UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstDefaultAbility());
+            List<AbilityLogicResult> abilityResultList = UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstDefaultAbility());
 
-            //hit multiple targets
-            foreach (AbilityLogicResult result in abilityResultList)
+            foreach (AbilityLogicResult result in abilityResultList) //hit multiple targets
             {
                 result.TargetHitOnCast.TakeDamage(result.DealedDamage);
-                Debug.Log(result.TargetHitOnCast.GetCurrentHealth());
             }
         }
-
-        public Action FirstSpecialAbilityImplementation()
+        /// <summary> Implementation of first special warrior ability - Brutal Strike | Single target ability | </summary>
+        public void FirstSpecialAbilityImplementation()
         {
-            return () =>
-            {
-                Debug.LogError(ErrorMessages.FirstSpecialAbilityDebug);
-            };
+            List<AbilityLogicResult> abilityResultList = UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstSpecialAbility());
+            AbilityLogicResult result = abilityResultList.First();
+
+            result.TargetHitOnCast.TakeDamage(result.DealedDamage);
+            conditionManager.AddConditionToTarget(result.TargetHitOnCast, result.HitWithAbility.Conditions);
         }
 
-        public Action SecondDefaultAbilityImplementation()
+        public void SecondDefaultAbilityImplementation()
         {
-            return () =>
-            {
-                Debug.LogError(ErrorMessages.SecondDefaultAbilityDebug);
-            };
+            throw new NotImplementedException();
         }
 
-        public Action SecondSpecialAbilityImplementation()
+        public void SecondSpecialAbilityImplementation()
         {
-            return () =>
-            {
-                Debug.LogError(ErrorMessages.SecondSpecialAbilityDebug);
-            };
+            throw new NotImplementedException();
         }
 
-        public Action ThirdSpecialAbilityImplementation()
+        public void ThirdSpecialAbilityImplementation()
         {
-            return () =>
-            {
-                Debug.LogError(ErrorMessages.ThirdSpecialAbilityDebug);
-            };
+            throw new NotImplementedException();
         }
     }
 }

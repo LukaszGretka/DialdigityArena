@@ -11,16 +11,10 @@ namespace Assets._Scripts.Conditions
 
         public float DurationTime { get; set; }
 
-        public float SlowStrength { get; set; }
+        public float SlowStrength { get; private set; }
 
-        public void AddConditionToTarget(ICharacterClass characterClass, float DurationTime)
-        {
-            throw new NotImplementedException();
-        }
+        public float DamageReductionValue { get; private set; } = default(float);
 
-        public void RemoveConditionFromTarget(ICharacterClass characterClass)
-        {
-            throw new NotImplementedException();
-        }
+        public float AttackEvasionValue { get; private set; }
     }
 }

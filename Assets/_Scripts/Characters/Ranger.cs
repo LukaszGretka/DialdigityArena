@@ -15,6 +15,8 @@ namespace Assets._Scripts.Characters
     [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Ranger : RangedCharacterClass, ICharacterClass
     {
+        private RangerAbilitiesLogic rangerAbilitiesLogic;
+
         private void Awake()
         {
             base.SetMaximumHealth(inspectorHealth);
@@ -29,6 +31,8 @@ namespace Assets._Scripts.Characters
             base.SetFirstSpecialAbility(new PoisonArrow());
             base.SetSecondSpecialAbility(new PenetratingShot());
             base.SetThirdSpecialAbility(new Barrage());
+
+            rangerAbilitiesLogic = gameObject.AddComponent<RangerAbilitiesLogic>();
         }
 
         public new void SetCurrentHealth(float changedHealth)
@@ -126,35 +130,9 @@ namespace Assets._Scripts.Characters
             return StaminaRegeneration;
         }
 
-        public void GetFirstDefaultAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetSecondDefaultAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetFirstSpecialAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetSecondSpecialAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetThirdSpecialAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
         IAbilityImplementation ICharacterClass.GetAbilityImplementation()
         {
-            return new RangerAbilitiesLogic();  //TODO check if it dont couse high memory usage (it's should't but still)
+            return rangerAbilitiesLogic;
         }
     }
 }
-

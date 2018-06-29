@@ -12,14 +12,8 @@ namespace Assets._Scripts.Conditions
 
         public float SlowStrength { get; set; }
 
-        public void AddConditionToTarget(ICharacterClass characterClass, float DurationTime)
-        {
-            throw new System.NotImplementedException();
-        }
+        public float DamageReductionValue { get; private set; }
 
-        public void RemoveConditionFromTarget(ICharacterClass characterClass)
-        {
-            throw new System.NotImplementedException();
-        }
+        public float AttackEvasionValue { get; private set; }
     }
 }

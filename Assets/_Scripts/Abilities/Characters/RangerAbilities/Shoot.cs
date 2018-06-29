@@ -27,9 +27,6 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
-                                                        {
-                                                            
-                                                        };
+        public List<IConditions> Conditions { get; } = new List<IConditions>();
     }
 }

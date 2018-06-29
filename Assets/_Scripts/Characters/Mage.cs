@@ -127,31 +127,6 @@ namespace Assets._Scripts.Characters
             return MaximumStamina;
         }
 
-        public void GetFirstDefaultAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetSecondDefaultAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetFirstSpecialAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetSecondSpecialAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Action GetThirdSpecialAbilityImplementation()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public IAbilityImplementation GetAbilityImplementation()
         {
             return new MageAbilitiesLogic();

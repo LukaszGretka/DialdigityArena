@@ -15,6 +15,8 @@ namespace Assets._Scripts.Characters
     [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Warrior : MeleeCharacterClass, ICharacterClass
     {
+        private WarriorAbilitiesLogic warriorAbilitiesLogic;
+
         private void Awake()
         {
             base.SetMaximumHealth(inspectorHealth);
@@ -31,6 +33,8 @@ namespace Assets._Scripts.Characters
             base.SetFirstSpecialAbility(new BrutalStrike());
             base.SetSecondSpecialAbility(new Leap());
             base.SetThirdSpecialAbility(new Bash());
+
+            warriorAbilitiesLogic = gameObject.AddComponent<WarriorAbilitiesLogic>();
         }
 
         public new void SetCurrentHealth(float changedHealth)
@@ -135,29 +139,10 @@ namespace Assets._Scripts.Characters
             GetAbilityImplementation().FirstDefaultAbilityImplementation();
         }
 
-        public Action GetSecondDefaultAbilityImplementation()
-        {
-            return GetAbilityImplementation().SecondDefaultAbilityImplementation();
-        }
-
-        public Action GetFirstSpecialAbilityImplementation()
-        {
-            return GetAbilityImplementation().FirstSpecialAbilityImplementation();
-        }
-
-        public Action GetSecondSpecialAbilityImplementation()
-        {
-            return GetAbilityImplementation().SecondSpecialAbilityImplementation();
-        }
-
-        public Action GetThirdSpecialAbilityImplementation()
-        {
-            return GetAbilityImplementation().ThirdSpecialAbilityImplementation();
-        }
 
         public IAbilityImplementation GetAbilityImplementation()
         {
-            return new WarriorAbilitiesLogic(this);
+            return warriorAbilitiesLogic;
         }
     }
 }

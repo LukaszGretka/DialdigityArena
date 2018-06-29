@@ -29,10 +29,6 @@ namespace Assets._Scripts.Abilities
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
-                                                        {
-                                                           // new KeyValuePair<IConditions, float>(new DamageReduction(), 100f)
-                                                           // sample of condition implementation
-                                                        };
+        public List<IConditions> Conditions { get; } = new List<IConditions>();
     }
 }

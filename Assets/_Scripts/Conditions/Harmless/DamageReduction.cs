@@ -7,20 +7,14 @@ namespace Assets._Scripts.Conditions
     {
         public string Name { get; private set; } = "Damage Reduction";
 
-        public float DamagePerTick { get; private set; } = 0f;
+        public float DamagePerTick { get; private set; } = default(float);
 
-        public float DurationTime { get; set; }
+        public float DurationTime { get; set; } = default(float);
 
-        public float SlowStrength { get; set; }
+        public float SlowStrength { get; private set; } = default(float);
 
-        public void AddConditionToTarget(ICharacterClass characterClass, float DurationTime)
-        {
-            throw new NotImplementedException();
-        }
+        public float DamageReductionValue { get;  set; }
 
-        public void RemoveConditionFromTarget(ICharacterClass characterClass)
-        {
-            throw new NotImplementedException();
-        }
+        public float AttackEvasionValue { get; private set; }
     }
 }

@@ -1,16 +1,14 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.OutputMessages;
-using Assets._Scripts.Player;
 using System;
 using System.Collections;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Performance
 {
-    internal class AbilitiesPerformanceManager: MonoBehaviour ,IAbilityPerformance 
+    internal class AbilitiesPerformanceManager: MonoBehaviour, IAbilityPerformance 
     {
-        private IAbilityImplementation abilityImplementation;
         private ICharacterClass characterClass;
 
         private static IEnumerator castAbilityCoroutine;
@@ -18,7 +16,6 @@ namespace Assets._Scripts.Abilities.Performance
         private void Awake()
         {
             characterClass = GetComponent<ICharacterClass>();
-            abilityImplementation = characterClass.GetAbilityImplementation();
         }
 
         public void CastFirstDefaultAbility()
@@ -27,30 +24,35 @@ namespace Assets._Scripts.Abilities.Performance
 
             if (PerformAbilityValidation(characterClass, firstDefaultAbility).State == AbilityResultState.ReadyToCast)
             {
-                castAbilityCoroutine = CastAbilityCoroutine(firstDefaultAbility,  () => { abilityImplementation.FirstDefaultAbilityImplementation(); });
+                castAbilityCoroutine = CastAbilityCoroutine(firstDefaultAbility,  () => { characterClass.GetAbilityImplementation().FirstDefaultAbilityImplementation(); });
                 StartCoroutine(castAbilityCoroutine);
             }
-
         }
 
         public void CastSecondDefaultAbility()
         {
-            abilityImplementation.SecondDefaultAbilityImplementation().Invoke();
+            throw new NotImplementedException();
         }
 
         public void CastFirstSpecialAbility()
         {
-            abilityImplementation.FirstSpecialAbilityImplementation().Invoke();
+            IAbility firstSpecialAbility = characterClass.GetFirstSpecialAbility();
+
+            if (PerformAbilityValidation(characterClass, firstSpecialAbility).State == AbilityResultState.ReadyToCast)
+            {
+                castAbilityCoroutine = CastAbilityCoroutine(firstSpecialAbility, () => { characterClass.GetAbilityImplementation().FirstSpecialAbilityImplementation(); });
+                StartCoroutine(castAbilityCoroutine);
+            }
         }
 
         public void CastSecondSpecialAbility()
         {
-            abilityImplementation.SecondSpecialAbilityImplementation().Invoke();
+            throw new NotImplementedException();
         }
 
         public void CastThirdSpecialAbility()
         {
-            abilityImplementation.ThirdSpecialAbilityImplementation().Invoke();
+            throw new NotImplementedException();
         }
 
         private IEnumerator CastAbilityCoroutine(IAbility ability, Action abilityCastAction)
@@ -58,7 +60,7 @@ namespace Assets._Scripts.Abilities.Performance
             //TODO check if ability was interupter
             yield return new WaitForSeconds(ability.CastingTime);
 
-            Debug.Log("End casting after " + ability.CastingTime + "seconds. Execute ability: " + ability.Name);
+            Debug.Log("End casting after " + ability.CastingTime + " sec. Executed ability: " + ability.Name);
             abilityCastAction.Invoke();
         }
 

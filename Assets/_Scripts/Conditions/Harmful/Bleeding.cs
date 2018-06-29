@@ -5,15 +5,18 @@ using UnityEngine;
 
 namespace Assets._Scripts.Characters.Conditions
 {
-    //TODO MonoBehaviour to base class
-    internal class Bleeding : MonoBehaviour, IConditions
+    internal class Bleeding : IConditions
     {
         public string Name { get; private set; } = "Bleeding";
 
         public float DamagePerTick { get; private set; } = 5f;
 
-        public float DurationTime { get; set; } 
-        
-        public float SlowStrength {  get; private set; }
+        public float DurationTime { get; set; }
+
+        public float SlowStrength { get; private set; } = default(float);
+
+        public float DamageReductionValue { get; private set; } = 0f;
+
+        public float AttackEvasionValue { get; private set; }
     }
 }

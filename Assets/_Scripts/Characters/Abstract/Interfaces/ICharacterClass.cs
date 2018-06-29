@@ -33,11 +33,5 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         List<IAbility> GetCharacterAbilitiesList();
 
         IAbilityImplementation GetAbilityImplementation();
-
-        void GetFirstDefaultAbilityImplementation();
-        Action GetSecondDefaultAbilityImplementation();
-        Action GetFirstSpecialAbilityImplementation();
-        Action GetSecondSpecialAbilityImplementation();
-        Action GetThirdSpecialAbilityImplementation();
     }
 }

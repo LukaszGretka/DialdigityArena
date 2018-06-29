@@ -8,8 +8,12 @@ namespace Assets._Scripts.Conditions.Harmful
 
         public float DamagePerTick { get; private set; } = 5f;
 
-        public float DurationTime { get; set; }
+        public float DurationTime { get;  set; } = default(float);
 
-        public float SlowStrength { get; private set; }
+        public float SlowStrength { get; private set; } = default(float);
+
+        public float DamageReductionValue { get; private set; } = default(float);
+
+        public float AttackEvasionValue { get; private set; }
     }
 }

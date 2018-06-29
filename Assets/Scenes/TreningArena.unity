@@ -533,6 +533,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 7c8c0a2b8f8b89446ac33adb45216064, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c8c0a2b8f8b89446ac33adb45216064, type: 3}
   m_IsPrefabParent: 0
@@ -664,6 +668,7 @@ MonoBehaviour:
   inspectorMana: 10
   inspectorStamina: 10
   inspectorAttackRange: 10
+  inspectorMovementSpeed: 0
   inspectorHealthRegeneration: 10
   inspectorManaRegeneration: 10
 --- !u!114 &1380597749
@@ -683,7 +688,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1380597745}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5d41e9fb30de544884e463e88812b22, type: 3}
   m_Name: 
@@ -830,7 +835,7 @@ Prefab:
     - target: {fileID: 224825226079676488, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 178.51001
+      value: 178.51003
       objectReference: {fileID: 0}
     - target: {fileID: 224856972164492374, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}

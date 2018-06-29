@@ -1,6 +1,4 @@
-﻿
-using Assets._Scripts.Characters.Abstract.Interfaces;
-using Assets._Scripts.Characters.Conditions;
+﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Conditions;
 using System.Collections.Generic;
 
@@ -24,13 +22,10 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 
         public float CastingTime { get; private set; } = 0f;
 
-        public float HitAngle { get; } = default(float);
+        public float HitAngle { get; private set; } = default(float);
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
-                                                        {
-                                                            new KeyValuePair<IConditions, float>(new Slow(), 5f)
-                                                        };
+        public List<IConditions> Conditions { get; } = new List<IConditions>() { new Slow() { DurationTime = 2f, SlowStrength = 40f} };
     }
 }

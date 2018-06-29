@@ -23,13 +23,10 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 
         public float CastingTime { get; private set; } = 0.5f;
 
-        public float HitAngle { get; } = default(float);
+        public float HitAngle { get; private set; } = default(float);
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
-                                                        {
-                                                            new KeyValuePair<IConditions, float>(new Stun(), 5f)
-                                                        };
+        public List<IConditions> Conditions { get; } = new List<IConditions>() { new Stun() { DurationTime = 1f } };                                                   
     }
 }

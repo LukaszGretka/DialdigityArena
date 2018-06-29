@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
+namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
 {
-    internal class RangerAbilitiesLogic : RangedAbilityLogic, IAbilityImplementation
+    internal class MageAbilitiesLogic : IAbilityImplementation
     {
         public void FirstDefaultAbilityImplementation()
         {
+            Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
             throw new NotImplementedException();
         }
 
