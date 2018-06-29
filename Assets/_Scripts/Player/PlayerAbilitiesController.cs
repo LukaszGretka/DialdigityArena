@@ -16,7 +16,7 @@ namespace Assets._Scripts.Player
         private void Awake()
         {
             characterClass = GetComponent<ICharacterClass>();
-            abilitiesManager = new AbilitiesPerformanceManager(characterClass);
+            abilitiesManager = gameObject.AddComponent<AbilitiesPerformanceManager>();
         }
 
         private void Update()

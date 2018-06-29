@@ -9,7 +9,7 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
 {
     internal class RangerAbilitiesLogic : IAbilityImplementation
     {
-        public List<AbilityLogicResult> FirstDefaultAbilityImplementation()
+        public void FirstDefaultAbilityImplementation()
         {
             Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
             throw new NotImplementedException();

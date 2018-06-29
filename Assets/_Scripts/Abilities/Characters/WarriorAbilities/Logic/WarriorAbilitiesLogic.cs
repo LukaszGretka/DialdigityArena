@@ -3,6 +3,7 @@ using Assets._Scripts.Abilities.Logic;
 using Assets._Scripts.Characters;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.OutputMessages;
+using Assets._Scripts.Player;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +19,17 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
             warriorClass = characterClass;
         }
 
-        /// <summary>
-        /// Swipe
-        /// </summary>
-        public List<AbilityLogicResult> FirstDefaultAbilityImplementation()
+        /// <summary> Implementation of first warrior ability - Swipe </summary>
+        public void FirstDefaultAbilityImplementation()
         {
-            return UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstDefaultAbility());
+            var abilityResultList = UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstDefaultAbility());
+
+            //hit multiple targets
+            foreach (AbilityLogicResult result in abilityResultList)
+            {
+                result.TargetHitOnCast.TakeDamage(result.DealedDamage);
+                Debug.Log(result.TargetHitOnCast.GetCurrentHealth());
+            }
         }
 
         public Action FirstSpecialAbilityImplementation()

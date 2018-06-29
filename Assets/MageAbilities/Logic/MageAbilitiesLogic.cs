@@ -9,7 +9,7 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
 {
     internal class MageAbilitiesLogic : IAbilityImplementation
     {
-        public List<AbilityLogicResult> FirstDefaultAbilityImplementation()
+        public void FirstDefaultAbilityImplementation()
         {
             Debug.LogError(ErrorMessages.FirstDefaultAbilityDebug);
             throw new NotImplementedException();

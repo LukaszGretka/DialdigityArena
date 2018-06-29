@@ -6,7 +6,7 @@ namespace Assets._Scripts.Abilities.Abstract
 {
     public interface IAbilityImplementation
     {
-        List<AbilityLogicResult> FirstDefaultAbilityImplementation();
+        void FirstDefaultAbilityImplementation();
         Action SecondDefaultAbilityImplementation();
 
         Action FirstSpecialAbilityImplementation();
