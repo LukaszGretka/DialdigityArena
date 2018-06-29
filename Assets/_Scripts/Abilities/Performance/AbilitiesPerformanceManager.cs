@@ -27,7 +27,7 @@ namespace Assets._Scripts.Abilities.Performance
 
                 foreach (AbilityLogicResult result in abilityResultList)
                 {
-                    result.TargetHitOnCast.TakeDamage(result.DealedDamage);
+                    result.TargetHitOnCast.TakeDamageWithCondition(characterClass.GetFirstDefaultAbility());
                     Debug.Log(result.TargetHitOnCast.GetCurrentHealth());
                 }
 

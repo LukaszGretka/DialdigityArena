@@ -1,24 +1,23 @@
-﻿
-using Assets._Scripts.Characters.Abstract.Interfaces;
+﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using System.Collections.Generic;
 
 namespace Assets._Scripts.Conditions 
 {
-    static class ConditionManager
+    internal class ConditionManager : ConditionEffectsRepository
     {
-        internal static void ApplyCondition(this ICharacterClass characterClass, List<KeyValuePair<IConditions,float>> conditions)
+        internal void ApplyCondition(ICharacterClass characterClass, List<KeyValuePair<IConditions,float>> conditions)
         {
             foreach (KeyValuePair<IConditions, float> condition in conditions)
             {
-                condition.Key.AddConditionToTarget(characterClass,condition.Value);
+                base.AddConditionToTarget(characterClass, condition.Key);
             }
         }
 
-        internal static void RemoveCondition(this ICharacterClass characterClass, List<KeyValuePair<IConditions, float>> conditions)
+        internal void RemoveCondition(ICharacterClass characterClass, List<KeyValuePair<IConditions, float>> conditions)
         {
             foreach (KeyValuePair<IConditions, float> condition in conditions)
             {
-                condition.Key.RemoveConditionFromTarget(characterClass);
+                base.RemoveConditionFromTarget(characterClass, condition.Key);
             }
         }
     }

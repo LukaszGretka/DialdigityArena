@@ -1,5 +1,4 @@
-﻿
-using Assets._Scripts.Characters.Abstract.Interfaces;
+﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Characters.Conditions;
 using System.Collections.Generic;
 

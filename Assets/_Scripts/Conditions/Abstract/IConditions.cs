@@ -10,10 +10,5 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         float DurationTime { get; }
 
         float SlowStrength { get; }
-
-        void AddConditionToTarget(ICharacterClass characterClass, float DurationTime);
-
-        void RemoveConditionFromTarget(ICharacterClass characterClass);
-
     }
 }

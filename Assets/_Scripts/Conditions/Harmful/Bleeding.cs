@@ -1,8 +1,12 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Player;
+using System.Collections;
+using UnityEngine;
 
 namespace Assets._Scripts.Characters.Conditions
 {
-    internal class Bleeding : IConditions
+    //TODO MonoBehaviour to base class
+    internal class Bleeding : MonoBehaviour, IConditions
     {
         public string Name { get; private set; } = "Bleeding";
 
@@ -11,15 +15,5 @@ namespace Assets._Scripts.Characters.Conditions
         public float DurationTime { get; set; } 
         
         public float SlowStrength {  get; private set; }
-
-        public void AddConditionToTarget(ICharacterClass characterClass, float DurationTime)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveConditionFromTarget(ICharacterClass characterClass)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
