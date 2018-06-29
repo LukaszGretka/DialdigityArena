@@ -1,4 +1,7 @@
-﻿
+﻿using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Characters.Conditions;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 {
     internal class BrutalStrike : IAbility
@@ -22,5 +25,10 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
         public float HitAngle { get; } = 90f;
 
         public bool OnCooldown { get; } = default(bool);
+
+        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions,float>>()
+                                                        {
+                                                            new KeyValuePair<IConditions, float>(new Bleeding(), 5f)
+                                                        };
     }
 }

@@ -23,7 +23,7 @@ namespace Assets._Scripts.Characters
             base.SetAttackRange(inspectorAttackRange);
             base.SetHealthRegeneration(inspectorHealthRegeneration);
             base.SetManaRegeneration(inspectorManaRegeneration);
-
+            base.SetCurrentSpeed(inspectorMovementSpeed);
             base.SetBasicStatistics();
 
             base.SetFirstDefaultAbility(new Swipe());
@@ -36,6 +36,11 @@ namespace Assets._Scripts.Characters
         public new void SetCurrentHealth(float changedHealth)
         {
             base.SetCurrentHealth(changedHealth);
+        }
+
+        public new void SetMovementSpeed(float movementSpeed)
+        {
+            base.SetMovementSpeed(movementSpeed);
         }
 
         //TODO set current mana and stamina
@@ -103,6 +108,11 @@ namespace Assets._Scripts.Characters
         public float GetAttackRange()
         {
             return DefaultAttackRange;
+        }
+
+        public float GetMovementSpeed()
+        {
+            return DefaultMovementSpeed;
         }
 
         public float GetMaximumHealth()

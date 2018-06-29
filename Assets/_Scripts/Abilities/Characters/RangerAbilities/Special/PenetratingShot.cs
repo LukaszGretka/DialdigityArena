@@ -1,4 +1,8 @@
 ﻿
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Characters.Conditions;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 {
     internal class PenetratingShot : IAbility
@@ -22,6 +26,11 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
         public float HitAngle { get; } = default(float);
 
         public bool OnCooldown { get; } = default(bool);
+
+        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
+        {
+            new KeyValuePair<IConditions, float>(new Bleeding(), 5f)
+        };
 
     }
 }

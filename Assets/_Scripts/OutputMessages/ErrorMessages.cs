@@ -29,6 +29,7 @@ namespace Assets._Scripts.OutputMessages
         public const string InvalidManaValue = "Invalid Mana value";
         public const string InvalidStaminaValue = "Invalid Stamina value";
         public const string InvalidRangeValue = "Invalid Attack Range value";
+        public const string InvalidSpeedValue = "Invalid Movement Speed value";
 
         public const string CannotSetMaximumHealthValue = "Can't set starting health - maximum health was not set";
         public const string CannotSetMaximumManaValue = "Can't set starting mana - maximum mana was not set";

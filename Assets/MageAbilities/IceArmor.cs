@@ -1,4 +1,8 @@
 ﻿
+using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Conditions;
+using System.Collections.Generic;
+
 namespace Assets._Scripts.Abilities.Characters.MageAbilities
 {
     internal class IceArmor : IAbility
@@ -22,5 +26,11 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
         public float HitAngle { get; } = 0f;
 
         public bool OnCooldown { get; } = default(bool);
+
+        public List<KeyValuePair<IConditions, float>> Conditions { get; } = new List<KeyValuePair<IConditions, float>>()
+                                                        {
+                                                           
+                                                        };
+
     }
 }

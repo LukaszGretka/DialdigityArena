@@ -407,5 +407,6 @@ MonoBehaviour:
   inspectorMana: 50
   inspectorStamina: 0
   inspectorAttackRange: 5
+  inspectorMovementSpeed: 10
   inspectorHealthRegeneration: 0
   inspectorManaRegeneration: 0

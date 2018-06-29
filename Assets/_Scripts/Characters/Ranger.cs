@@ -21,7 +21,7 @@ namespace Assets._Scripts.Characters
             base.SetMaximumMana(inspectorMana);
             base.SetMaximumStamina(inspectorStamina);
             base.SetAttackRange(inspectorAttackRange);
-
+            base.SetMovementSpeed(inspectorMovementSpeed);
             base.SetBasicStatistics();
 
             base.SetFirstDefaultAbility(new Shoot());
@@ -34,6 +34,11 @@ namespace Assets._Scripts.Characters
         public new void SetCurrentHealth(float changedHealth)
         {
             base.SetCurrentHealth(changedHealth);
+        }
+
+        public new void SetMovementSpeed(float movementSpeed)
+        {
+            base.SetMovementSpeed(movementSpeed);
         }
 
         public new List<IAbility> GetCharacterAbilitiesList()
@@ -94,6 +99,11 @@ namespace Assets._Scripts.Characters
         public float GetAttackRange()
         {
             return DefaultAttackRange;
+        }
+
+        public float GetMovementSpeed()
+        {
+            return DefaultMovementSpeed;
         }
 
         public float GetMaximumHealth()

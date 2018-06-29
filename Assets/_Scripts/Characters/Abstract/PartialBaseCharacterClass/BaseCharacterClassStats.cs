@@ -14,6 +14,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         [SerializeField] protected int inspectorMana; // TODO change it float type
         [SerializeField] protected int inspectorStamina;  // TODO change it float type
         [SerializeField] protected int inspectorAttackRange;
+        [SerializeField] protected int inspectorMovementSpeed;
         [SerializeField] protected float inspectorHealthRegeneration;
         [SerializeField] protected float inspectorManaRegeneration;
 
@@ -27,6 +28,11 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         protected void SetCurrentHealth(float changedHealth)
         {
             CurrentHealth = changedHealth;
+        }
+
+        protected void SetCurrentSpeed(float defaultMovementSpeed)
+        {
+            DefaultMovementSpeed = defaultMovementSpeed;
         }
 
         protected void SetMaximumHealth(int health)
@@ -97,6 +103,18 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             else
             {
                 Debug.LogError(ErrorMessages.InvalidRangeValue);
+            }
+        }
+
+        protected void SetMovementSpeed(float movementSpeed)
+        {
+            if (movementSpeed >= default(float))
+            {
+                DefaultMovementSpeed = movementSpeed;
+            }
+            else
+            {
+                Debug.LogError(ErrorMessages.InvalidSpeedValue);
             }
         }
 

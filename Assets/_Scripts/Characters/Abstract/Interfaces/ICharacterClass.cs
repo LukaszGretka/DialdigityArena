@@ -12,12 +12,14 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         float GetCurrentStamina();
 
         float GetAttackRange();
+        float GetMovementSpeed();
 
         float GetMaximumHealth();
         float GetMaximumMana();
         float GetMaximumStamina();
 
         void SetCurrentHealth(float changedHealth);
+        void SetMovementSpeed(float movementSpeed);
 
         float GetHealthRegeneration();
         float GetManaRegeneration();
