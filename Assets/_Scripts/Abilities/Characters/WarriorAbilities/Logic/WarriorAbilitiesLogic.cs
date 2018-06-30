@@ -2,12 +2,10 @@
 using Assets._Scripts.Abilities.Logic;
 using Assets._Scripts.Characters;
 using Assets._Scripts.Conditions;
-using Assets._Scripts.OutputMessages;
 using Assets._Scripts.Player;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
 {
@@ -25,9 +23,9 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         /// <summary> Implementation of first warrior ability - Swipe | Multitarget ability | </summary>
         public void FirstDefaultAbilityImplementation()
         {
-            List<AbilityLogicResult> abilityResultList = UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstDefaultAbility());
+            List<TargetDetectionResult> abilityResultList = DetectTargetsinArea(warriorClass, warriorClass.GetFirstDefaultAbility());
 
-            foreach (AbilityLogicResult result in abilityResultList) //hit multiple targets
+            foreach (TargetDetectionResult result in abilityResultList) //hits multiple targets
             {
                 result.TargetHitOnCast.TakeDamage(result.DealedDamage);
             }
@@ -35,11 +33,13 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         /// <summary> Implementation of first special warrior ability - Brutal Strike | Single target ability | </summary>
         public void FirstSpecialAbilityImplementation()
         {
-            List<AbilityLogicResult> abilityResultList = UseAreaMeleeAbility(warriorClass, warriorClass.GetFirstSpecialAbility());
-            AbilityLogicResult result = abilityResultList.First();
+            List<TargetDetectionResult> abilityResultList = DetectTargetsinArea(warriorClass, warriorClass.GetFirstSpecialAbility());
 
-            result.TargetHitOnCast.TakeDamage(result.DealedDamage);
-            conditionManager.AddConditionToTarget(result.TargetHitOnCast, result.HitWithAbility.Conditions);
+            if (abilityResultList.Count > default(int))
+            {
+                TargetDetectionResult result = abilityResultList.First();
+                result.TargetHitOnCast.TakeDamage(result.DealedDamage);
+            }
         }
 
         public void SecondDefaultAbilityImplementation()

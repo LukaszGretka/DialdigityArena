@@ -8,14 +8,14 @@ namespace Assets._Scripts.Abilities.Logic
 {
     public class MeleeAbilityLogic: MonoBehaviour
     {
-        internal List<AbilityLogicResult> UseAreaMeleeAbility(MeleeCharacterClass meleeClass, IAbility ability)
+        internal List<TargetDetectionResult> DetectTargetsinArea(MeleeCharacterClass meleeClass, IAbility ability)
         {
-            List<AbilityLogicResult> AbilityLogicResultList = new List<AbilityLogicResult>();
+            List<TargetDetectionResult> AbilityLogicResultList = new List<TargetDetectionResult>();
 
             if (ability.IsRanged)
             {
                 Debug.LogError(ErrorMessages.WrongTypeOfAbility);
-                AbilityLogicResultList.Add(AbilityLogicResult.BuildAbilityLogicResult(null, ability, 0f));
+                AbilityLogicResultList.Add(TargetDetectionResult.BuildAbilityLogicResult(null, ability, 0f));
 
                 return AbilityLogicResultList;
             }
@@ -34,11 +34,11 @@ namespace Assets._Scripts.Abilities.Logic
 
                         if (angleOfTarget <= (ability.HitAngle * 0.5f))
                         {
-                            AbilityLogicResultList.Add(AbilityLogicResult.BuildAbilityLogicResult( targetCollider.GetComponent<ICharacterClass>(), 
-                                                                                                   ability,
-                                                                                                   ability.BaseDamage,
-                                                                                                   distanceToTarget,
-                                                                                                   angleOfTarget));
+                            AbilityLogicResultList.Add(TargetDetectionResult.BuildAbilityLogicResult( targetCollider.GetComponent<ICharacterClass>(), 
+                                                                                                      ability,
+                                                                                                      ability.BaseDamage,
+                                                                                                      distanceToTarget,
+                                                                                                      angleOfTarget));
                         }
                     }
                 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assets._Scripts.Abilities.Logic
 {
-    public class AbilityLogicResult
+    public class TargetDetectionResult
     {
         public ICharacterClass TargetHitOnCast { get; private set; }
         public float DealedDamage { get; private set; }
@@ -15,10 +15,10 @@ namespace Assets._Scripts.Abilities.Logic
         public float HitDistance { get; private set; }
         public float HitOnAngle { get; private set; }
 
-        internal static AbilityLogicResult BuildAbilityLogicResult( ICharacterClass target, IAbility usedAbility, 
+        internal static TargetDetectionResult BuildAbilityLogicResult( ICharacterClass target, IAbility usedAbility, 
                                                                     float damage, float hitDistance = default(float), float hitAngle = default(float))
         {
-            return new AbilityLogicResult()
+            return new TargetDetectionResult()
             {
                 TargetHitOnCast = target,
                 DealedDamage = damage,
