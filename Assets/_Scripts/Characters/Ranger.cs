@@ -134,5 +134,15 @@ namespace Assets._Scripts.Characters
         {
             return rangerAbilitiesLogic;
         }
+
+        public Vector3 GetCurrentPossition()
+        {
+            return transform.position;
+        }
+
+        public void SetCurrentPossition(Vector3 possition)
+        {
+            transform.position = possition;
+        }
     }
 }

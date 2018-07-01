@@ -1,44 +1,55 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Conditions.Abstract;
 using Assets._Scripts.Config;
+using Assets._Scripts.OutputMessages;
 using Assets._Scripts.Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Assets._Scripts.Conditions
 {
-    internal class ConditionManager : MonoBehaviour
+    internal class ConditionManager : NetworkBehaviour
     {
-        internal void AddConditionToTarget(ICharacterClass characterClass, List<IConditions> conditions)
+        internal void AddConditionsToTarget(ICharacterClass characterClass, List<ICondition> conditions)
         {
-            foreach (IConditions condition in conditions)
+            foreach (ICondition condition in conditions)
             {
-                IEnumerator conditionFunction = ConditionEffectPerTime(characterClass, condition, ConfigValues.ConditionInitialDelayTime);
-                StartCoroutine(conditionFunction);
+
+                //Implementation of states on player/target
+                IEnumerator conditionEffectRoutine = 
+                    condition.EffectType == Enum.ConditionEffectType.EffectOverTime ?
+                    ApplyConditionEffectOverTime( () => { condition.ConditionImplementation.ApplyConditionEffect(characterClass); }, condition)
+                    : ApplyConditionEffect( () => { condition.ConditionImplementation.ApplyConditionEffect(characterClass); });
+
+                StartCoroutine(conditionEffectRoutine);
             }
         }
 
-        internal void RemoveConditionFromTarget(ICharacterClass characterClass, IConditions condition)
+        internal void RemoveConditionFromTarget(ICharacterClass characterClass, ICondition condition)
         {
             throw new NotImplementedException();
         }
 
-        //TOOD implement constant value from condition tick
-        private IEnumerator ConditionEffectPerTime(ICharacterClass characterClass, IConditions condition, float initialDelay)
+        private IEnumerator ApplyConditionEffectOverTime(Action conditionAction, ICondition condition, float initialDelay = ConfigValues.ConditionInitialDelayTime)
         {
             yield return new WaitForSeconds(initialDelay);
 
             for (float i = default(float); i < condition.DurationTime; i++)
             {
-                characterClass.TakeDamage(condition.DamagePerTick);
-
-                Debug.Log(condition.Name + " dealed " + condition.DamagePerTick + " damage to "
-                    + characterClass.GetType().Name + "." + i.ToString() + " tick |" +
-                    (condition.DurationTime - i).ToString() + " ticks left. " + characterClass.GetCurrentHealth() + " HP left");
-
+                conditionAction.Invoke();
                 yield return new WaitForSeconds(ConfigValues.DefaultConditionIntervalTime);
             }
+        }
+
+        private IEnumerator ApplyConditionEffect(Action conditionAction)
+        {
+            //apply effect
+            //yield return new WaitForSeconds(condition.DurationTime);
+            //discard effect
+            throw new NotImplementedException();
         }
     }
 }

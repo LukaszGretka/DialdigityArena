@@ -27,6 +27,6 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<IConditions> Conditions { get; } = new List<IConditions>() { new Stun() { DurationTime = 1f } };
+        public List<ICondition> Conditions { get; } = new List<ICondition>() { new Stun() { DurationTime = 1f } };
     }
 }

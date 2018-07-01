@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets._Scripts.Abilities.Logic
+namespace Assets._Scripts.Abilities.Logic.Results
 {
     public class TargetDetectionResult
     {

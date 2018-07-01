@@ -2,6 +2,7 @@
 using Assets._Scripts.Abilities.Abstract;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Characters.Abstract.Interfaces
 {
@@ -19,7 +20,11 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         float GetMaximumStamina();
 
         void SetCurrentHealth(float changedHealth);
+
         void SetMovementSpeed(float movementSpeed);
+
+        Vector3 GetCurrentPossition();
+        void SetCurrentPossition(Vector3 possition);
 
         float GetHealthRegeneration();
         float GetManaRegeneration();

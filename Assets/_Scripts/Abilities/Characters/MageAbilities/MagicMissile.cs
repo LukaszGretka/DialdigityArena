@@ -26,6 +26,6 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
 
         public bool OnCooldown { get; set; } = default(bool);
 
-        public List<IConditions> Conditions { get; private set; } = new List<IConditions>();
+        public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
     }
 }

@@ -20,39 +20,42 @@ namespace Assets._Scripts.Abilities.Performance
 
         public void CastFirstDefaultAbility()
         {
-            IAbility firstDefaultAbility = characterClass.GetFirstDefaultAbility();
-
-            if (PerformAbilityValidation(characterClass, firstDefaultAbility).State == AbilityResultState.ReadyToCast)
-            {
-                castAbilityCoroutine = CastAbilityCoroutine(firstDefaultAbility,  () => { characterClass.GetAbilityImplementation().FirstDefaultAbilityImplementation(); });
-                StartCoroutine(castAbilityCoroutine);
-            }
+            StartCastingAbility(characterClass.GetFirstDefaultAbility(), 
+                () => { characterClass.GetAbilityImplementation().FirstDefaultAbilityImplementation(); });
         }
 
         public void CastSecondDefaultAbility()
         {
-            throw new NotImplementedException();
+            StartCastingAbility(characterClass.GetSecondDefaultAbility(), 
+                () => { characterClass.GetAbilityImplementation().SecondDefaultAbilityImplementation(); });
         }
 
         public void CastFirstSpecialAbility()
         {
-            IAbility firstSpecialAbility = characterClass.GetFirstSpecialAbility();
-
-            if (PerformAbilityValidation(characterClass, firstSpecialAbility).State == AbilityResultState.ReadyToCast)
-            {
-                castAbilityCoroutine = CastAbilityCoroutine(firstSpecialAbility, () => { characterClass.GetAbilityImplementation().FirstSpecialAbilityImplementation(); });
-                StartCoroutine(castAbilityCoroutine);
-            }
+            StartCastingAbility(characterClass.GetFirstSpecialAbility(), 
+                () => { characterClass.GetAbilityImplementation().FirstSpecialAbilityImplementation(); });
         }
 
         public void CastSecondSpecialAbility()
         {
-            throw new NotImplementedException();
+            StartCastingAbility(characterClass.GetSecondSpecialAbility(), 
+                () => { characterClass.GetAbilityImplementation().SecondSpecialAbilityImplementation(); });
         }
 
         public void CastThirdSpecialAbility()
         {
-            throw new NotImplementedException();
+            StartCastingAbility(characterClass.GetThirdSpecialAbility(), 
+                () => { characterClass.GetAbilityImplementation().ThirdSpecialAbilityImplementation(); });
+        }
+
+        private void StartCastingAbility(IAbility ability, Action AbilityAction)
+        {
+            //TODO this method (or coroutine) should implement response for situation such as interupt, canceled by user etc.
+            if (PerformAbilityValidation(characterClass, ability).State == AbilityResultState.ReadyToCast)
+            {
+                castAbilityCoroutine = CastAbilityCoroutine(ability, AbilityAction);
+                StartCoroutine(castAbilityCoroutine);
+            }
         }
 
         private IEnumerator CastAbilityCoroutine(IAbility ability, Action abilityCastAction)

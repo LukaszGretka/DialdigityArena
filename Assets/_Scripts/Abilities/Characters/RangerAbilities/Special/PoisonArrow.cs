@@ -27,6 +27,6 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<IConditions> Conditions { get; } = new List<IConditions>() { new Poison() { DurationTime = 10f } };
+        public List<ICondition> Conditions { get; } = new List<ICondition>() { new Poison() { DurationTime = 10f } };
     }
 }

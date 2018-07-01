@@ -49,5 +49,11 @@ namespace Assets._Scripts.OutputMessages
         public const string ClassNotImlementingICharacterClassInterface = "Current class do not implementing ICharacterClass interface";
 
         #endregion
+
+        #region Conditions Error Messages
+
+        public const string InvalidConditionEffect = "Invalid Condition Effect";
+
+        #endregion
     }
 }

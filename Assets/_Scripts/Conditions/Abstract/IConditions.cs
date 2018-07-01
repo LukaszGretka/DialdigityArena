@@ -1,18 +1,18 @@
-﻿
+﻿using Assets._Scripts.Conditions.Abstract;
+using Assets._Scripts.Conditions.Enum;
+using System;
+using System.Collections;
+
 namespace Assets._Scripts.Characters.Abstract.Interfaces
 {
-    public interface IConditions
+    public interface ICondition
     {
         string Name { get; }
 
-        float DamagePerTick { get; }
-
         float DurationTime { get; }
+        
+        ConditionEffectType EffectType { get; }
 
-        float SlowStrength { get; }
-
-        float DamageReductionValue { get; }     // in percents
-
-        float AttackEvasionValue { get; }       // in percents
+        IConditionImplementation ConditionImplementation { get;}
     }
 }

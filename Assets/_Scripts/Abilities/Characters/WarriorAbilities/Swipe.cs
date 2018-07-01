@@ -25,6 +25,6 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities
 
         public bool OnCooldown { get; set; } = default(bool);
 
-        public List<IConditions> Conditions { get; } = new List<IConditions>();
+        public List<ICondition> Conditions { get; } = new List<ICondition>();
     }
 }

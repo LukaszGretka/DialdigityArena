@@ -1,11 +1,10 @@
-﻿using Assets._Scripts.Characters.Abstract.Interfaces;
-using Assets._Scripts.Player;
-using System.Collections;
-using UnityEngine;
+﻿using Assets._Scripts.Conditions.Abstract;
+using Assets._Scripts.Conditions.Enum;
+using Assets._Scripts.Conditions.Harmful.Logic;
 
 namespace Assets._Scripts.Characters.Conditions
 {
-    internal class Bleeding : IConditions
+    internal class Bleeding : IHarmfulCondition
     {
         public string Name { get; private set; } = "Bleeding";
 
@@ -18,5 +17,9 @@ namespace Assets._Scripts.Characters.Conditions
         public float DamageReductionValue { get; private set; } = 0f;
 
         public float AttackEvasionValue { get; private set; }
+
+        public IConditionImplementation ConditionImplementation { get; private set; } = new BleedingLogic();
+
+        public ConditionEffectType EffectType { get; private set; } = ConditionEffectType.EffectOverTime;
     }
 }

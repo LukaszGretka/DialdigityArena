@@ -9,6 +9,6 @@ namespace Assets._Scripts.Abilities.Logic
 {
     internal class RangedAbilityLogic : MonoBehaviour
     {
-
+        //TODO implement universal range abiltiy logic
     }
 }

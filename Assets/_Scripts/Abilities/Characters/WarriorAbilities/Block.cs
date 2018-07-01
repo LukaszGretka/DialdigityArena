@@ -27,6 +27,6 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<IConditions> Conditions { get; } = new List<IConditions>() { new DamageReduction() { DurationTime = 2f, DamageReductionValue = 100f } };
+        public List<ICondition> Conditions { get; } = new List<ICondition>() { new DamageReduction() { DurationTime = 2f, DamageReductionValue = 100f } };
     }
 }
