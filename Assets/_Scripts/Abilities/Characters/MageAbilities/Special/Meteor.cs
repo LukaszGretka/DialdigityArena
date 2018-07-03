@@ -27,6 +27,9 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<ICondition> Conditions { get; } = new List<ICondition>() { new Stun() { DurationTime = 1f } };                                                   
+        public List<ICondition> Conditions { get; } = new List<ICondition>()
+        {
+            new Stun(durationTime: 1f)
+        };                                                   
     }
 }

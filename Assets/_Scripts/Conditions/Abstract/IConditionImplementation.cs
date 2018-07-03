@@ -5,7 +5,6 @@ namespace Assets._Scripts.Conditions.Abstract
 {
     public interface IConditionImplementation
     {
-        void ApplyConditionEffect(ICharacterClass characterClass);
-        void RemoveConditionEffect(ICharacterClass characterClass);
+        Action<ICharacterClass, ICondition> GetConditionImplementation();
     }
 }

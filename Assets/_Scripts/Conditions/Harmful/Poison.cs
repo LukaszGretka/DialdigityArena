@@ -5,22 +5,28 @@ using Assets._Scripts.Conditions.Harmful.Logic;
 
 namespace Assets._Scripts.Conditions.Harmful
 {
-    internal class Poison : IHarmfulCondition
+    internal class Poison : IConditionEffectOverTime
     {
+        public Poison(float damagePerTick, int conditionIterations, float conditionIntervalTime, float initializationTime = Config.ConfigValues.DefaultConditionIntervalTime)
+        {
+            DamagePerTick = damagePerTick;
+            ConditionIterations = conditionIterations;
+            ConditionIntervalTime = conditionIntervalTime;
+            InitializationTime = initializationTime;
+        }
+
         public string Name { get; private set; } = "Poison";
 
-        public float DamagePerTick { get; private set; } = 5f;
+        public int ConditionIterations { get; private set; }
 
-        public float DurationTime { get; set; } = default(float);
+        public float DamagePerTick { get; private set; }
 
-        public float SlowStrength { get; private set; } = default(float);
+        public float ConditionIntervalTime { get; private set; }
 
-        public float DamageReductionValue { get; private set; } = default(float);
-
-        public float AttackEvasionValue { get; private set; }
+        public float InitializationTime { get; private set; }
 
         public ConditionEffectType EffectType { get; private set; } = ConditionEffectType.EffectOverTime;
 
-        public IConditionImplementation ConditionImplementation { get; private set; } = new PosionLogic();
+        public IConditionImplementation ConditionImplementation { get; private set; } = new PoisonLogic();
     }
 }

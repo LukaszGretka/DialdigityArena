@@ -6,22 +6,19 @@ using System;
 
 namespace Assets._Scripts.Conditions
 {
-    internal class Stun : IHarmfulCondition
+    internal class Stun : IConditionConstant
     {
+        public Stun(float durationTime)
+        {
+            DurationTime = DurationTime;
+        }
+
         public string Name { get; private set; } = "Stun";
-
-        public float DamagePerTick { get; private set; } = 0f;
-
-        public float DurationTime { get; set; }
-
-        public float SlowStrength { get; private set; }
-
-        public float DamageReductionValue { get; private set; } = default(float);
-
-        public float AttackEvasionValue { get; private set; }
 
         public ConditionEffectType EffectType { get; private set; } = ConditionEffectType.Constant;
 
         public IConditionImplementation ConditionImplementation { get; private set; } = new StunLogic();
+
+        public float DurationTime { get; private set; }
     }
 }

@@ -8,7 +8,7 @@ namespace Assets._Scripts.Config
 {
     public static class ConfigValues
     {
-        public const float ConditionInitialDelayTime = 1f;
+        public const float DefaultConditionDelayTime = 1f;
         public const float DefaultConditionIntervalTime = 1f;
     }
 }

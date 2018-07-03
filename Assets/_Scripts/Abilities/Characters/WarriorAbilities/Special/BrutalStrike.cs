@@ -26,6 +26,9 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<ICondition> Conditions { get; } = new List<ICondition>() { new Bleeding() { DurationTime = 3f } };
+        public List<ICondition> Conditions { get; } = new List<ICondition>()
+        {
+            new Bleeding(damagePerTick: 10f, conditionIterations: 3, conditionIntervalTime: 1f)
+        };
     }
 }

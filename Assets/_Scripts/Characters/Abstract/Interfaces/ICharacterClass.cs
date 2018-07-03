@@ -26,6 +26,10 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         Vector3 GetCurrentPossition();
         void SetCurrentPossition(Vector3 possition);
 
+        void ApplyConditionEffect(ICondition condition);
+        void RemoveConditionEffect(ICondition condition);
+        void RemoveLastConditionEffect();
+
         float GetHealthRegeneration();
         float GetManaRegeneration();
         float GetStaminaRegeneration();

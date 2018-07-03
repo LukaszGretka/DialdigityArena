@@ -27,6 +27,9 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 
         public bool OnCooldown { get; set; } = default(bool);
 
-        public List<ICondition> Conditions { get; private set; } = new List<ICondition>() { new Bleeding() { DurationTime = 5f } };
+        public List<ICondition> Conditions { get; private set; } = new List<ICondition>()
+        {
+            new Bleeding(damagePerTick: 3f, conditionIterations: 5, conditionIntervalTime: 1f)
+        };
     }
 }

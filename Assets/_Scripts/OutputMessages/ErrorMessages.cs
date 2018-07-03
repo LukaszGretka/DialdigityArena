@@ -53,6 +53,7 @@ namespace Assets._Scripts.OutputMessages
         #region Conditions Error Messages
 
         public const string InvalidConditionEffect = "Invalid Condition Effect";
+        public const string NoConditionToRemove = "There is no condition to remove";
 
         #endregion
     }

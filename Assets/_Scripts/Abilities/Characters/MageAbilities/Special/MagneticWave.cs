@@ -26,6 +26,9 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<ICondition> Conditions { get; } = new List<ICondition>() { new Slow() { DurationTime = 2f, SlowStrength = 40f} };
+        public List<ICondition> Conditions { get; } = new List<ICondition>()
+        {
+            new Slow(durationTime: 2f, slowStrength: 40f)
+        };
     }
 }

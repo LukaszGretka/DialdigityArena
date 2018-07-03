@@ -10,14 +10,13 @@ namespace Assets._Scripts.Conditions.Harmful.Logic
 {
     internal class StunLogic : IConditionImplementation
     {
-        public void ApplyConditionEffect(ICharacterClass characterClass)
+        public Action<ICharacterClass, ICondition> GetConditionImplementation()
         {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveConditionEffect(ICharacterClass characterClass )
-        {
-            throw new NotImplementedException();
+            return (characterClass, condition) =>
+            {
+                Stun stun = condition as Stun;
+                throw new NotImplementedException();
+            };
         }
     }
 }

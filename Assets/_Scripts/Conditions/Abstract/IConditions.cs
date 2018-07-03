@@ -9,8 +9,6 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
     {
         string Name { get; }
 
-        float DurationTime { get; }
-        
         ConditionEffectType EffectType { get; }
 
         IConditionImplementation ConditionImplementation { get;}

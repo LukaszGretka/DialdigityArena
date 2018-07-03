@@ -19,7 +19,7 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public float Range { get; private set; } = 1f;
 
-        public bool IsRanged { get; private set; } = false;
+        public bool IsRanged { get; private set; } = false; 
 
         public float CastingTime { get; private set; } = 0f;
 
@@ -27,6 +27,6 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public bool OnCooldown { get; } = default(bool);
 
-        public List<ICondition> Conditions { get; } = new List<ICondition>() { new Stun() { DurationTime = 1f } };
+        public List<ICondition> Conditions { get; } = new List<ICondition>() { new Stun(durationTime: 2f) };
     }
 }

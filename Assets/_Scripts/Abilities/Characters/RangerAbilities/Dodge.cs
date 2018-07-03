@@ -27,6 +27,9 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 
         public bool OnCooldown { get; private set; } = default(bool);
 
-        public List<ICondition> Conditions { get; private set; } = new List<ICondition> { new Evasion() { DurationTime = 10f, AttackEvasionValue = 70f} };
+        public List<ICondition> Conditions { get; private set; } = new List<ICondition>
+        {
+            new Evasion(durationTime: 10f, evasionValue: 70f)
+        };
     }
 }

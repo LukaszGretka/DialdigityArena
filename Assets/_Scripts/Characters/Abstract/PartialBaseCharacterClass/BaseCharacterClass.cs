@@ -1,4 +1,6 @@
 ﻿using Assets._Scripts.Abilities;
+using Assets._Scripts.Conditions;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
@@ -26,5 +28,7 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
         protected IAbility FirstSpecialAbility { get; private set; }
         protected IAbility SecondSpecialAbility { get; private set; }
         protected IAbility ThirdSpecialAbility { get; private set; }
+
+        protected HashSet<PlayerConditionState> PlayerConditionState { get; private set; } = new HashSet<PlayerConditionState>();
     }
 }

@@ -144,5 +144,20 @@ namespace Assets._Scripts.Characters
         {
             transform.position = possition;
         }
+
+        public new void ApplyConditionEffect(ICondition condition)
+        {
+            base.ApplyConditionEffect(condition);
+        }
+
+        public new void RemoveConditionEffect(ICondition condition)
+        {
+            base.RemoveConditionEffect(condition);
+        }
+
+        public new void RemoveLastConditionEffect()
+        {
+            base.RemoveLastConditionEffect();
+        }
     }
 }

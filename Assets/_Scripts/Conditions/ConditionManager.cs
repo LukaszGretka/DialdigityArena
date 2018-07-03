@@ -17,39 +17,41 @@ namespace Assets._Scripts.Conditions
         {
             foreach (ICondition condition in conditions)
             {
-
-                //Implementation of states on player/target
-                IEnumerator conditionEffectRoutine = 
-                    condition.EffectType == Enum.ConditionEffectType.EffectOverTime ?
-                    ApplyConditionEffectOverTime( () => { condition.ConditionImplementation.ApplyConditionEffect(characterClass); }, condition)
-                    : ApplyConditionEffect( () => { condition.ConditionImplementation.ApplyConditionEffect(characterClass); });
+                IEnumerator conditionEffectRoutine = condition.EffectType == Enum.ConditionEffectType.EffectOverTime ?
+                       ApplyConditionEffectOverTime(characterClass, condition as IConditionEffectOverTime, condition.ConditionImplementation.GetConditionImplementation())
+                    :  ApplyConditionEffect(characterClass, condition as IConditionConstant, condition.ConditionImplementation.GetConditionImplementation());
 
                 StartCoroutine(conditionEffectRoutine);
             }
         }
 
-        internal void RemoveConditionFromTarget(ICharacterClass characterClass, ICondition condition)
+        internal void DispelConditionEffect(ICharacterClass characterClass, ICondition condition)
         {
-            throw new NotImplementedException();
+            characterClass.RemoveConditionEffect(condition);
         }
 
-        private IEnumerator ApplyConditionEffectOverTime(Action conditionAction, ICondition condition, float initialDelay = ConfigValues.ConditionInitialDelayTime)
+        private IEnumerator ApplyConditionEffectOverTime(ICharacterClass characterClass, IConditionEffectOverTime condition, Action<ICharacterClass, ICondition> conditionAction)
         {
-            yield return new WaitForSeconds(initialDelay);
+            characterClass.ApplyConditionEffect(condition);
 
-            for (float i = default(float); i < condition.DurationTime; i++)
+            yield return new WaitForSeconds(condition.InitializationTime);
+
+            for (float i = default(float); i < condition.ConditionIterations; i++)
             {
-                conditionAction.Invoke();
-                yield return new WaitForSeconds(ConfigValues.DefaultConditionIntervalTime);
+                conditionAction.Invoke(characterClass, condition);
+                yield return new WaitForSeconds(condition.ConditionIntervalTime);
             }
+
+            characterClass.RemoveConditionEffect(condition);
         }
 
-        private IEnumerator ApplyConditionEffect(Action conditionAction)
+        private IEnumerator ApplyConditionEffect(ICharacterClass characterClass, IConditionConstant condition, Action<ICharacterClass, ICondition> conditionAction)
         {
-            //apply effect
-            //yield return new WaitForSeconds(condition.DurationTime);
-            //discard effect
-            throw new NotImplementedException();
+            characterClass.ApplyConditionEffect(condition);
+            conditionAction.Invoke(characterClass, condition);
+
+            yield return new WaitForSeconds(condition.DurationTime);
+            characterClass.RemoveConditionEffect(condition);
         }
     }
 }

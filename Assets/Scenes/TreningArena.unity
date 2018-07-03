@@ -407,12 +407,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectorHealth: 100
-  inspectorMana: 10
-  inspectorStamina: 10
-  inspectorAttackRange: 10
-  inspectorMovementSpeed: 0
-  inspectorHealthRegeneration: 10
-  inspectorManaRegeneration: 10
+  inspectorMana: 100
+  inspectorStamina: 100
+  inspectorAttackRange: 100
+  inspectorMovementSpeed: 100
+  inspectorHealthRegeneration: 100
+  inspectorManaRegeneration: 100
 --- !u!114 &423260177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,12 +863,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectorHealth: 100
-  inspectorMana: 10
-  inspectorStamina: 10
-  inspectorAttackRange: 10
-  inspectorMovementSpeed: 0
-  inspectorHealthRegeneration: 10
-  inspectorManaRegeneration: 10
+  inspectorMana: 100
+  inspectorStamina: 100
+  inspectorAttackRange: 100
+  inspectorMovementSpeed: 100
+  inspectorHealthRegeneration: 100
+  inspectorManaRegeneration: 100
 --- !u!114 &1380597749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,7 +1033,7 @@ Prefab:
     - target: {fileID: 224825226079676488, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 178.50998
+      value: 244.28876
       objectReference: {fileID: 0}
     - target: {fileID: 224856972164492374, guid: 295754304fdfcd6468ef58e7ec9e3bf1,
         type: 2}
@@ -1247,12 +1247,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectorHealth: 100
-  inspectorMana: 10
-  inspectorStamina: 10
-  inspectorAttackRange: 10
-  inspectorMovementSpeed: 0
-  inspectorHealthRegeneration: 10
-  inspectorManaRegeneration: 10
+  inspectorMana: 100
+  inspectorStamina: 100
+  inspectorAttackRange: 100
+  inspectorMovementSpeed: 100
+  inspectorHealthRegeneration: 100
+  inspectorManaRegeneration: 100
 --- !u!136 &1891292514
 CapsuleCollider:
   m_ObjectHideFlags: 0

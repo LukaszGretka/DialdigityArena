@@ -5,20 +5,22 @@ using Assets._Scripts.Conditions.Supportive.Logic;
 
 namespace Assets._Scripts.Conditions.Harmful
 {
-    internal class Evasion : ISupportiveCondition
+    internal class Evasion : IConditionConstant
     {
+        public Evasion(float durationTime, float evasionValue)
+        {
+            DurationTime = durationTime;
+            EvasionValue = evasionValue;
+        }
+
         public string Name { get; private set; } = "Evasion";
-
-        public float DurationTime { get; set; }
-
-        public float DamageReductionValue { get; private set; } = default(float);
-
-        public float AttackEvasionValue { get; set; }
 
         public ConditionEffectType EffectType { get; private set; } = ConditionEffectType.Constant;
 
-        public float HealingPerTick { get; private set; } = default(float);
-
         public IConditionImplementation ConditionImplementation { get; private set; } = new EvasionLogic();
+
+        public float DurationTime { get; private set; }
+
+        public float EvasionValue { get; private set; }
     }
 }

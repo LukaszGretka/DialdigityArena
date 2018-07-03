@@ -10,14 +10,13 @@ namespace Assets._Scripts.Conditions.Supportive.Logic
 {
     internal class DamageReductionLogic : IConditionImplementation
     {
-        public void ApplyConditionEffect(ICharacterClass characterClass)
+        public Action<ICharacterClass, ICondition> GetConditionImplementation()
         {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveConditionEffect(ICharacterClass characterClass)
-        {
-            throw new NotImplementedException();
+            return (characterClass, condition) =>
+            {
+                DamageReduction damageReduction = condition as DamageReduction;
+                throw new NotImplementedException();
+            };
         }
     }
 }
