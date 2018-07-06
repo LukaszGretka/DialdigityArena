@@ -18,8 +18,9 @@ namespace Assets._Scripts.Conditions
             foreach (ICondition condition in conditions)
             {
                 IEnumerator conditionEffectRoutine = condition.EffectType == Enum.ConditionEffectType.EffectOverTime ?
-                       ApplyConditionEffectOverTime(characterClass, condition as IConditionEffectOverTime, condition.ConditionImplementation.GetConditionImplementation())
-                    :  ApplyConditionEffect(characterClass, condition as IConditionConstant, condition.ConditionImplementation.GetConditionImplementation());
+                       ApplyConditionEffectOverTime(characterClass, condition as IConditionEffectOverTime, condition.ConditionImplementation.GetConditionImplementationApply())
+                    :  ApplyConditionEffect(characterClass, condition as IConditionConstant, condition.ConditionImplementation.GetConditionImplementationApply(),
+                        (condition.ConditionImplementation as IConditionImplementationConstant).GetConditionImplementationRemove());
 
                 StartCoroutine(conditionEffectRoutine);
             }
@@ -27,6 +28,7 @@ namespace Assets._Scripts.Conditions
 
         internal void DispelConditionEffect(ICharacterClass characterClass, ICondition condition)
         {
+
             characterClass.RemoveConditionEffect(condition);
         }
 
@@ -38,6 +40,7 @@ namespace Assets._Scripts.Conditions
 
             for (float i = default(float); i < condition.ConditionIterations; i++)
             {
+
                 conditionAction.Invoke(characterClass, condition);
                 yield return new WaitForSeconds(condition.ConditionIntervalTime);
             }
@@ -45,13 +48,21 @@ namespace Assets._Scripts.Conditions
             characterClass.RemoveConditionEffect(condition);
         }
 
-        private IEnumerator ApplyConditionEffect(ICharacterClass characterClass, IConditionConstant condition, Action<ICharacterClass, ICondition> conditionAction)
+        private IEnumerator ApplyConditionEffect(ICharacterClass characterClass, IConditionConstant condition, Action<ICharacterClass, ICondition> conditionAction, Action<ICharacterClass,ICondition> conditionAction2)
         {
             characterClass.ApplyConditionEffect(condition);
             conditionAction.Invoke(characterClass, condition);
 
             yield return new WaitForSeconds(condition.DurationTime);
+
+            if (characterClass.CheckIfContainsCondition(condition) == false)
+            {         
+                yield break;
+            }
+
+            conditionAction2.Invoke(characterClass, condition);
             characterClass.RemoveConditionEffect(condition);
+            Debug.Log(characterClass.GetCurrentMovementSpeed());
         }
     }
 }

@@ -45,5 +45,20 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
                 PlayerConditionState.Remove(conditionToRemove);
             }
         }
+
+        protected bool CheckIfContainsCondition(ICondition condition)
+        {
+            bool conditionCheckStatus = default(bool);
+
+            foreach (PlayerConditionState state in PlayerConditionState)
+            {
+                if (state.ActiveCondition == condition)
+                {
+                    conditionCheckStatus = true;
+                }
+            }
+
+            return conditionCheckStatus;
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Assets._Scripts.Characters
             base.SetAttackRange(inspectorAttackRange);
             base.SetHealthRegeneration(inspectorHealthRegeneration);
             base.SetManaRegeneration(inspectorManaRegeneration);
-            base.SetCurrentSpeed(inspectorMovementSpeed);
+            base.SetBaseMovementSpeed(inspectorMovementSpeed);
             base.SetBasicStatistics();
 
             base.SetFirstDefaultAbility(new Swipe());
@@ -37,14 +37,19 @@ namespace Assets._Scripts.Characters
             warriorAbilitiesLogic = gameObject.AddComponent<WarriorAbilitiesLogic>();
         }
 
+        public IAbilityImplementation GetAbilityImplementation()
+        {
+            return warriorAbilitiesLogic;
+        }
+
         public new void SetCurrentHealth(float changedHealth)
         {
             base.SetCurrentHealth(changedHealth);
         }
 
-        public new void SetMovementSpeed(float movementSpeed)
+        public new void SetCurrentMovementSpeed(float movementSpeed)
         {
-            base.SetMovementSpeed(movementSpeed);
+            base.SetCurrentMovementSpeed(movementSpeed);
         }
 
         //TODO set current mana and stamina
@@ -114,9 +119,14 @@ namespace Assets._Scripts.Characters
             return DefaultAttackRange;
         }
 
-        public float GetMovementSpeed()
+        public float GetCurrentMovementSpeed()
         {
-            return DefaultMovementSpeed;
+            return CurrentMovementSpeed;
+        }
+
+        public float GetBaseMovementSpeed()
+        {
+            return BasicMovementSpeed;
         }
 
         public float GetMaximumHealth()
@@ -132,16 +142,6 @@ namespace Assets._Scripts.Characters
         public float GetMaximumStamina()
         {
             return MaximumStamina;
-        }
-
-        public void GetFirstDefaultAbilityImplementation()
-        {
-            GetAbilityImplementation().FirstDefaultAbilityImplementation();
-        }
-
-        public IAbilityImplementation GetAbilityImplementation()
-        {
-            return warriorAbilitiesLogic;
         }
 
         public Vector3 GetCurrentPossition()
@@ -167,6 +167,11 @@ namespace Assets._Scripts.Characters
         public new void RemoveLastConditionEffect()
         {
             base.RemoveLastConditionEffect();
+        }
+
+        public new bool CheckIfContainsCondition(ICondition condition)
+        {
+            return base.CheckIfContainsCondition(condition);
         }
     }
 }

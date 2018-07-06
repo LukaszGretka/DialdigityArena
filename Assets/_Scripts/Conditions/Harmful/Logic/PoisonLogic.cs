@@ -11,7 +11,7 @@ namespace Assets._Scripts.Conditions.Harmful.Logic
 {
     internal class PoisonLogic : IConditionImplementation
     {
-        public Action<ICharacterClass, ICondition> GetConditionImplementation()
+        public Action<ICharacterClass, ICondition> GetConditionImplementationApply()
         {
             return (characterClass, condition) =>
             {

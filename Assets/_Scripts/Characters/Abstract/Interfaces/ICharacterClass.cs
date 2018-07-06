@@ -13,7 +13,8 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         float GetCurrentStamina();
 
         float GetAttackRange();
-        float GetMovementSpeed();
+        float GetCurrentMovementSpeed();
+        float GetBaseMovementSpeed();
 
         float GetMaximumHealth();
         float GetMaximumMana();
@@ -21,7 +22,7 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
 
         void SetCurrentHealth(float changedHealth);
 
-        void SetMovementSpeed(float movementSpeed);
+        void SetCurrentMovementSpeed(float movementSpeed);
 
         Vector3 GetCurrentPossition();
         void SetCurrentPossition(Vector3 possition);
@@ -29,6 +30,7 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         void ApplyConditionEffect(ICondition condition);
         void RemoveConditionEffect(ICondition condition);
         void RemoveLastConditionEffect();
+        bool CheckIfContainsCondition(ICondition condition);
 
         float GetHealthRegeneration();
         float GetManaRegeneration();

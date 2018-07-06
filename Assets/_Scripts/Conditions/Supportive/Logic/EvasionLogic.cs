@@ -6,7 +6,7 @@ namespace Assets._Scripts.Conditions.Supportive.Logic
 {
     internal class EvasionLogic : IConditionImplementation
     {
-        public Action<ICharacterClass, ICondition> GetConditionImplementation()
+        public Action<ICharacterClass, ICondition> GetConditionImplementationApply()
         {
             return (characterClass, condition) =>
             {

@@ -5,6 +5,6 @@ namespace Assets._Scripts.Conditions.Abstract
 {
     public interface IConditionImplementation
     {
-        Action<ICharacterClass, ICondition> GetConditionImplementation();
+        Action<ICharacterClass, ICondition> GetConditionImplementationApply();
     }
 }

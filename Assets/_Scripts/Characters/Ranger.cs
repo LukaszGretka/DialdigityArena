@@ -23,7 +23,9 @@ namespace Assets._Scripts.Characters
             base.SetMaximumMana(inspectorMana);
             base.SetMaximumStamina(inspectorStamina);
             base.SetAttackRange(inspectorAttackRange);
-            base.SetMovementSpeed(inspectorMovementSpeed);
+            base.SetHealthRegeneration(inspectorHealthRegeneration);
+            base.SetManaRegeneration(inspectorManaRegeneration);
+            base.SetBaseMovementSpeed(inspectorMovementSpeed);
             base.SetBasicStatistics();
 
             base.SetFirstDefaultAbility(new Shoot());
@@ -35,15 +37,22 @@ namespace Assets._Scripts.Characters
             rangerAbilitiesLogic = gameObject.AddComponent<RangerAbilitiesLogic>();
         }
 
+        IAbilityImplementation ICharacterClass.GetAbilityImplementation()
+        {
+            return rangerAbilitiesLogic;
+        }
+
         public new void SetCurrentHealth(float changedHealth)
         {
             base.SetCurrentHealth(changedHealth);
         }
 
-        public new void SetMovementSpeed(float movementSpeed)
+        public new void SetCurrentMovementSpeed(float movementSpeed)
         {
-            base.SetMovementSpeed(movementSpeed);
+            base.SetCurrentMovementSpeed(movementSpeed);
         }
+
+        //TODO set current mana and stamina
 
         public new List<IAbility> GetCharacterAbilitiesList()
         {
@@ -100,14 +109,24 @@ namespace Assets._Scripts.Characters
             return ManaRegeneration;
         }
 
+        public float GetStaminaRegeneration()
+        {
+            return StaminaRegeneration;
+        }
+
         public float GetAttackRange()
         {
             return DefaultAttackRange;
         }
 
-        public float GetMovementSpeed()
+        public float GetCurrentMovementSpeed()
         {
-            return DefaultMovementSpeed;
+            return CurrentMovementSpeed;
+        }
+
+        public float GetBaseMovementSpeed()
+        {
+            return BasicMovementSpeed;
         }
 
         public float GetMaximumHealth()
@@ -123,16 +142,6 @@ namespace Assets._Scripts.Characters
         public float GetMaximumStamina()
         {
             return MaximumStamina;
-        }
-
-        public float GetStaminaRegeneration()
-        {
-            return StaminaRegeneration;
-        }
-
-        IAbilityImplementation ICharacterClass.GetAbilityImplementation()
-        {
-            return rangerAbilitiesLogic;
         }
 
         public Vector3 GetCurrentPossition()
@@ -158,6 +167,11 @@ namespace Assets._Scripts.Characters
         public new void RemoveLastConditionEffect()
         {
             base.RemoveLastConditionEffect();
+        }
+
+        public new bool CheckIfContainsCondition(ICondition condition)
+        {
+            return base.CheckIfContainsCondition(condition);
         }
     }
 }

@@ -29,7 +29,7 @@ internal class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        playerMovementVector = GetUserRawInputNormalized() * Time.deltaTime * characterClass.GetMovementSpeed();
+        playerMovementVector = GetUserRawInputNormalized() * Time.deltaTime * characterClass.GetCurrentMovementSpeed();
         playerRigidbody.MovePosition(this.transform.position + playerMovementVector);
         playerRigidbody.MoveRotation(GetPlayerRotationByMousePoint());
     }
@@ -56,12 +56,5 @@ internal class PlayerMovement : NetworkBehaviour
         }
 
         return this.transform.rotation;
-    }
-
-    public void PlayerMovementSpeedBoost(float speedValue, float movementSpeedBoostDurationTime)
-    {
-        float basicSpeed = characterClass.GetMovementSpeed();
-
-       //TODO Implementation for movement speed, remake this class to get components from IcharacterClass.Speed;
     }
 }

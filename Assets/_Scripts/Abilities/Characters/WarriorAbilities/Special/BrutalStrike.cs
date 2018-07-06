@@ -1,5 +1,6 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Characters.Conditions;
+using Assets._Scripts.Conditions;
 using System.Collections.Generic;
 
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
@@ -28,7 +29,8 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public List<ICondition> Conditions { get; } = new List<ICondition>()
         {
-            new Bleeding(damagePerTick: 10f, conditionIterations: 3, conditionIntervalTime: 1f)
+            new Slow(durationTime: 5, slowStrength: 15f),
+            new Bleeding(damagePerTick: 10f, conditionIterations: 3, conditionIntervalTime: 1f),
         };
     }
 }

@@ -21,7 +21,10 @@ namespace Assets._Scripts.Characters
             base.SetMaximumMana(inspectorMana);
             base.SetMaximumStamina(inspectorStamina);
             base.SetAttackRange(inspectorAttackRange);
-            base.SetMovementSpeed(inspectorMovementSpeed);
+            base.SetHealthRegeneration(inspectorHealthRegeneration);
+            base.SetManaRegeneration(inspectorManaRegeneration);
+            base.SetBaseMovementSpeed(inspectorMovementSpeed);
+            base.SetBasicStatistics();
 
             base.SetBasicStatistics();
 
@@ -32,15 +35,22 @@ namespace Assets._Scripts.Characters
             base.SetThirdSpecialAbility(new Meteor());
         }
 
+        public IAbilityImplementation GetAbilityImplementation()
+        {
+            return new MageAbilitiesLogic();
+        }
+
         public new void SetCurrentHealth(float changedHealth)
         {
             base.SetCurrentHealth(changedHealth);
         }
 
-        public new void SetMovementSpeed(float movementSpeed)
+        public new void SetCurrentMovementSpeed(float movementSpeed)
         {
-            base.SetMovementSpeed(movementSpeed);
+            base.SetCurrentMovementSpeed(movementSpeed);
         }
+
+        //TODO set current mana and stamina
 
         public new List<IAbility> GetCharacterAbilitiesList()
         {
@@ -107,9 +117,14 @@ namespace Assets._Scripts.Characters
             return DefaultAttackRange;
         }
 
-        public float GetMovementSpeed()
+        public float GetCurrentMovementSpeed()
         {
-            return DefaultMovementSpeed;
+            return CurrentMovementSpeed;
+        }
+
+        public float GetBaseMovementSpeed()
+        {
+            return BasicMovementSpeed;
         }
 
         public float GetMaximumHealth()
@@ -125,11 +140,6 @@ namespace Assets._Scripts.Characters
         public float GetMaximumStamina()
         {
             return MaximumStamina;
-        }
-
-        public IAbilityImplementation GetAbilityImplementation()
-        {
-            return new MageAbilitiesLogic();
         }
 
         public Vector3 GetCurrentPossition()
@@ -155,6 +165,11 @@ namespace Assets._Scripts.Characters
         public new void RemoveLastConditionEffect()
         {
             base.RemoveLastConditionEffect();
+        }
+
+        public new bool CheckIfContainsCondition(ICondition condition)
+        {
+            return base.CheckIfContainsCondition(condition);
         }
     }
 }

@@ -30,11 +30,6 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             CurrentHealth = changedHealth;
         }
 
-        protected void SetCurrentSpeed(float defaultMovementSpeed)
-        {
-            DefaultMovementSpeed = defaultMovementSpeed;
-        }
-
         protected void SetMaximumHealth(int health)
         {
             if (health > default(int))
@@ -106,11 +101,12 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
         }
 
-        protected void SetMovementSpeed(float movementSpeed)
+        protected void SetBaseMovementSpeed(float baseSpeed)
         {
-            if (movementSpeed >= default(float))
+            if (baseSpeed >= default(float))
             {
-                DefaultMovementSpeed = movementSpeed;
+                BasicMovementSpeed = baseSpeed;
+                CurrentMovementSpeed = BasicMovementSpeed;
             }
             else
             {
@@ -118,6 +114,17 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
         }
 
+        protected void SetCurrentMovementSpeed(float currentSpeed)
+        {
+            if (currentSpeed >= default(float))
+            {
+                CurrentMovementSpeed = currentSpeed;
+            }
+            else
+            {
+                Debug.LogError(ErrorMessages.InvalidSpeedValue);
+            }
+        }
         internal void SetStartingHealth()
         {
             if (MaximumHealth != default(int))
