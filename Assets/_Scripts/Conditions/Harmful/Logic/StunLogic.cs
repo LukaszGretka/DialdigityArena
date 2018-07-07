@@ -16,6 +16,9 @@ namespace Assets._Scripts.Conditions.Harmful.Logic
             {
                 Stun stun = condition as Stun;
                 throw new NotImplementedException();
+                //TODO
+                //1. Set movement speed and mouse rotation to 0 (player can't move)
+                //2. Set cooldown of spells (duration of stun)
             };
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.OutputMessages;
+using Assets._Scripts.Player;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -53,6 +54,7 @@ namespace Assets._Scripts.Abilities.Performance
             //TODO this method (or coroutine) should implement response for situation such as interupt, canceled by user etc.
             if (PerformAbilityValidation(characterClass, ability).State == AbilityResultState.ReadyToCast)
             {
+                characterClass.SubstractMana(ability.ManaCost);
                 castAbilityCoroutine = CastAbilityCoroutine(ability, AbilityAction);
                 StartCoroutine(castAbilityCoroutine);
             }
