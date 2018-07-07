@@ -50,7 +50,15 @@ namespace Assets._Scripts.Characters
             base.SetCurrentMovementSpeed(movementSpeed);
         }
 
-        //TODO set current mana and stamina
+        public new void SetCurrentStamina(float stamina)
+        {
+            base.SetCurrentStamina(stamina);
+        }
+
+        public new void SetCurrentMana(float mana)
+        {
+            base.SetCurrentMana(mana);
+        }
 
         public new List<IAbility> GetCharacterAbilitiesList()
         {

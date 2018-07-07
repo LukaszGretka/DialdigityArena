@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
 {
-    internal class RangerAbilitiesLogic : RangedAbilityLogic, IAbilityImplementation
+    internal class RangerAbilitiesLogic : MonoBehaviour, IAbilityImplementation
     {
         public void FirstDefaultAbilityImplementation()
         {

@@ -20,9 +20,10 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         float GetMaximumMana();
         float GetMaximumStamina();
 
-        void SetCurrentHealth(float changedHealth);
-
+        void SetCurrentHealth(float health);
+        void SetCurrentMana(float mana);
         void SetCurrentMovementSpeed(float movementSpeed);
+        void SetCurrentStamina(float stamina);
 
         Vector3 GetCurrentPossition();
         void SetCurrentPossition(Vector3 possition);

@@ -25,9 +25,19 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             SetStartingStamina();
         }
 
-        protected void SetCurrentHealth(float changedHealth)
+        protected void SetCurrentHealth(float health)
         {
-            CurrentHealth = changedHealth;
+            CurrentHealth = health;
+        }
+
+        protected void SetCurrentMana(float mana)
+        {
+            CurrentMana = mana;
+        }
+
+        protected void SetCurrentStamina(float stamina)
+        {
+            CurrentStamina = stamina;
         }
 
         protected void SetMaximumHealth(int health)

@@ -48,21 +48,21 @@ namespace Assets._Scripts.Conditions
             characterClass.RemoveConditionEffect(condition);
         }
 
-        private IEnumerator ApplyConditionEffect(ICharacterClass characterClass, IConditionConstant condition, Action<ICharacterClass, ICondition> conditionAction, Action<ICharacterClass,ICondition> conditionAction2)
+        private IEnumerator ApplyConditionEffect(ICharacterClass characterClass, IConditionConstant condition, Action<ICharacterClass, ICondition> conditionActionStart, Action<ICharacterClass,ICondition> conditionActionEnd)
         {
             characterClass.ApplyConditionEffect(condition);
-            conditionAction.Invoke(characterClass, condition);
+            conditionActionStart.Invoke(characterClass, condition);
 
             yield return new WaitForSeconds(condition.DurationTime);
 
+            //TODO check if it work with dispel
             if (characterClass.CheckIfContainsCondition(condition) == false)
             {         
                 yield break;
             }
 
-            conditionAction2.Invoke(characterClass, condition);
+            conditionActionEnd.Invoke(characterClass, condition);
             characterClass.RemoveConditionEffect(condition);
-            Debug.Log(characterClass.GetCurrentMovementSpeed());
         }
     }
 }

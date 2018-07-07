@@ -1,53 +1,53 @@
 ﻿using Assets._Scripts.Abilities;
 using Assets._Scripts.Characters.Abstract.Interfaces;
-using Assets._Scripts.OutputMessages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets._Scripts.Player
 {
     internal static class PlayerStatisticManager
     {
+        public delegate void PlayerStatisticChange();
+
+        public static event PlayerStatisticChange OnHealthValueChange;
+        public static event PlayerStatisticChange OnManaValueChange;
+        public static event PlayerStatisticChange OnStaminaValueChange;
+
+        public static event PlayerStatisticChange OnPlayerDeath;
+
         #region Health methods
 
         public static void TakeDamage(this ICharacterClass characterClass, float damage)
         {
             characterClass.SetCurrentHealth(characterClass.GetCurrentHealth() - damage);
+            OnHealthValueChange.Invoke();
 
-            Debug.Log(characterClass.ToString() + "took " + damage + ". Has " + characterClass.GetCurrentHealth() + " hp left.");
-            //TODO death system - trigger on player dead
+            if (characterClass.CheckIfDead())
+            {
+                OnPlayerDeath.Invoke();
+            }
         }
 
-        public static bool CheckIfPlayerIsDead(this ICharacterClass characterClass)
+        public static bool CheckIfDead(this ICharacterClass characterClass)
         {
-            return characterClass.GetCurrentHealth() <= default(float) ? true : false;
+            return characterClass.GetCurrentHealth() <= default(float);
         }
 
-        public static float TakeHealing(this ICharacterClass characterClass, float healingTaken)
+        public static void TakeHealing(this ICharacterClass characterClass, float healingTaken)
         {
-            if (CheckIfPlayerIsDead(characterClass) == false)
+            if (characterClass.CheckIfDead() == false)
             {
-                if (characterClass.GetCurrentHealth() + healingTaken > characterClass.GetMaximumHealth())
-                {
-                    Debug.Log(characterClass.ToString() + "healed for " + healingTaken + ". Has " + characterClass.GetCurrentHealth() + " hp left.");
-                    return characterClass.GetMaximumHealth();
-                }
-                else
-                {
-                    Debug.Log(characterClass.ToString() + "healed for " + healingTaken + ". Has " + characterClass.GetCurrentHealth() + " hp left.");
-                    return characterClass.GetCurrentHealth() + healingTaken;
-                }
+                float maximumHealth = characterClass.GetMaximumHealth();
+                float currentHealth = characterClass.GetCurrentHealth();
+
+                bool healingOverflow = currentHealth + healingTaken > maximumHealth;
+
+                float validatedHealthValue = healingOverflow ? maximumHealth
+                                                             : currentHealth + healingTaken;
+
+                OnHealthValueChange.Invoke();
+                characterClass.SetCurrentHealth(validatedHealthValue);
             }
-            else
-            {
-                Debug.LogError(ErrorMessages.TargetIsDead);
-                //TODO Remember to change return value
-                return 0;
-            }
+
         }
 
         public static void HealthRegeneration(this ICharacterClass characterClass)
@@ -59,20 +59,35 @@ namespace Assets._Scripts.Player
 
         #region Mana methods
 
-        public static float AddMana(this ICharacterClass characterClass, float manaPointsToAdd)
+        public static void AddMana(this ICharacterClass characterClass, float manaPointsToAdd)
         {
-            return characterClass.GetCurrentMana() + manaPointsToAdd > characterClass.GetMaximumMana() ?
-                characterClass.GetMaximumMana() : characterClass.GetCurrentMana() + manaPointsToAdd;
+            float currentMana = characterClass.GetCurrentMana();
+            float maximumMana = characterClass.GetMaximumMana();
+
+            bool manaOverflow = currentMana + manaPointsToAdd > maximumMana;
+
+            float validatedMana = manaOverflow ? maximumMana
+                                               : currentMana + manaPointsToAdd;
+
+            characterClass.SetCurrentMana(validatedMana);
+            OnManaValueChange.Invoke();
         }
 
-        public static bool CheckIfEnoughMana(this ICharacterClass characterClass)
+        public static bool CheckIfEnoughMana(this ICharacterClass characterClass, IAbility ability)
         {
-            return characterClass.GetCurrentMana() <= default(float) ? true : false;
+            return characterClass.GetCurrentMana() < ability.ManaCost;
         }
 
-        public static float SubstractMana(this ICharacterClass characterClass, float manaPointsToSubstract)
+        public static void SubstractMana(this ICharacterClass characterClass, float manaPointsToSubstract)
         {
-            return characterClass.GetCurrentMana() - manaPointsToSubstract;
+            float currentMana = characterClass.GetCurrentMana();
+            bool manaLimitReached = currentMana > currentMana - manaPointsToSubstract;
+
+            float validatedMana = manaLimitReached ? default(float)
+                                                   : currentMana;
+
+            characterClass.SetCurrentMana(validatedMana);
+            OnManaValueChange.Invoke();
         }
 
         public static void ManaRegeneration(this ICharacterClass characterClass)
@@ -84,20 +99,36 @@ namespace Assets._Scripts.Player
 
         #region Stamina methods
 
-        public static float AddStamina(this ICharacterClass characterClass, float staminaPointsToAdd)
+        public static void AddStamina(this ICharacterClass characterClass, float staminaPointsToAdd)
         {
-            return characterClass.GetCurrentStamina() + staminaPointsToAdd > characterClass.GetMaximumStamina() ? 
-                characterClass.GetMaximumStamina() : characterClass.GetCurrentStamina() + staminaPointsToAdd;
+            float currentStamina = characterClass.GetCurrentStamina();
+            float maximumStamina = characterClass.GetMaximumStamina();
+
+            bool staminaOverflow = currentStamina + staminaPointsToAdd > maximumStamina;
+
+            float validatedStamina = staminaOverflow ? maximumStamina
+                                                     : currentStamina + staminaPointsToAdd;
+
+            characterClass.SetCurrentStamina(validatedStamina);
+            OnStaminaValueChange.Invoke();
         }
 
         public static bool CheckIfEnoughStamina(this ICharacterClass characterClass, IAbility ability)
         {
-            return characterClass.GetCurrentStamina() <= ability.StaminaCost ? true : false;
+            return characterClass.GetCurrentStamina() <= ability.StaminaCost;
         }
 
-        public static float SubstractStamina(this ICharacterClass characterClass, float staminaPointsToSubstract)
+        public static void SubstractStamina(this ICharacterClass characterClass, float staminaPointsToSubstract)
         {
-            return characterClass.GetCurrentStamina() - staminaPointsToSubstract;
+            float currentStamina = characterClass.GetCurrentStamina();
+
+            bool staminaLimitReached = currentStamina > currentStamina - staminaPointsToSubstract;
+
+            float validatedStamina = staminaLimitReached ? default(float)
+                                                         : currentStamina - staminaPointsToSubstract;
+
+            characterClass.SetCurrentMana(validatedStamina);
+            OnStaminaValueChange.Invoke();
         }
 
         public static void StaminaRegeneration(this ICharacterClass characterClass)
