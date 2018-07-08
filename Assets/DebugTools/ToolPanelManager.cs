@@ -12,11 +12,14 @@ namespace Assets.DebugTools
     {
         public Button DebugWindowButton;
         public GameObject DebugWindowGameObject;
+        public GameObject ConditionPanelObject;
 
 
         private void Start()
         {
             DebugWindowGameObject.SetActive(false);
+            ConditionPanelObject.SetActive(false);
+
         }
 
         public void DebugWindowButton_OnClick()

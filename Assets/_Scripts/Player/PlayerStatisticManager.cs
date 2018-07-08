@@ -50,8 +50,8 @@ namespace Assets._Scripts.Player
                 float validatedHealthValue = healingOverflow ? maximumHealth
                                                              : currentHealth + healingTaken;
 
-                OnHealthValueChange.Invoke();
                 characterClass.SetCurrentHealth(validatedHealthValue);
+                OnHealthValueChange.Invoke();
             }
 
         }
@@ -81,16 +81,16 @@ namespace Assets._Scripts.Player
 
         public static bool CheckIfEnoughMana(this ICharacterClass characterClass, IAbility ability)
         {
-            return characterClass.GetCurrentMana() <= ability.ManaCost;
+            return characterClass.GetCurrentMana() < ability.ManaCost;
         }
 
         public static void SubstractMana(this ICharacterClass characterClass, float manaPointsToSubstract)
         {
             float currentMana = characterClass.GetCurrentMana();
-            bool manaLimitReached = currentMana > currentMana - manaPointsToSubstract;
+            bool manaLimitReached = currentMana < currentMana - manaPointsToSubstract;
 
             float validatedMana = manaLimitReached ? default(float)
-                                                   : currentMana;
+                                                   : currentMana - manaPointsToSubstract;
 
             characterClass.SetCurrentMana(validatedMana);
             OnManaValueChange.Invoke();
@@ -121,19 +121,19 @@ namespace Assets._Scripts.Player
 
         public static bool CheckIfEnoughStamina(this ICharacterClass characterClass, IAbility ability)
         {
-            return characterClass.GetCurrentStamina() <= ability.StaminaCost;
+            return characterClass.GetCurrentStamina() < ability.StaminaCost;
         }
 
         public static void SubstractStamina(this ICharacterClass characterClass, float staminaPointsToSubstract)
         {
             float currentStamina = characterClass.GetCurrentStamina();
 
-            bool staminaLimitReached = currentStamina > currentStamina - staminaPointsToSubstract;
+            bool staminaLimitReached = currentStamina < currentStamina - staminaPointsToSubstract;
 
             float validatedStamina = staminaLimitReached ? default(float)
                                                          : currentStamina - staminaPointsToSubstract;
 
-            characterClass.SetCurrentMana(validatedStamina);
+            characterClass.SetCurrentStamina(validatedStamina);
             OnStaminaValueChange.Invoke();
         }
 
