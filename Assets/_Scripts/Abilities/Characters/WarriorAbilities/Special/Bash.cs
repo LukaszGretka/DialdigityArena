@@ -2,6 +2,7 @@
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Conditions;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 {
@@ -28,5 +29,9 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
         public bool OnCooldown { get; } = default(bool);
 
         public List<ICondition> Conditions { get; } = new List<ICondition>() { new Stun(durationTime: 2f) };
+
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

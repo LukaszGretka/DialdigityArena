@@ -2,6 +2,7 @@
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Conditions;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.MageAbilities
 {
@@ -29,5 +30,8 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
 
         public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
 
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

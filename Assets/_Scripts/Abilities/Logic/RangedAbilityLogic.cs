@@ -1,19 +1,53 @@
 ﻿using Assets._Scripts.Abilities.Logic.Results;
 using Assets._Scripts.Characters.Abstract;
+using Assets._Scripts.OutputMessages;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Logic
 {
-    internal static class RangedAbilityLogic
+    internal class RangedAbilityLogic : MonoBehaviour
     {
-        //TODO implement universal range abiltiy logic
+        internal static TargetDetectionResult CastSingleAbilityForward(RangedCharacterClass rangedClass, IAbility ability)
+        {
+            TargetDetectionResult targetDetectionResult = new TargetDetectionResult();
 
-        internal static TargetDetectionResult DetectSingleTarget(this RangedCharacterClass meleeClass, IAbility ability)
+            if (ability.IsRanged)
+            {
+                Transform spellCastingSpotTransform = rangedClass.GetComponentsInChildren<Transform>()
+                                                                 .Where(x => x.name == "SpellCastingSpot")
+                                                                 .SingleOrDefault();
+
+                if (spellCastingSpotTransform != null)
+                {
+                    Instantiate(ability.AbilityGameModel, spellCastingSpotTransform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("There is no spawning point set in current character object");
+                }
+            }
+            else
+            {
+                Debug.LogError(ErrorMessages.WrongTypeOfAbility);
+                targetDetectionResult = TargetDetectionResult.BuildAbilityLogicResult(null, ability, 0f);
+            }
+
+            return targetDetectionResult;
+        }
+
+        internal static TargetDetectionResult CastAreaAbilityAtCurrentPossition(RangedCharacterClass rangedClass, IAbility ability)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static TargetDetectionResult CastSingleAbilityAtSelectedPossition(RangedCharacterClass rangedClass, IAbility ability, Vector3 possition)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static TargetDetectionResult CastAreaAbilityAtSelectedPossition(RangedCharacterClass rangedClass, IAbility ability, Vector3 possition)
         {
             throw new NotImplementedException();
         }

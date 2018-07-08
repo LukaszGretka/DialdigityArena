@@ -8,19 +8,19 @@ using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Logic
 {
-    internal static class MeleeAbilityLogic
+    internal class MeleeAbilityLogic : MonoBehaviour
     {
-        /// <summary> Detects one nearest game objects tagged as "Target" on ability's range value area (include skill hit angle). </summary>
-        internal static TargetDetectionResult DetectSingleTarget(this MeleeCharacterClass meleeClass, IAbility ability)
+        /// <summary> Detects and attack one nearest game objects tagged as "Target" on ability's range value area (include skill hit angle). </summary>
+        internal static TargetDetectionResult MeleeAttackAtSingleTarget(MeleeCharacterClass meleeClass, IAbility ability)
         {
-            List<TargetDetectionResult> result = DetectTargetsInArea(meleeClass, ability);
+            List<TargetDetectionResult> result = MeleeAttackInArea(meleeClass, ability);
             result.OrderByDescending(x => x.HitDistance);
 
             return result.Any() ? result.First() : TargetDetectionResult.BuildAbilityLogicResult(null, ability, 0f);
         }
 
         /// <summary> Detects all game objects tagged as "Target" on ability's range value area (include skill hit angle). </summary>
-        internal static List<TargetDetectionResult> DetectTargetsInArea(this MeleeCharacterClass meleeClass, IAbility ability)
+        internal static List<TargetDetectionResult> MeleeAttackInArea(MeleeCharacterClass meleeClass, IAbility ability)
         {
             List<TargetDetectionResult> AbilityLogicResultList = new List<TargetDetectionResult>();
 

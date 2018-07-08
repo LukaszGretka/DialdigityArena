@@ -2,6 +2,7 @@
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Conditions;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities
 {
@@ -31,5 +32,9 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities
         {
             new DamageReduction(durationTime: 2f, damageReductionValue: 100f)
         };
+
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

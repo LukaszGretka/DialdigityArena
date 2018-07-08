@@ -2,6 +2,7 @@
 using Assets._Scripts.Characters.Conditions;
 using Assets._Scripts.Conditions;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 {
@@ -32,5 +33,9 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
             new Slow(durationTime: 5, slowStrength: 15f),
             new Bleeding(damagePerTick: 10f, conditionIterations: 3, conditionIntervalTime: 1f),
         };
+
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

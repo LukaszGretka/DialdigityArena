@@ -2,6 +2,7 @@
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Characters.Conditions;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 {
@@ -28,5 +29,9 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
         public bool OnCooldown { get;  set; } = default(bool);
 
         public List<ICondition> Conditions { get; } = new List<ICondition>(){};
+
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

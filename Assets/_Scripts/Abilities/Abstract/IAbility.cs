@@ -1,10 +1,11 @@
 ﻿
+using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using System.Collections.Generic;
 
 namespace Assets._Scripts.Abilities
 {
-    public interface IAbility
+    public interface IAbility : IAbilityGameEffect
     {
         string Name { get; }
 

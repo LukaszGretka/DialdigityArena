@@ -25,7 +25,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         /// <summary> Implementation of first warrior ability - Swipe | Multitarget ability | </summary>
         public void FirstDefaultAbilityImplementation()
         {
-            List<TargetDetectionResult> abilityResultList = warriorClass.DetectTargetsInArea(warriorClass.GetFirstDefaultAbility());
+            List<TargetDetectionResult> abilityResultList = MeleeAbilityLogic.MeleeAttackInArea(warriorClass, warriorClass.GetFirstDefaultAbility());
 
             foreach (TargetDetectionResult result in abilityResultList) //hits multiple targets
             {
@@ -35,7 +35,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         /// <summary> Implementation of first special warrior ability - Brutal Strike | Single target ability | </summary>
         public void FirstSpecialAbilityImplementation()
         {
-            TargetDetectionResult targetDetectionResult = warriorClass.DetectSingleTarget(warriorClass.GetFirstSpecialAbility());
+            TargetDetectionResult targetDetectionResult = MeleeAbilityLogic.MeleeAttackAtSingleTarget(warriorClass, warriorClass.GetFirstSpecialAbility());
 
             if (targetDetectionResult.TargetHitOnCast != null)
             {
@@ -59,7 +59,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         /// <summary> Implementation of third special warrior ability - Bash | Single target ability | </summary>
         public void ThirdSpecialAbilityImplementation()
         {
-            TargetDetectionResult targetDetectionResult = warriorClass.DetectSingleTarget(warriorClass.GetThirdSpecialAbility());
+            TargetDetectionResult targetDetectionResult = MeleeAbilityLogic.MeleeAttackAtSingleTarget(warriorClass, warriorClass.GetThirdSpecialAbility());
 
             if (targetDetectionResult.TargetHitOnCast != null)
             {

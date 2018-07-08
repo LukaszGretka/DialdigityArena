@@ -2,6 +2,7 @@
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Conditions.Harmful;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 {
@@ -31,5 +32,9 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
         {
             new Poison(damagePerTick: 3f, conditionIterations: 5, conditionIntervalTime: 1f)
         };
+
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

@@ -2,6 +2,7 @@
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Conditions.Harmful;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 {
@@ -31,5 +32,9 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
         {
             new Evasion(durationTime: 10f, evasionValue: 70f)
         };
+
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

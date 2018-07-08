@@ -1,6 +1,7 @@
 ﻿
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 {
@@ -27,5 +28,9 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
         public bool OnCooldown { get; private set; } = default(bool);
 
         public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
+
+        public GameObject AbilityGameModel { get; private set; } = null;
+
+        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

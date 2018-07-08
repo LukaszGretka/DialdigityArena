@@ -15,6 +15,8 @@ namespace Assets._Scripts.Characters
     [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Mage : RangedCharacterClass, ICharacterClass
     {
+        private MageAbilitiesLogic mageAbilitiesLogic;
+
         private void Awake()
         {
             base.SetMaximumHealth(inspectorHealth);
@@ -28,16 +30,18 @@ namespace Assets._Scripts.Characters
 
             base.SetBasicStatistics();
 
-            base.SetFirstDefaultAbility(new IceArmor());
-            base.SetSecondDefaultAbility(new MagicMissile());
+            base.SetFirstDefaultAbility(new MagicMissile());
+            base.SetSecondDefaultAbility(new IceArmor());
             base.SetFirstSpecialAbility(new LightingLeap());
             base.SetSecondSpecialAbility(new MagneticWave());
             base.SetThirdSpecialAbility(new Meteor());
+
+            mageAbilitiesLogic = gameObject.AddComponent<MageAbilitiesLogic>();
         }
 
         public IAbilityImplementation GetAbilityImplementation()
         {
-            return new MageAbilitiesLogic();
+            return mageAbilitiesLogic;
         }
 
         public new void SetCurrentHealth(float changedHealth)
