@@ -54,6 +54,7 @@ namespace Assets._Scripts.Abilities.Performance
             if (PerformAbilityValidation(characterClass, ability).State == AbilityResultState.ReadyToCast)
             {
                 characterClass.SubstractMana(ability.ManaCost);
+                characterClass.SubstractStamina(ability.StaminaCost);
                 castAbilityCoroutine = CastAbilityCoroutine(ability, AbilityAction);
                 StartCoroutine(castAbilityCoroutine);
             }
