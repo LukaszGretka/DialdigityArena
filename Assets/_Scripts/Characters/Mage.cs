@@ -175,9 +175,9 @@ namespace Assets._Scripts.Characters
             base.RemoveLastConditionEffect();
         }
 
-        public new bool CheckIfContainsCondition(ICondition condition)
+        public new bool CheckIfContainsCondition<T>() where T : ICondition
         {
-            return base.CheckIfContainsCondition(condition);
+            return base.CheckIfContainsCondition<T>();
         }
     }
 }

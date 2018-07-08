@@ -45,19 +45,16 @@ namespace Assets._Scripts.Player
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 abilitiesManager.CastFirstSpecialAbility();
-                Debug.Log("Pressed Q");
             }
 
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 abilitiesManager.CastSecondSpecialAbility();
-                Debug.Log("Pressed E");
             }
 
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 abilitiesManager.CastThirdSpecialAbility();
-                Debug.Log("Pressed Space");
             }
         }
     }

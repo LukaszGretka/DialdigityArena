@@ -1,6 +1,7 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.OutputMessages;
+using Assets._Scripts.Player;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace Assets._Scripts.Abilities.Performance
     internal class AbilitiesPerformanceManager: MonoBehaviour, IAbilityPerformance 
     {
         private ICharacterClass characterClass;
-
         private static IEnumerator castAbilityCoroutine;
 
         private void Awake()
@@ -77,12 +77,12 @@ namespace Assets._Scripts.Abilities.Performance
         {
             AbilityCastResult abilityCastResult = BuildAbilityCastResult(PlayerOutputMessages.AbilityCastSuccessful, ability, AbilityResultState.ReadyToCast);
 
-            if (characterClass.GetCurrentMana() <= ability.ManaCost)
+            if (characterClass.CheckIfEnoughMana(ability))
             {
                 abilityCastResult = BuildAbilityCastResult(PlayerOutputMessages.NotEnoughMana, ability, AbilityResultState.NotEnoughMana);
             }
 
-            if (characterClass.GetCurrentStamina() <= ability.StaminaCost)
+            if (characterClass.CheckIfEnoughStamina(ability))
             {
                 abilityCastResult = BuildAbilityCastResult(PlayerOutputMessages.NotEnoughStamina, ability, AbilityResultState.NotEnoughStamina);
             }

@@ -50,16 +50,11 @@ namespace Assets._Scripts.Conditions
 
         private IEnumerator ApplyConditionEffect(ICharacterClass characterClass, IConditionConstant condition, Action<ICharacterClass, ICondition> conditionActionStart, Action<ICharacterClass,ICondition> conditionActionEnd)
         {
+
             characterClass.ApplyConditionEffect(condition);
             conditionActionStart.Invoke(characterClass, condition);
 
             yield return new WaitForSeconds(condition.DurationTime);
-
-            //TODO check if it work with dispel
-            if (characterClass.CheckIfContainsCondition(condition) == false)
-            {         
-                yield break;
-            }
 
             conditionActionEnd.Invoke(characterClass, condition);
             characterClass.RemoveConditionEffect(condition);

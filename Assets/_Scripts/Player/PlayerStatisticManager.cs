@@ -1,5 +1,6 @@
 ﻿using Assets._Scripts.Abilities;
 using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Conditions;
 using UnityEngine;
 
 namespace Assets._Scripts.Player
@@ -18,6 +19,11 @@ namespace Assets._Scripts.Player
 
         public static void TakeDamage(this ICharacterClass characterClass, float damage)
         {
+            if (characterClass.CheckIfContainsCondition<DamageReduction>())
+            {
+                Debug.Log("Hitting player on Damage reduction");
+            }
+
             characterClass.SetCurrentHealth(characterClass.GetCurrentHealth() - damage);
             OnHealthValueChange.Invoke();
 
@@ -75,7 +81,7 @@ namespace Assets._Scripts.Player
 
         public static bool CheckIfEnoughMana(this ICharacterClass characterClass, IAbility ability)
         {
-            return characterClass.GetCurrentMana() < ability.ManaCost;
+            return characterClass.GetCurrentMana() <= ability.ManaCost;
         }
 
         public static void SubstractMana(this ICharacterClass characterClass, float manaPointsToSubstract)

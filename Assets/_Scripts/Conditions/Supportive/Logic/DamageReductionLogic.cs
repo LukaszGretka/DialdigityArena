@@ -15,7 +15,6 @@ namespace Assets._Scripts.Conditions.Supportive.Logic
             return (characterClass, condition) =>
             {
                 DamageReduction damageReduction = condition as DamageReduction;
-                throw new NotImplementedException();
             };
         }
     }

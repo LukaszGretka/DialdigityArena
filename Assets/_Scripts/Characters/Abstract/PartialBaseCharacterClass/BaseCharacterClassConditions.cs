@@ -46,13 +46,13 @@ namespace Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass
             }
         }
 
-        protected bool CheckIfContainsCondition(ICondition condition)
+        protected bool CheckIfContainsCondition<T>() where T: ICondition
         {
             bool conditionCheckStatus = default(bool);
 
             foreach (PlayerConditionState state in PlayerConditionState)
             {
-                if (state.ActiveCondition == condition)
+                if (state.ActiveCondition.GetType() == typeof(T))
                 {
                     conditionCheckStatus = true;
                 }

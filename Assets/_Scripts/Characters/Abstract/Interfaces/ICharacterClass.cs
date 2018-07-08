@@ -31,7 +31,7 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
         void ApplyConditionEffect(ICondition condition);
         void RemoveConditionEffect(ICondition condition);
         void RemoveLastConditionEffect();
-        bool CheckIfContainsCondition(ICondition condition);
+        bool CheckIfContainsCondition<T>() where T : ICondition;
 
         float GetHealthRegeneration();
         float GetManaRegeneration();
