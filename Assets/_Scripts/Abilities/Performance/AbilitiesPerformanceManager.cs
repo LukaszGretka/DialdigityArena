@@ -53,6 +53,7 @@ namespace Assets._Scripts.Abilities.Performance
             //TODO this method (or coroutine) should implement response for situation such as interupt, canceled by user etc.
             if (PerformAbilityValidation(characterClass, ability).State == AbilityResultState.ReadyToCast)
             {
+                characterClass.SubstractMana(ability.ManaCost);
                 castAbilityCoroutine = CastAbilityCoroutine(ability, AbilityAction);
                 StartCoroutine(castAbilityCoroutine);
             }

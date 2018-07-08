@@ -30,7 +30,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
             foreach (TargetDetectionResult result in abilityResultList) //hits multiple targets
             {
                 result.TargetHitOnCast.TakeDamage(result.DealedDamage);
-            }
+            }           
         }
         /// <summary> Implementation of first special warrior ability - Brutal Strike | Single target ability | </summary>
         public void FirstSpecialAbilityImplementation()
@@ -40,8 +40,8 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
             if (targetDetectionResult.TargetHitOnCast != null)
             {
                 targetDetectionResult.TargetHitOnCast.TakeDamage(targetDetectionResult.DealedDamage);
-                conditionManager.AddConditionsToTarget(targetDetectionResult.TargetHitOnCast, targetDetectionResult.HitWithAbility.Conditions);
-            }
+                conditionManager.AddConditionsToTarget(targetDetectionResult.TargetHitOnCast, targetDetectionResult.HitWithAbility.Conditions);               
+            }           
         }
 
         /// <summary> Implementation of second default warrior ability - Block | Self Cast | </summary>
