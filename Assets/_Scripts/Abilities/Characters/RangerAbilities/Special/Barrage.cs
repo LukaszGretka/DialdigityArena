@@ -28,9 +28,5 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
         public bool OnCooldown { get; } = default(bool);
 
         public List<ICondition> Conditions { get; } = new List<ICondition>();
-
-        public GameObject AbilityGameModel { get; private set; } = null;
-
-        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

@@ -27,9 +27,5 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities
         public bool OnCooldown { get; set; } = default(bool);
 
         public List<ICondition> Conditions { get; } = new List<ICondition>();
-
-        public GameObject AbilityGameModel { get; private set; } = null;
-
-        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

@@ -31,9 +31,5 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
         {
             new Slow(durationTime: 2f, slowStrength: 40f)
         };
-
-        public GameObject AbilityGameModel { get; private set; } = null;
-
-        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

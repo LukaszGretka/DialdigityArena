@@ -1,11 +1,12 @@
 ﻿
+using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.MageAbilities
 {
-    internal class MagicMissile : IAbility
+    internal class MagicMissile : IAbilityWithGameEffect
     {
         public string Name { get; private set; } = "Magic Missile";
 

@@ -29,9 +29,5 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
         public bool OnCooldown { get; private set; } = default(bool);
 
         public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
-
-        public GameObject AbilityGameModel { get; private set; } = null;
-
-        public ParticleSystem AttachedParticle { get; private set; } = null;
     }
 }

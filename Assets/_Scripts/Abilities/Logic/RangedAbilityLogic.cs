@@ -1,4 +1,5 @@
-﻿using Assets._Scripts.Abilities.Logic.Results;
+﻿using Assets._Scripts.Abilities.Abstract;
+using Assets._Scripts.Abilities.Logic.Results;
 using Assets._Scripts.Characters.Abstract;
 using Assets._Scripts.OutputMessages;
 using System;
@@ -9,7 +10,7 @@ namespace Assets._Scripts.Abilities.Logic
 {
     internal class RangedAbilityLogic : MonoBehaviour
     {
-        internal static TargetDetectionResult CastSingleAbilityForward(RangedCharacterClass rangedClass, IAbility ability)
+        internal static TargetDetectionResult CastSingleAbilityForward(RangedCharacterClass rangedClass, IAbilityWithGameEffect ability)
         {
             TargetDetectionResult targetDetectionResult = new TargetDetectionResult();
 

@@ -24,7 +24,7 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
 
         public void FirstDefaultAbilityImplementation()
         {
-            TargetDetectionResult targetDetectionResult = RangedAbilityLogic.CastSingleAbilityForward(mageClass, mageClass.GetFirstDefaultAbility());
+            TargetDetectionResult targetDetectionResult = RangedAbilityLogic.CastSingleAbilityForward(mageClass, mageClass.GetFirstDefaultAbility() as IAbilityWithGameEffect);
 
             if (targetDetectionResult.TargetHitOnCast != null)
             {

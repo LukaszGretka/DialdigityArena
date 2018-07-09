@@ -10,7 +10,7 @@ public class DebugWindowManager : MonoBehaviour
     private ICharacterClass selectedCharacterClass;
 
     [SerializeField] private Text selectedTargetText;
-    [SerializeField] private Button addHealthButton;
+    [SerializeField] private GameObject ConditionPanelObject;
 
 
     void Start ()
