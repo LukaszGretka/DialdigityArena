@@ -1,5 +1,9 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Characters.Conditions;
+using Assets._Scripts.Conditions;
+using Assets._Scripts.Conditions.Harmful;
 using Assets._Scripts.Player;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +14,12 @@ public class DebugWindowManager : MonoBehaviour
     private ICharacterClass selectedCharacterClass;
 
     [SerializeField] private Text selectedTargetText;
-    [SerializeField] private GameObject ConditionPanelObject;
+    public GameObject ConditionPanelObject;
+    public InputField bleedingDamageValue;
+    public InputField poisonDamageValue;
+    public InputField movementSlowValue;
+    public InputField stunValue;
 
-
-    void Start ()
-    {
-
-	}
-	
 	void Update ()
     {
         if (Input.GetMouseButtonDown(0))
@@ -74,17 +76,48 @@ public class DebugWindowManager : MonoBehaviour
         }
         else ConditionPanelObject.SetActive(true);
     }
-    #region
+    #region Condition Buttons
 
     public void BleedingButton_OnClick()
     {
-       
+        int durationTime = Int32.Parse(bleedingDamageValue.text);
 
+        ConditionManager conditionManager = gameObject.AddComponent<ConditionManager>();
+        Bleeding bleeding = new Bleeding(5f,durationTime,1,1);
+        List <ICondition> conditions = new List<ICondition>();
+        conditions.Add(bleeding);
+        conditionManager.AddConditionsToTarget(selectedCharacterClass, conditions);
     }
 
-    public void GetInputValue(string test)
-    {
+    public void PoisonButton_OnClick()
+    {    
+        int durationTime = Int32.Parse(poisonDamageValue.text);
+        ConditionManager conditionManager = gameObject.AddComponent<ConditionManager>();
+        Poison poison = new Poison(5f, durationTime, 1, 1);
+        List<ICondition> conditions = new List<ICondition>();
+        conditions.Add(poison);
+        conditionManager.AddConditionsToTarget(selectedCharacterClass, conditions);
+    }
 
+    public void SlowButton_OnClick()
+    {
+        int durationTime = Int32.Parse(movementSlowValue.text);
+
+        ConditionManager conditionManager = gameObject.AddComponent<ConditionManager>();
+        Slow slow = new Slow(durationTime,20);
+        List<ICondition> conditions = new List<ICondition>();
+        conditions.Add(slow);
+        conditionManager.AddConditionsToTarget(selectedCharacterClass, conditions);
+        Debug.LogError("Something wrong with logic");
+        //TODO FIX LOGIC
+    }
+
+
+    public void StunButton_OnClick()
+    {
+        int durationTime = Int32.Parse(movementSlowValue.text);
+        throw new NotImplementedException();
+        //TODO Methods for stun condition are not implemented.
     }
 
     #endregion
