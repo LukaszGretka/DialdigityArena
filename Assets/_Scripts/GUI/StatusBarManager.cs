@@ -65,4 +65,9 @@ public class StatusBarManager : MonoBehaviour
         manaBarFillImage.fillAmount = fullFillAmount;
         staminaBarFillImage.fillAmount = fullFillAmount;
     }
+
+    private void SetDefaultValuesForInputs()
+    {
+
+    }
 }

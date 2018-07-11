@@ -78,46 +78,32 @@ public class DebugWindowManager : MonoBehaviour
     }
     #region Condition Buttons
 
-    public void BleedingButton_OnClick()
+    private void AddConditionToPlayerByDebuger(ICondition condition)
     {
-        int durationTime = Int32.Parse(bleedingDamageValue.text);
-
         ConditionManager conditionManager = gameObject.AddComponent<ConditionManager>();
-        Bleeding bleeding = new Bleeding(5f,durationTime,1,1);
-        List <ICondition> conditions = new List<ICondition>();
-        conditions.Add(bleeding);
+        List<ICondition> conditions = new List<ICondition>();
+        conditions.Add(condition);
         conditionManager.AddConditionsToTarget(selectedCharacterClass, conditions);
     }
 
+    public void BleedingButton_OnClick()
+    {
+        AddConditionToPlayerByDebuger(new Bleeding(5f, Int32.Parse(bleedingDamageValue.text), 1, 1));
+    }
+
     public void PoisonButton_OnClick()
-    {    
-        int durationTime = Int32.Parse(poisonDamageValue.text);
-        ConditionManager conditionManager = gameObject.AddComponent<ConditionManager>();
-        Poison poison = new Poison(5f, durationTime, 1, 1);
-        List<ICondition> conditions = new List<ICondition>();
-        conditions.Add(poison);
-        conditionManager.AddConditionsToTarget(selectedCharacterClass, conditions);
+    {
+        AddConditionToPlayerByDebuger(new Poison(5f, Int32.Parse(poisonDamageValue.text), 1, 1));
     }
 
     public void SlowButton_OnClick()
     {
-        int durationTime = Int32.Parse(movementSlowValue.text);
-
-        ConditionManager conditionManager = gameObject.AddComponent<ConditionManager>();
-        Slow slow = new Slow(durationTime,20);
-        List<ICondition> conditions = new List<ICondition>();
-        conditions.Add(slow);
-        conditionManager.AddConditionsToTarget(selectedCharacterClass, conditions);
-        Debug.LogError("Something wrong with logic");
-        //TODO FIX LOGIC
+        AddConditionToPlayerByDebuger(new Slow(Int32.Parse(movementSlowValue.text), 20));
     }
-
 
     public void StunButton_OnClick()
     {
-        int durationTime = Int32.Parse(movementSlowValue.text);
-        throw new NotImplementedException();
-        //TODO Methods for stun condition are not implemented.
+        AddConditionToPlayerByDebuger(new Stun(Int32.Parse(stunValue.text)));
     }
 
     #endregion
