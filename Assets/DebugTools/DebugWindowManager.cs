@@ -7,10 +7,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DebugWindowManager : MonoBehaviour
-{
+{ 
     private ICharacterClass selectedCharacterClass;
 
     [SerializeField] private Text selectedTargetText;
@@ -20,7 +21,7 @@ public class DebugWindowManager : MonoBehaviour
     public InputField movementSlowValue;
     public InputField stunValue;
 
-	void Update ()
+	private void Update ()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -39,10 +40,6 @@ public class DebugWindowManager : MonoBehaviour
             {
                 selectedTargetText.text = rayHit.collider.name;
                 selectedCharacterClass = rayHit.collider.GetComponent<ICharacterClass>();
-            }
-            else
-            {
-
             }
         }
     }
@@ -80,10 +77,7 @@ public class DebugWindowManager : MonoBehaviour
 
     private void AddConditionToPlayerByDebuger(ICondition condition)
     {
-        ConditionManager conditionManager = gameObject.AddComponent<ConditionManager>();
-        List<ICondition> conditions = new List<ICondition>();
-        conditions.Add(condition);
-        conditionManager.AddConditionsToTarget(selectedCharacterClass, conditions);
+        gameObject.AddComponent<ConditionManager>().AddConditionsToTarget(selectedCharacterClass, new List<ICondition>() { condition });
     }
 
     public void BleedingButton_OnClick()

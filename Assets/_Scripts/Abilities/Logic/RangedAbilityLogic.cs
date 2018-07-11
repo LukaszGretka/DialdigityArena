@@ -22,7 +22,11 @@ namespace Assets._Scripts.Abilities.Logic
 
                 if (spellCastingSpotTransform != null)
                 {
-                    Instantiate(ability.AbilityGameModel, spellCastingSpotTransform.position, Quaternion.identity);
+                    var instantiatedObject = Instantiate(ability.AbilityGameModel, 
+                                spellCastingSpotTransform.position, 
+                                Quaternion.Euler(rangedClass.transform.eulerAngles.x, rangedClass.transform.eulerAngles.y, 0f));
+
+                    instantiatedObject.GetComponent<Rigidbody>().AddForce(rangedClass.transform.forward * 20f, ForceMode.Impulse);
                 }
                 else
                 {
