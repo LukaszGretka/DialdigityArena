@@ -4,14 +4,14 @@ using System;
 
 namespace Assets._Scripts.Conditions.Harmful.Logic
 {
-    internal class SlowLogic : IConditionImplementationConstant
+    internal class ImmobilizeLogic : IConditionImplementationConstant
     {
         public Action<ICharacterClass, ICondition> GetConditionImplementationApply()
         {
             return (characterClass, condition) =>
             {
-                Slow slow = condition as Slow;
-                characterClass.SetCurrentMovementSpeed(characterClass.GetCurrentMovementSpeed() - slow.SlowStrength);
+                Immobilize immobilize = condition as Immobilize;
+                characterClass.SetCurrentMovementSpeed(0f);
             };
         }
 
@@ -19,7 +19,7 @@ namespace Assets._Scripts.Conditions.Harmful.Logic
         {
             return (characterClass, condition) =>
             {
-                Slow slow = condition as Slow;
+                Immobilize immobilize = condition as Immobilize;
                 characterClass.SetCurrentMovementSpeed(characterClass.GetBaseMovementSpeed());
             };
         }

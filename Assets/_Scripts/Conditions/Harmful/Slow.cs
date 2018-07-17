@@ -1,5 +1,4 @@
-﻿using Assets._Scripts.Characters.Abstract.Interfaces;
-using Assets._Scripts.Conditions.Abstract;
+﻿using Assets._Scripts.Conditions.Abstract;
 using Assets._Scripts.Conditions.Enum;
 using Assets._Scripts.Conditions.Harmful.Logic;
 

@@ -2,16 +2,15 @@
 using Assets._Scripts.Characters.Conditions;
 using Assets._Scripts.Conditions;
 using Assets._Scripts.Conditions.Harmful;
+using Assets._Scripts.OutputMessages;
 using Assets._Scripts.Player;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DebugWindowManager : MonoBehaviour
-{ 
+{
     private ICharacterClass selectedCharacterClass;
 
     [SerializeField] private Text selectedTargetText;
@@ -20,8 +19,11 @@ public class DebugWindowManager : MonoBehaviour
     public InputField poisonDamageValue;
     public InputField movementSlowValue;
     public InputField stunValue;
+    public InputField immobilizeValue;
+    private int parsedConditionValue;
+    private bool conditionValue;
 
-	private void Update ()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,7 +70,6 @@ public class DebugWindowManager : MonoBehaviour
     {
         if (ConditionPanelObject.activeInHierarchy)
         {
-
             ConditionPanelObject.SetActive(false);
         }
         else ConditionPanelObject.SetActive(true);
@@ -82,22 +83,44 @@ public class DebugWindowManager : MonoBehaviour
 
     public void BleedingButton_OnClick()
     {
-        AddConditionToPlayerByDebuger(new Bleeding(5f, Int32.Parse(bleedingDamageValue.text), 1, 1));
+        conditionValue = Int32.TryParse(bleedingDamageValue.text, out parsedConditionValue);
+        if (parsedConditionValue != 0)
+            AddConditionToPlayerByDebuger(new Bleeding(5f, Int32.Parse(bleedingDamageValue.text), 1, 1));
+        else
+            Debug.Log(ErrorMessages.InvalidBleedingValue);
     }
 
     public void PoisonButton_OnClick()
     {
-        AddConditionToPlayerByDebuger(new Poison(5f, Int32.Parse(poisonDamageValue.text), 1, 1));
+       conditionValue = Int32.TryParse(poisonDamageValue.text, out parsedConditionValue);
+        if (parsedConditionValue != 0)
+            AddConditionToPlayerByDebuger(new Poison(5f, Int32.Parse(poisonDamageValue.text), 1, 1));
+        else
+            Debug.Log(ErrorMessages.InvalidPoisonValue);
     }
 
     public void SlowButton_OnClick()
     {
-        AddConditionToPlayerByDebuger(new Slow(Int32.Parse(movementSlowValue.text), 20));
+       conditionValue = Int32.TryParse(movementSlowValue.text, out parsedConditionValue);
+        if (parsedConditionValue != 0)
+            AddConditionToPlayerByDebuger(new Slow(Int32.Parse(movementSlowValue.text), 5));
+        else
+            Debug.Log(ErrorMessages.InvalidSlowValue);
     }
 
     public void StunButton_OnClick()
     {
         AddConditionToPlayerByDebuger(new Stun(Int32.Parse(stunValue.text)));
+        //TODO Methods for stuns are not implemented
+    }
+
+    public void ImmobilizeButton_OnClick()
+    {
+        conditionValue = Int32.TryParse(immobilizeValue.text, out parsedConditionValue);
+        if (parsedConditionValue != 0)
+            AddConditionToPlayerByDebuger(new Immobilize(Int32.Parse(immobilizeValue.text)));
+        else
+            Debug.Log(ErrorMessages.InvalidImmobilizeValue);
     }
 
     #endregion
