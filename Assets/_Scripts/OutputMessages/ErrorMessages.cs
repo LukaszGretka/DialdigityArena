@@ -55,6 +55,12 @@ namespace Assets._Scripts.OutputMessages
         public const string InvalidConditionEffect = "Invalid Condition Effect";
         public const string NoConditionToRemove = "There is no condition to remove";
 
+        public const string InvalidBleedingValue = "Invalid Bleeding Time Value";
+        public const string InvalidPoisonValue = "Invalid Poison Time Value";
+        public const string InvalidSlowValue = "Invalid Slow Time Value";
+        public const string InvalidStunValue = "Invalid Stun Time Value";
+        public const string InvalidImmobilizeValue = "Invalid Immobilize Time Value";
+
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Assets._Scripts.Abilities.Abstract;
 using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.GUI;
 using Assets._Scripts.OutputMessages;
 using Assets._Scripts.Player;
 using System;
@@ -12,10 +13,14 @@ namespace Assets._Scripts.Abilities.Performance
     {
         private ICharacterClass characterClass;
         private static IEnumerator castAbilityCoroutine;
+        private static ErrorMessageWindow errorMessageWindow;
+
 
         private void Awake()
         {
             characterClass = GetComponent<ICharacterClass>();
+            errorMessageWindow = GameObject.FindGameObjectWithTag("GUI").GetComponentInChildren<ErrorMessageWindow>();
+
         }
 
         public void CastFirstDefaultAbility()
@@ -91,9 +96,13 @@ namespace Assets._Scripts.Abilities.Performance
 
             if (ability.OnCooldown)
             {
-                abilityCastResult =  BuildAbilityCastResult(PlayerOutputMessages.AbilityOnCooldown, ability, AbilityResultState.OnCooldown);
+                abilityCastResult = BuildAbilityCastResult(PlayerOutputMessages.AbilityOnCooldown, ability, AbilityResultState.OnCooldown);
             }
 
+            if (abilityCastResult.State != AbilityResultState.ReadyToCast)
+            {
+                errorMessageWindow.DisplayTextOnScreen(abilityCastResult.Message);
+            }
             return abilityCastResult;
         }
 
