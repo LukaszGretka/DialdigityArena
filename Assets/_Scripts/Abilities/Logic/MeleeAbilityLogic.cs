@@ -11,7 +11,7 @@ namespace Assets._Scripts.Abilities.Logic
     internal class MeleeAbilityLogic : MonoBehaviour
     {
         /// <summary> Detects and attack one nearest game objects tagged as "Target" on ability's range value area (include skill hit angle). </summary>
-        internal static TargetDetectionResult MeleeAttackAtSingleTarget(MeleeCharacterClass meleeClass, IAbility ability)
+        internal TargetDetectionResult MeleeAttackAtSingleTarget(MeleeCharacterClass meleeClass, IAbility ability)
         {
             List<TargetDetectionResult> result = MeleeAttackInArea(meleeClass, ability);
             result.OrderByDescending(x => x.HitDistance);
@@ -20,7 +20,7 @@ namespace Assets._Scripts.Abilities.Logic
         }
 
         /// <summary> Detects all game objects tagged as "Target" on ability's range value area (include skill hit angle). </summary>
-        internal static List<TargetDetectionResult> MeleeAttackInArea(MeleeCharacterClass meleeClass, IAbility ability)
+        internal List<TargetDetectionResult> MeleeAttackInArea(MeleeCharacterClass meleeClass, IAbility ability)
         {
             List<TargetDetectionResult> AbilityLogicResultList = new List<TargetDetectionResult>();
 

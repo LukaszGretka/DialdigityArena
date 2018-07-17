@@ -5,6 +5,7 @@ using Assets._Scripts.Player;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets._Scripts.Abilities.Performance
 {
@@ -21,31 +22,31 @@ namespace Assets._Scripts.Abilities.Performance
         public void CastFirstDefaultAbility()
         {
             StartCastingAbility(characterClass.GetFirstDefaultAbility(), 
-                () => { characterClass.GetAbilityImplementation().FirstDefaultAbilityImplementation(); });
+                () => { StartCoroutine(characterClass.GetAbilityImplementation().FirstDefaultAbilityImplementation()); });
         }
 
         public void CastSecondDefaultAbility()
         {
             StartCastingAbility(characterClass.GetSecondDefaultAbility(), 
-                () => { characterClass.GetAbilityImplementation().SecondDefaultAbilityImplementation(); });
+                () => { StartCoroutine(characterClass.GetAbilityImplementation().SecondDefaultAbilityImplementation()); });
         }
 
         public void CastFirstSpecialAbility()
         {
             StartCastingAbility(characterClass.GetFirstSpecialAbility(), 
-                () => { characterClass.GetAbilityImplementation().FirstSpecialAbilityImplementation(); });
+                () => { StartCoroutine(characterClass.GetAbilityImplementation().FirstSpecialAbilityImplementation()); });
         }
 
         public void CastSecondSpecialAbility()
         {
             StartCastingAbility(characterClass.GetSecondSpecialAbility(), 
-                () => { characterClass.GetAbilityImplementation().SecondSpecialAbilityImplementation(); });
+                () => { StartCoroutine(characterClass.GetAbilityImplementation().SecondSpecialAbilityImplementation()); });
         }
 
         public void CastThirdSpecialAbility()
         {
             StartCastingAbility(characterClass.GetThirdSpecialAbility(), 
-                () => { characterClass.GetAbilityImplementation().ThirdSpecialAbilityImplementation(); });
+                () => { StartCoroutine(characterClass.GetAbilityImplementation().ThirdSpecialAbilityImplementation()); });
         }
 
         private void StartCastingAbility(IAbility ability, Action AbilityAction)
@@ -87,6 +88,7 @@ namespace Assets._Scripts.Abilities.Performance
             if (characterClass.CheckIfEnoughStamina(ability))
             {
                 abilityCastResult = BuildAbilityCastResult(PlayerOutputMessages.NotEnoughStamina, ability, AbilityResultState.NotEnoughStamina);
+
             }
 
             if (ability.OnCooldown)

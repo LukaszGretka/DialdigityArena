@@ -1,4 +1,5 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
+using Assets._Scripts.Characters.Abstract.PartialBaseCharacterClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,16 @@ using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Logic
 {
-    internal static class SpecialMovementAbilityLogic
+    internal class SpecialMovementAbilityLogic : MonoBehaviour
     {
-        private static LayerMask abilityMovementMask = LayerMask.GetMask("Ground");
+        private LayerMask abilityMovementMask;
 
-        internal static void TranslatePossitionOnClick(this ICharacterClass characterClass, IAbility ability)
+        private void Awake()
+        {
+            abilityMovementMask = LayerMask.GetMask("Ground");
+        }
+
+        internal void TranslatePossitionOnClick(ICharacterClass characterClass, IAbility ability)
         {
             Ray rayFromCam = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit rayHit;

@@ -1,16 +1,16 @@
 ﻿using Assets._Scripts.Abilities.Logic;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 
 namespace Assets._Scripts.Abilities.Abstract
 {
     public interface IAbilityImplementation
     {
-        void FirstDefaultAbilityImplementation();
-        void SecondDefaultAbilityImplementation();
+        IEnumerator FirstDefaultAbilityImplementation();
+        IEnumerator SecondDefaultAbilityImplementation();
 
-        void FirstSpecialAbilityImplementation();
-        void SecondSpecialAbilityImplementation();
-        void ThirdSpecialAbilityImplementation();
+        IEnumerator FirstSpecialAbilityImplementation();
+        IEnumerator SecondSpecialAbilityImplementation();
+        IEnumerator ThirdSpecialAbilityImplementation();
     }
 }
