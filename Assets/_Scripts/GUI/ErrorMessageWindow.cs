@@ -8,6 +8,7 @@ namespace Assets._Scripts.GUI
     public class ErrorMessageWindow : MonoBehaviour
     {
         private static Text errorMessageText;
+        private bool allowMakeCoroutine = true;
 
         private void Awake()
         {
@@ -22,8 +23,13 @@ namespace Assets._Scripts.GUI
 
         public IEnumerator ClearErrorWindow()
         {
-            yield return new WaitForSecondsRealtime(3);
-            errorMessageText.text = "";
+            if (allowMakeCoroutine == true)
+            {
+                allowMakeCoroutine = false;
+                yield return new WaitForSecondsRealtime(3);
+                errorMessageText.text = "";
+                allowMakeCoroutine = true;
+            }
         }
     }
 }
