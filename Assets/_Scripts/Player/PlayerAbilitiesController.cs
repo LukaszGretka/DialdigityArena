@@ -11,18 +11,35 @@ namespace Assets._Scripts.Player
     internal class PlayerAbilitiesController : NetworkBehaviour
     {
         private IAbilityPerformance abilitiesManager;
+        private bool disablePlayerControl = false;
         private ICharacterClass characterClass;
 
         private void Awake()
         {
             characterClass = GetComponent<ICharacterClass>();
-            abilitiesManager = gameObject.AddComponent<AbilitiesPerformanceManager>();
+            abilitiesManager = GetComponent<AbilitiesPerformanceManager>();
+        }
+
+        private void Start()
+        {
+            PlayerStatisticManager.OnPlayerDeath += PlayerStatisticManager_OnPlayerDeath;
+        }
+
+        private void PlayerStatisticManager_OnPlayerDeath()
+        {
+            disablePlayerControl = true;
         }
 
         private void Update()
         {
-            KeyboardInputHandler();
-            GetMouseButtonClick();
+            if (isLocalPlayer)
+            {
+                if (disablePlayerControl == false)
+                {
+                    KeyboardInputHandler();
+                    GetMouseButtonClick();
+                }
+            }
         }
 
         private void GetMouseButtonClick()

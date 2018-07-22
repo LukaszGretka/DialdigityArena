@@ -26,13 +26,10 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Logic
 
         public IEnumerator FirstDefaultAbilityImplementation()
         {
-            rangedAbilityLogic.PerformCastForwardWithInstantiate(rangerClass, rangerClass.GetFirstDefaultAbility() as IAbilityWithGameEffect);
+            var abilityGameObjectInst = rangedAbilityLogic.PerformCastForwardWithInstantiate(rangerClass, rangerClass.GetFirstDefaultAbility() as IAbilityWithGameEffect);
 
-            yield return new WaitUntil(() => RangedAbilityObject.targetDetectionResult != null);
-
-            TargetDetectionResult result = RangedAbilityObject.GetHitColliderDetectionResult();
-            RangedAbilityObject.targetDetectionResult = null;
-
+            yield return new WaitUntil(() => abilityGameObjectInst.targetDetectionResult != null);
+            TargetDetectionResult result = abilityGameObjectInst.GetHitColliderDetectionResult();
             result.TargetHitOnCast.TakeDamage(result.HitWithAbility.BaseDamage);
         }
 

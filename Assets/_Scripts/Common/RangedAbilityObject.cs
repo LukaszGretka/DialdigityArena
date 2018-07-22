@@ -9,7 +9,10 @@ internal class RangedAbilityObject : MonoBehaviour
     private RangedCharacterClass castingCharacter;
     private IAbilityWithGameEffect castedAbility;
 
-    public static TargetDetectionResult targetDetectionResult;
+    public TargetDetectionResult targetDetectionResult;
+
+    //public delegate void ColliderHitHandler();
+   // public  event ColliderHitHandler OnColliderHit;
 
     public void AddParams(RangedCharacterClass rangedCharacterClass, IAbilityWithGameEffect ability)
     {
@@ -17,7 +20,7 @@ internal class RangedAbilityObject : MonoBehaviour
         castedAbility = ability;
     }
 
-    public static TargetDetectionResult GetHitColliderDetectionResult()
+    public TargetDetectionResult GetHitColliderDetectionResult()
     {
         return targetDetectionResult;
     }

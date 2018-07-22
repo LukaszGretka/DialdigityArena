@@ -13,7 +13,7 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 
         public float BaseDamage { get; private set; } = 6f;
 
-        public int ManaCost { get; private set; } = 2;
+        public int ManaCost { get; private set; } = 0;
 
         public int StaminaCost { get; private set; } = 0;
 

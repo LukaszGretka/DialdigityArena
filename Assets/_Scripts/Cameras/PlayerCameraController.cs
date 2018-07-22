@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerCameraController : MonoBehaviour
+public class PlayerCameraController : NetworkBehaviour
 {
     public float CameraSmoothness = 2f;
 
@@ -21,7 +22,10 @@ public class PlayerCameraController : MonoBehaviour
 
     private void Update ()
     {
-        mainCamera.transform.position = CalculateCameraPossition();
+        if (isLocalPlayer)
+        {
+            mainCamera.transform.position = CalculateCameraPossition();
+        }
     }
 
     private Vector3 CalculateCameraPossition(bool lerping = true)

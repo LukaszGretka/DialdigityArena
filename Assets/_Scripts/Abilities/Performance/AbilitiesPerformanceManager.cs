@@ -93,7 +93,6 @@ namespace Assets._Scripts.Abilities.Performance
             if (characterClass.CheckIfEnoughStamina(ability))
             {
                 abilityCastResult = BuildAbilityCastResult(PlayerOutputMessages.NotEnoughStamina, ability, AbilityResultState.NotEnoughStamina);
-
             }
 
             if (ability.OnCooldown)

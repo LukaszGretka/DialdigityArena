@@ -26,13 +26,10 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
         /// <summary> Implementation of first mage ability - MagicMissile | Single target ability | </summary>
         public IEnumerator FirstDefaultAbilityImplementation()
         {
-            rangedAbilityLogic.PerformCastForwardWithInstantiate(mageClass, mageClass.GetFirstDefaultAbility() as IAbilityWithGameEffect);
+            var abilityGameObjectInst = rangedAbilityLogic.PerformCastForwardWithInstantiate(mageClass, mageClass.GetFirstDefaultAbility() as IAbilityWithGameEffect);
 
-            yield return new WaitUntil(() => RangedAbilityObject.targetDetectionResult != null);
-
-            TargetDetectionResult result = RangedAbilityObject.GetHitColliderDetectionResult();
-            RangedAbilityObject.targetDetectionResult = null;
-
+            yield return new WaitUntil(() => abilityGameObjectInst.targetDetectionResult != null);
+            TargetDetectionResult result = abilityGameObjectInst.GetHitColliderDetectionResult();
             result.TargetHitOnCast.TakeDamage(result.HitWithAbility.BaseDamage);
         }
 

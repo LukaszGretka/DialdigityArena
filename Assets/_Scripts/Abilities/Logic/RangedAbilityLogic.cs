@@ -9,22 +9,21 @@ namespace Assets._Scripts.Abilities.Logic
 {
     internal class RangedAbilityLogic : MonoBehaviour
     {
-        public void PerformCastForwardWithInstantiate(RangedCharacterClass rangedClass, IAbilityWithGameEffect ability)
+        public RangedAbilityObject PerformCastForwardWithInstantiate(RangedCharacterClass rangedClass, IAbilityWithGameEffect ability)
         {
+            Transform spellCastingSpotTransform = rangedClass.GetComponentsInChildren<Transform>()
+                                                             .Where(x => x.name == "SpellCastingSpot")
+                                                             .SingleOrDefault();
+
+            GameObject instantiatedObject = Instantiate(ability.AbilityGameModel,
+                                                        spellCastingSpotTransform.position,
+                                                        Quaternion.Euler(rangedClass.transform.eulerAngles.x, rangedClass.transform.eulerAngles.y, 0f));
+
             if (ability.IsRanged)
             {
-                Transform spellCastingSpotTransform = rangedClass.GetComponentsInChildren<Transform>()
-                                                                 .Where(x => x.name == "SpellCastingSpot")
-                                                                 .SingleOrDefault();
-
                 if (spellCastingSpotTransform != null)
                 {
-                    var instantiatedObject = Instantiate(ability.AbilityGameModel,
-                                                         spellCastingSpotTransform.position,
-                                                         Quaternion.Euler(rangedClass.transform.eulerAngles.x, rangedClass.transform.eulerAngles.y, 0f));
-
                     instantiatedObject.GetComponent<Rigidbody>().AddForce(rangedClass.transform.forward * 20f, ForceMode.Impulse);
-
                     instantiatedObject.AddComponent<RangedAbilityObject>().AddParams(rangedClass, ability);
                 }
                 else
@@ -36,7 +35,10 @@ namespace Assets._Scripts.Abilities.Logic
             {
                 Debug.LogError(ErrorMessages.WrongTypeOfAbility);
             }
+
+            return instantiatedObject.GetComponent<RangedAbilityObject>();
         }
+
 
         internal void CastAreaAbilityAtCurrentPossition(RangedCharacterClass rangedClass, IAbility ability)
         {

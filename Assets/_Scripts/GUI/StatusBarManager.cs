@@ -1,6 +1,5 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Player;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +11,9 @@ public class StatusBarManager : MonoBehaviour
 
     private Canvas statusBarCanvas;
 
-    [SerializeField]private Image healthBarFillImage;
+    private Transform playerTransform;
+
+    [SerializeField] private Image healthBarFillImage;
     [SerializeField] private Image manaBarFillImage;
     [SerializeField] private Image staminaBarFillImage;
 
@@ -25,6 +26,7 @@ public class StatusBarManager : MonoBehaviour
     {
         characterClass = GetComponentInParent<ICharacterClass>();
         statusBarCanvas = GetComponent<Canvas>();
+        playerTransform = GetComponentInParent<Transform>();
     }
 
     private void Start ()
@@ -33,12 +35,11 @@ public class StatusBarManager : MonoBehaviour
         PlayerStatisticManager.OnHealthValueChange += PlayerStatisticManager_OnHealthValueChange;
         PlayerStatisticManager.OnManaValueChange += PlayerStatisticManager_OnManaValueChange;
         PlayerStatisticManager.OnStaminaValueChange += PlayerStatisticManager_OnStaminaValueChange; 
-        startingStatusbarRotation = statusBarCanvas.transform.rotation;
     }
 
     private void LateUpdate()
     {
-        statusBarCanvas.transform.rotation = startingStatusbarRotation;
+        statusBarCanvas.transform.rotation = Quaternion.Euler(new Vector3(90f, Mathf.Abs(playerTransform.rotation.y), 0f));       
     }
 
     private void PlayerStatisticManager_OnStaminaValueChange()
@@ -64,10 +65,5 @@ public class StatusBarManager : MonoBehaviour
         healthBarFillImage.fillAmount = fullFillAmount;
         manaBarFillImage.fillAmount = fullFillAmount;
         staminaBarFillImage.fillAmount = fullFillAmount;
-    }
-
-    private void SetDefaultValuesForInputs()
-    {
-
     }
 }

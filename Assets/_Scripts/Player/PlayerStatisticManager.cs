@@ -19,17 +19,20 @@ namespace Assets._Scripts.Player
 
         public static void TakeDamage(this ICharacterClass characterClass, float damage)
         {
-            if (characterClass.CheckIfContainsCondition<DamageReduction>())
+            if (characterClass.CheckIfDead() == false)
             {
-                Debug.Log("Hitting player on Damage reduction");
-            }
+                if (characterClass.CheckIfContainsCondition<DamageReduction>())
+                {
+                    Debug.Log("Hitting player on Damage reduction");
+                }
 
-            characterClass.SetCurrentHealth(characterClass.GetCurrentHealth() - damage);
-            OnHealthValueChange.Invoke();
+                characterClass.SetCurrentHealth(characterClass.GetCurrentHealth() - damage);
+                OnHealthValueChange.Invoke();
 
-            if (characterClass.CheckIfDead())
-            {
-                OnPlayerDeath.Invoke();
+                if (characterClass.CheckIfDead())
+                {
+                    OnPlayerDeath.Invoke();
+                }
             }
         }
 

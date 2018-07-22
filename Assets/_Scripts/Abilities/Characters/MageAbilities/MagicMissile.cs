@@ -30,7 +30,7 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
 
         public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
 
-        public GameObject AbilityGameModel { get; private set; } = Resources.Load("Abilities/MagicMissile", typeof(GameObject)) as GameObject;
+        public GameObject AbilityGameModel { get; private set; } = Resources.Load("Abilities/Mage/MagicMissile", typeof(GameObject)) as GameObject;
 
         public ParticleSystem AttachedParticle { get; private set; } = null;
     }
