@@ -42,6 +42,7 @@ namespace Assets._Scripts.Abilities.WarriorAbilities.Logic
         /// <summary> Implementation of first special warrior ability - Brutal Strike | Single target ability | </summary>
         public IEnumerator FirstSpecialAbilityImplementation()
         {
+
             TargetDetectionResult targetDetectionResult = meleeAbilityLogic.MeleeAttackAtSingleTarget(warriorClass, warriorClass.GetFirstSpecialAbility());
 
             if (targetDetectionResult.TargetHitOnCast != null)

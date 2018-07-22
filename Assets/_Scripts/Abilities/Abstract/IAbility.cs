@@ -15,7 +15,7 @@ namespace Assets._Scripts.Abilities
 
         float CooldownTime { get; }
 
-        bool OnCooldown { get; }
+        bool OnCooldown { get; set; }
 
         float Range { get; }
 

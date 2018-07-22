@@ -25,7 +25,7 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities.Special
 
         public float HitAngle { get; private set; } = 90f;
 
-        public bool OnCooldown { get; } = default(bool);
+        public bool OnCooldown { get; set; } = default(bool);
 
         public List<ICondition> Conditions { get; } = new List<ICondition>();
     }
