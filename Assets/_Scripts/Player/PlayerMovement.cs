@@ -22,16 +22,6 @@ internal class PlayerMovement : NetworkBehaviour
         groundLayerMask = LayerMask.GetMask("Ground");
     }
 
-    private void Start()
-    {
-        PlayerStatisticManager.OnPlayerDeath += PlayerStatisticManager_OnPlayerDeath;
-    }
-
-    private void PlayerStatisticManager_OnPlayerDeath()
-    {
-        disablePlayerMovement = true;
-    }
-
     private void FixedUpdate ()
     {
         if (isLocalPlayer && disablePlayerMovement == false)

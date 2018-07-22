@@ -13,7 +13,6 @@ namespace Assets._Scripts.Player
         public static event PlayerStatisticChange OnManaValueChange;
         public static event PlayerStatisticChange OnStaminaValueChange;
 
-        public static event PlayerStatisticChange OnPlayerDeath;
 
         #region Health methods
 
@@ -31,7 +30,7 @@ namespace Assets._Scripts.Player
 
                 if (characterClass.CheckIfDead())
                 {
-                    OnPlayerDeath.Invoke();
+
                 }
             }
         }

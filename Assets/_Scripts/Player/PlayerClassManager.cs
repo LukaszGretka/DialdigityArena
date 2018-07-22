@@ -19,13 +19,7 @@ namespace Assets._Scripts.Player
 
         private void Start()
         {
-           // PlayerStatisticManager.OnPlayerDeath += PlayerStatisticManager_OnPlayerDeath;
             CheckCharacterClassValidation();
-        }
-
-        private void PlayerStatisticManager_OnPlayerDeath()
-        {
-            DetachRequiredPlayerSCripts();
         }
 
         private void CheckCharacterClassValidation()
@@ -44,7 +38,7 @@ namespace Assets._Scripts.Player
             gameObject.AddComponent<AbilitiesPerformanceManager>();
         }
 
-        private void DetachRequiredPlayerSCripts()
+        private void DetachRequiredPlayerScripts()
         {
             Destroy(GetComponent<PlayerMovement>());
             Destroy(GetComponent<PlayerCameraController>());

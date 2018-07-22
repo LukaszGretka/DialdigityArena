@@ -17,12 +17,6 @@ namespace Assets._Scripts.Player
         {
             characterClass = GetComponent<ICharacterClass>();
             abilitiesManager = GetComponent<AbilitiesPerformanceManager>();
-            PlayerStatisticManager.OnPlayerDeath += PlayerStatisticManager_OnPlayerDeath;
-        }
-
-        private void PlayerStatisticManager_OnPlayerDeath()
-        {
-            disablePlayerAbilitiesControl = true;
         }
 
         private void Update()
