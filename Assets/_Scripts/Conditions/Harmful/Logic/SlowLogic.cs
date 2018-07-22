@@ -19,7 +19,6 @@ namespace Assets._Scripts.Conditions.Harmful.Logic
         {
             return (characterClass, condition) =>
             {
-                Slow slow = condition as Slow;
                 characterClass.SetCurrentMovementSpeed(characterClass.GetBaseMovementSpeed());
             };
         }

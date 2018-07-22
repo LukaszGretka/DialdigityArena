@@ -6,52 +6,44 @@ using UnityEngine.Networking;
 
 namespace Assets._Scripts.Player
 {
-    [RequireComponent(typeof(PlayerClassManager))]
     [RequireComponent(typeof(ICharacterClass))]
     internal class PlayerAbilitiesController : NetworkBehaviour
     {
         private IAbilityPerformance abilitiesManager;
-        private bool disablePlayerControl = false;
+        private bool disablePlayerAbilitiesControl = false;
         private ICharacterClass characterClass;
-
-        private void Awake()
-        {
-            characterClass = GetComponent<ICharacterClass>();
-            abilitiesManager = GetComponent<AbilitiesPerformanceManager>();
-        }
 
         private void Start()
         {
+            characterClass = GetComponent<ICharacterClass>();
+            abilitiesManager = GetComponent<AbilitiesPerformanceManager>();
             PlayerStatisticManager.OnPlayerDeath += PlayerStatisticManager_OnPlayerDeath;
         }
 
         private void PlayerStatisticManager_OnPlayerDeath()
         {
-            disablePlayerControl = true;
+            disablePlayerAbilitiesControl = true;
         }
 
         private void Update()
         {
-            if (isLocalPlayer)
+            if (disablePlayerAbilitiesControl == false && isLocalPlayer)
             {
-                if (disablePlayerControl == false)
-                {
-                    KeyboardInputHandler();
-                    GetMouseButtonClick();
-                }
+                KeyboardInputHandler();
+                GetMouseButtonClick();
             }
         }
 
         private void GetMouseButtonClick()
         {
             //check incoming input for left mouse button
-            if (Input.GetMouseButtonDown(0)) 
+            if (Input.GetMouseButtonDown(0))
             {
                 abilitiesManager.CastFirstDefaultAbility();
             }
 
             //check incoming input for right mouse button
-            if (Input.GetMouseButtonDown(1)) 
+            if (Input.GetMouseButtonDown(1))
             {
                 abilitiesManager.CastSecondDefaultAbility();
             }

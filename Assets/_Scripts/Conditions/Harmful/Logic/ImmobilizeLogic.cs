@@ -10,7 +10,6 @@ namespace Assets._Scripts.Conditions.Harmful.Logic
         {
             return (characterClass, condition) =>
             {
-                Immobilize immobilize = condition as Immobilize;
                 characterClass.SetCurrentMovementSpeed(0f);
             };
         }
@@ -19,7 +18,6 @@ namespace Assets._Scripts.Conditions.Harmful.Logic
         {
             return (characterClass, condition) =>
             {
-                Immobilize immobilize = condition as Immobilize;
                 characterClass.SetCurrentMovementSpeed(characterClass.GetBaseMovementSpeed());
             };
         }

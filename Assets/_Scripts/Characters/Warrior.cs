@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Assets._Scripts.Characters
 {
-    [RequireComponent(typeof(PlayerAbilitiesController))]
+    [RequireComponent(typeof(PlayerClassManager))]
     internal class Warrior : MeleeCharacterClass, ICharacterClass
     {
         private WarriorAbilitiesLogic warriorAbilitiesLogic;

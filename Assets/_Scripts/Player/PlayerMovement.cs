@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerAbilitiesController))]
-
 internal class PlayerMovement : NetworkBehaviour
 {
     protected float RotationSpeed = 0.1f; // TODO add rotation speed
@@ -14,6 +13,8 @@ internal class PlayerMovement : NetworkBehaviour
     private LayerMask groundLayerMask;
     private ICharacterClass characterClass;
 
+    private bool disablePlayerMovement = false;
+
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -21,17 +22,24 @@ internal class PlayerMovement : NetworkBehaviour
         groundLayerMask = LayerMask.GetMask("Ground");
     }
 
+    private void Start()
+    {
+        PlayerStatisticManager.OnPlayerDeath += PlayerStatisticManager_OnPlayerDeath;
+    }
+
+    private void PlayerStatisticManager_OnPlayerDeath()
+    {
+        disablePlayerMovement = true;
+    }
+
     private void FixedUpdate ()
     {
-        if (!isLocalPlayer)
+        if (isLocalPlayer && disablePlayerMovement == false)
         {
-            Debug.Log("Not local player");
-            return;
+            playerMovementVector = GetUserRawInputNormalized() * Time.deltaTime * characterClass.GetCurrentMovementSpeed();
+            playerRigidbody.MovePosition(this.transform.position + playerMovementVector);
+            playerRigidbody.MoveRotation(GetPlayerRotationByMousePoint());
         }
-
-        playerMovementVector = GetUserRawInputNormalized() * Time.deltaTime * characterClass.GetCurrentMovementSpeed();
-        playerRigidbody.MovePosition(this.transform.position + playerMovementVector);
-        playerRigidbody.MoveRotation(GetPlayerRotationByMousePoint());
     }
 
     private Vector3 GetUserRawInputNormalized()
