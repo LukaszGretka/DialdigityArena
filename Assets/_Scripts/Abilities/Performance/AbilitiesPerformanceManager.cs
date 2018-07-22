@@ -6,7 +6,6 @@ using Assets._Scripts.Player;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets._Scripts.Abilities.Performance
 {
@@ -71,7 +70,7 @@ namespace Assets._Scripts.Abilities.Performance
             //TODO check if ability was interupter
             yield return new WaitForSeconds(ability.CastingTime);
 
-            Debug.Log("End casting after " + ability.CastingTime + " sec. Executed ability: " + ability.Name);
+            StartCoroutine(SetSpellCooldown(ability));
             abilityCastAction.Invoke();
         }
 
@@ -116,6 +115,13 @@ namespace Assets._Scripts.Abilities.Performance
                 Message = message,
                 State = state,
             };
+        }
+
+        private IEnumerator SetSpellCooldown(IAbility ability)
+        {
+            ability.OnCooldown = true;
+            yield return new WaitForSecondsRealtime(ability.CooldownTime);
+            ability.OnCooldown = false;
         }
     }
 }

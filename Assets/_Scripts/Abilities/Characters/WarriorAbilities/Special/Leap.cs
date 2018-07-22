@@ -25,7 +25,7 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public float HitAngle { get; private set; } = default(float);
 
-        public bool OnCooldown { get; private set; } = default(bool);
+        public bool OnCooldown { get; set; } = default(bool);
 
         public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
     }

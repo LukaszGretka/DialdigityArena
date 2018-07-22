@@ -26,7 +26,7 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
 
         public float HitAngle { get; private set; } = 0f;
 
-        public bool OnCooldown { get; private set; } = default(bool);
+        public bool OnCooldown { get; set; } = default(bool);
 
         public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
     }
