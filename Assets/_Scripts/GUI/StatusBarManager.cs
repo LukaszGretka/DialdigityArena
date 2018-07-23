@@ -1,60 +1,82 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
-using Assets._Scripts.Player;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(ICharacterClass))]
+
+public enum StateValueChangeAction
+{
+    TakingDamage,
+    TakingHealing,
+    ChangeMana,
+    ChangeStamina
+}
+
 public class StatusBarManager : MonoBehaviour
 {
-    private ICharacterClass characterClass;
-
-    private Canvas statusBarCanvas;
-
-    private Transform playerTransform;
-
     [SerializeField] private Image healthBarFillImage;
     [SerializeField] private Image manaBarFillImage;
     [SerializeField] private Image staminaBarFillImage;
+    [SerializeField] private Text valueChangeText;
 
-    [SerializeField]
-    private List<Image> conditionStatusImagesList;
-
-    private Quaternion startingStatusbarRotation;
+    private Transform playerTransform;
+    private Animator changeValueTextAnimator;
+    private ICharacterClass characterClass;
 
     private void Awake()
     {
-        characterClass = GetComponentInParent<ICharacterClass>();
-        statusBarCanvas = GetComponent<Canvas>();
         playerTransform = GetComponentInParent<Transform>();
+        characterClass = GetComponentInParent<ICharacterClass>();
+        changeValueTextAnimator = GetComponentInChildren<Animator>();
     }
 
-    private void Start ()
+    private void Start()
     {
         SetStartingBarValues();
-        PlayerStatisticManager.OnHealthValueChange += PlayerStatisticManager_OnHealthValueChange;
-        PlayerStatisticManager.OnManaValueChange += PlayerStatisticManager_OnManaValueChange;
-        PlayerStatisticManager.OnStaminaValueChange += PlayerStatisticManager_OnStaminaValueChange; 
     }
 
     private void LateUpdate()
     {
-        statusBarCanvas.transform.rotation = Quaternion.Euler(new Vector3(90f, Mathf.Abs(playerTransform.rotation.y), 0f));       
+        transform.rotation = Quaternion.Euler(new Vector3(90f, Mathf.Abs(playerTransform.rotation.y), 0f));
     }
 
-    private void PlayerStatisticManager_OnStaminaValueChange()
+    private void RefreshPlayerStatusBar()
     {
         staminaBarFillImage.fillAmount = characterClass.GetCurrentStamina() / characterClass.GetMaximumStamina();
-    }
-
-    private void PlayerStatisticManager_OnManaValueChange()
-    {
         manaBarFillImage.fillAmount = characterClass.GetCurrentMana() / characterClass.GetMaximumMana();
+        healthBarFillImage.fillAmount = characterClass.GetCurrentHealth() / characterClass.GetMaximumHealth();
     }
 
-    private void PlayerStatisticManager_OnHealthValueChange()
+    public void PerformValueChangeTextEffect(float changedValue)
     {
-        healthBarFillImage.fillAmount = characterClass.GetCurrentHealth() / characterClass.GetMaximumHealth();
+        valueChangeText.text = changedValue.ToString();
+        RefreshPlayerStatusBar();
+    }
+
+    public void PerformValueChangeTextEffectWithColor(float changedValue, StateValueChangeAction state)
+    {
+        switch (state)
+        {
+            case StateValueChangeAction.TakingDamage:
+                valueChangeText.color = Color.red;
+                break;
+
+            case StateValueChangeAction.TakingHealing:
+                valueChangeText.color = Color.green;
+                break;
+
+            case StateValueChangeAction.ChangeMana:
+                valueChangeText.color = Color.blue;
+                break;
+
+            case StateValueChangeAction.ChangeStamina:
+                valueChangeText.color = Color.yellow;
+                break;
+        }
+
+        valueChangeText.text = changedValue.ToString();
+        RefreshPlayerStatusBar();
+        changeValueTextAnimator.SetTrigger("ValueChangeTrigger");
     }
 
     private void SetStartingBarValues()
