@@ -183,5 +183,10 @@ namespace Assets._Scripts.Characters
         {
             return base.CheckIfContainsCondition<T>();
         }
+
+        public StatusBarManager GetStatusBarManager()
+        {
+            return GetComponentInChildren<StatusBarManager>();
+        }
     }
 }

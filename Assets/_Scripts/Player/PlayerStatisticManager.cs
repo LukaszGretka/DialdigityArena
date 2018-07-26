@@ -7,13 +7,6 @@ namespace Assets._Scripts.Player
 {
     internal static class PlayerStatisticManager
     {
-        public delegate void PlayerStatisticChange();
-
-        public static event PlayerStatisticChange OnHealthValueChange;
-        public static event PlayerStatisticChange OnManaValueChange;
-        public static event PlayerStatisticChange OnStaminaValueChange;
-
-
         #region Health methods
 
         public static void TakeDamage(this ICharacterClass characterClass, float damage)
@@ -26,12 +19,13 @@ namespace Assets._Scripts.Player
                 }
 
                 characterClass.SetCurrentHealth(characterClass.GetCurrentHealth() - damage);
-                OnHealthValueChange.Invoke();
 
                 if (characterClass.CheckIfDead())
                 {
-
+                    //TODO implementation!
                 }
+
+                characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(damage, StateValueChangeAction.TakingDamage);
             }
         }
 
@@ -53,7 +47,7 @@ namespace Assets._Scripts.Player
                                                              : currentHealth + healingTaken;
 
                 characterClass.SetCurrentHealth(validatedHealthValue);
-                OnHealthValueChange.Invoke();
+                characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(healingTaken, StateValueChangeAction.TakingHealing);
             }
 
         }
@@ -61,6 +55,7 @@ namespace Assets._Scripts.Player
         public static void HealthRegeneration(this ICharacterClass characterClass)
         {
             TakeHealing(characterClass, characterClass.GetHealthRegeneration());
+            characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(characterClass.GetHealthRegeneration(), StateValueChangeAction.TakingHealing);
         }
 
         #endregion
@@ -78,7 +73,7 @@ namespace Assets._Scripts.Player
                                                : currentMana + manaPointsToAdd;
 
             characterClass.SetCurrentMana(validatedMana);
-            OnManaValueChange.Invoke();
+            characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(manaPointsToAdd, StateValueChangeAction.ChangeMana);
         }
 
         public static bool CheckIfEnoughMana(this ICharacterClass characterClass, IAbility ability)
@@ -95,12 +90,13 @@ namespace Assets._Scripts.Player
                                                    : currentMana - manaPointsToSubstract;
 
             characterClass.SetCurrentMana(validatedMana);
-            OnManaValueChange.Invoke();
+            characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(manaPointsToSubstract, StateValueChangeAction.ChangeMana);
         }
 
         public static void ManaRegeneration(this ICharacterClass characterClass)
         {
             AddMana(characterClass, characterClass.GetManaRegeneration());
+            characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(characterClass.GetManaRegeneration(), StateValueChangeAction.ChangeMana);
         }
 
         #endregion
@@ -118,7 +114,7 @@ namespace Assets._Scripts.Player
                                                      : currentStamina + staminaPointsToAdd;
 
             characterClass.SetCurrentStamina(validatedStamina);
-            OnStaminaValueChange.Invoke();
+            characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(staminaPointsToAdd, StateValueChangeAction.ChangeStamina);
         }
 
         public static bool CheckIfEnoughStamina(this ICharacterClass characterClass, IAbility ability)
@@ -136,12 +132,13 @@ namespace Assets._Scripts.Player
                                                          : currentStamina - staminaPointsToSubstract;
 
             characterClass.SetCurrentStamina(validatedStamina);
-            OnStaminaValueChange.Invoke();
+            characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(staminaPointsToSubstract, StateValueChangeAction.ChangeStamina);
         }
 
         public static void StaminaRegeneration(this ICharacterClass characterClass)
         {
             AddStamina(characterClass, characterClass.GetStaminaRegeneration());
+            characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(characterClass.GetStaminaRegeneration(), StateValueChangeAction.ChangeStamina);
         }
 
         #endregion
