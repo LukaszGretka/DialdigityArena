@@ -6,8 +6,7 @@ using UnityEngine.Networking;
 
 namespace Assets._Scripts.Player
 {
-    [RequireComponent(typeof(ICharacterClass))]
-    class PlayerClassManager : NetworkBehaviour
+    public class PlayerClassManager : NetworkBehaviour
     {
         private ICharacterClass characterClass;
 

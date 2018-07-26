@@ -1,5 +1,6 @@
 ﻿using Assets._Scripts.Abilities;
 using Assets._Scripts.Abilities.Abstract;
+using Assets._Scripts.Player;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ namespace Assets._Scripts.Characters.Abstract.Interfaces
 {
     public interface ICharacterClass
     {
+        PlayerClassManager PlayerClassManager { get; }
+        IAbilityImplementation PlayerClassAbilityImplementation { get; }
+
         float GetCurrentHealth();
         float GetCurrentMana();
         float GetCurrentStamina();

@@ -12,10 +12,10 @@ using UnityEngine;
 
 namespace Assets._Scripts.Characters
 {
-    [RequireComponent(typeof(PlayerClassManager))]
     internal class Warrior : MeleeCharacterClass, ICharacterClass
     {
-        private WarriorAbilitiesLogic warriorAbilitiesLogic;
+        public PlayerClassManager PlayerClassManager { get; private set; }
+        public IAbilityImplementation PlayerClassAbilityImplementation { get; private set; }
 
         private void Awake()
         {
@@ -34,12 +34,13 @@ namespace Assets._Scripts.Characters
             base.SetSecondSpecialAbility(new Leap());
             base.SetThirdSpecialAbility(new Bash());
 
-            warriorAbilitiesLogic = gameObject.AddComponent<WarriorAbilitiesLogic>();
+            PlayerClassAbilityImplementation = gameObject.AddComponent<WarriorAbilitiesLogic>();
+            PlayerClassManager = gameObject.AddComponent<PlayerClassManager>();
         }
 
         public IAbilityImplementation GetAbilityImplementation()
         {
-            return warriorAbilitiesLogic;
+            return PlayerClassAbilityImplementation;
         }
 
         public new void SetCurrentHealth(float changedHealth)

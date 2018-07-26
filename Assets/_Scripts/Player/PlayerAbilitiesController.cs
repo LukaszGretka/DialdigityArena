@@ -6,7 +6,6 @@ using UnityEngine.Networking;
 
 namespace Assets._Scripts.Player
 {
-    [RequireComponent(typeof(ICharacterClass))]
     internal class PlayerAbilitiesController : NetworkBehaviour
     {
         private IAbilityPerformance abilitiesManager;

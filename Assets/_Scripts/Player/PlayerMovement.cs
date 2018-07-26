@@ -3,13 +3,12 @@ using Assets._Scripts.Player;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[RequireComponent(typeof(PlayerAbilitiesController))]
 internal class PlayerMovement : NetworkBehaviour
 {
     protected float RotationSpeed = 0.1f; // TODO add rotation speed
 
     private Rigidbody playerRigidbody;
-    private Vector3 playerMovementVector;
+    private Vector3 playerMovementVector; 
     private LayerMask groundLayerMask;
     private ICharacterClass characterClass;
 
