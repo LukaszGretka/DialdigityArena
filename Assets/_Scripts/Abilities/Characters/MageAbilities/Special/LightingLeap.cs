@@ -16,6 +16,8 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Special
 
         public int StaminaCost { get; private set; } = 0;
 
+        public int OrderInSpellbar { get; private set; } = 3;
+
         public float CooldownTime { get; private set; } = 12f;
 
         public float Range { get; private set; } = 0f;

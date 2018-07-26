@@ -18,6 +18,8 @@ namespace Assets._Scripts.Abilities
 
         public int StaminaCost { get; private set; } = 0;
 
+        public int OrderInSpellbar { get; private set; } = 0;
+
         public float CooldownTime { get; private set; } = 0f;
 
         public float Range { get; private set; } = 0f;

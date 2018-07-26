@@ -16,6 +16,8 @@ namespace Assets._Scripts.Abilities.Characters.RangerAbilities
 
         public int StaminaCost { get; private set; } = 1;
 
+        public int OrderInSpellbar { get; private set; } = 2;
+
         public float CooldownTime { get; private set; } = 0f;
 
         public float Range { get; private set; } = 0f;

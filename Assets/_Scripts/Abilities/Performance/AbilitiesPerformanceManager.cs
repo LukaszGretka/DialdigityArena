@@ -14,13 +14,14 @@ namespace Assets._Scripts.Abilities.Performance
         private ICharacterClass characterClass;
         private static IEnumerator castAbilityCoroutine;
         private static ErrorMessageWindow errorMessageWindow;
+        private static SpellBar spellBar;
 
 
         private void Awake()
         {
             characterClass = GetComponent<ICharacterClass>();
             errorMessageWindow = GameObject.FindGameObjectWithTag("GUI").GetComponentInChildren<ErrorMessageWindow>();
-
+            spellBar = GameObject.FindGameObjectWithTag("GUI").GetComponentInChildren<SpellBar>();
         }
 
         public void CastFirstDefaultAbility()
@@ -119,6 +120,7 @@ namespace Assets._Scripts.Abilities.Performance
         private IEnumerator SetSpellCooldown(IAbility ability)
         {
             ability.OnCooldown = true;
+            StartCoroutine(spellBar.SetCooldownTimer(ability.CooldownTime , ability.OrderInSpellbar));
             yield return new WaitForSecondsRealtime(ability.CooldownTime);
             ability.OnCooldown = false;
         }

@@ -16,6 +16,8 @@ namespace Assets._Scripts.Abilities.Characters.WarriorAbilities.Special
 
         public int StaminaCost { get; private set; } = 1;
 
+        public int OrderInSpellbar { get; private set; } = 5;
+
         public float CooldownTime { get; private set; } = 15f;
 
         public float Range { get; private set; } = 1f;

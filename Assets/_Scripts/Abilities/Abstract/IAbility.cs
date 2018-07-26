@@ -13,6 +13,8 @@ namespace Assets._Scripts.Abilities
 
         int StaminaCost { get; }
 
+        int OrderInSpellbar { get; }
+
         float CooldownTime { get; }
 
         bool OnCooldown { get; set; }
