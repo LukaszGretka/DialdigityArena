@@ -35,14 +35,8 @@ namespace Assets._Scripts.Player
             gameObject.AddComponent<PlayerCameraController>();
             gameObject.AddComponent<PlayerAbilitiesController>();
             gameObject.AddComponent<AbilitiesPerformanceManager>();
-        }
-
-        private void DetachRequiredPlayerScripts()
-        {
-            Destroy(GetComponent<PlayerMovement>());
-            Destroy(GetComponent<PlayerCameraController>());
-            Destroy(GetComponent<PlayerAbilitiesController>());
-            Destroy(GetComponent<AbilitiesPerformanceManager>());
+            gameObject.AddComponent<PlayerDeathSystem>();
+            gameObject.AddComponent<PlayerRegeneration>();
         }
     }
 }

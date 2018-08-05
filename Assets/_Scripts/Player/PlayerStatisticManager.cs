@@ -5,8 +5,11 @@ using UnityEngine;
 
 namespace Assets._Scripts.Player
 {
-    internal static class PlayerStatisticManager
+    internal static class PlayerStatisticManager 
     {
+        public delegate void PlayerDeathHandler(ICharacterClass characterClass);
+        public static event PlayerDeathHandler OnPlayerDeath;
+
         #region Health methods
 
         public static void TakeDamage(this ICharacterClass characterClass, float damage)
@@ -22,7 +25,10 @@ namespace Assets._Scripts.Player
 
                 if (characterClass.CheckIfDead())
                 {
-                    //TODO implementation!
+                    if (OnPlayerDeath != null)
+                    {
+                        OnPlayerDeath.Invoke(characterClass);
+                    }
                 }
 
                 characterClass.GetStatusBarManager().PerformValueChangeTextEffectWithColor(damage, StateValueChangeAction.TakingDamage);

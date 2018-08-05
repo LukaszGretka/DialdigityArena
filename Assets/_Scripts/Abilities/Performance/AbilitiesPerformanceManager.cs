@@ -16,7 +16,6 @@ namespace Assets._Scripts.Abilities.Performance
         private static ErrorMessageWindow errorMessageWindow;
         private static SpellBar spellBar;
 
-
         private void Awake()
         {
             characterClass = GetComponent<ICharacterClass>();
