@@ -1,8 +1,5 @@
 ﻿using Assets._Scripts.Characters.Abstract.Interfaces;
 using Assets._Scripts.Conditions.Abstract;
-using Assets._Scripts.Config;
-using Assets._Scripts.OutputMessages;
-using Assets._Scripts.Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;

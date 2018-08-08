@@ -122,11 +122,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4240832120260530}
   - component: {fileID: 54854561877321592}
-  - component: {fileID: 114692557041392354}
-  - component: {fileID: 114712703691275094}
-  - component: {fileID: 114242853272209446}
-  - component: {fileID: 114724225713344480}
   - component: {fileID: 136954322144728170}
+  - component: {fileID: 114693885355696472}
+  - component: {fileID: 114782072984207838}
+  - component: {fileID: 114279057068951140}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Player
@@ -915,7 +914,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &65337346787475026
 BoxCollider:
@@ -1001,7 +1000,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114242853272209446
+--- !u!114 &114279057068951140
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1009,9 +1008,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189861556078424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5d41e9fb30de544884e463e88812b22, type: 3}
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 2
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 15
+  m_InterpolateMovement: 1
 --- !u!114 &114295384096009590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1286,7 +1295,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &114692557041392354
+--- !u!114 &114693885355696472
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1316,30 +1325,9 @@ MonoBehaviour:
     i13: 122
     i14: 2
     i15: 100
-  m_ServerOnly: 1
+  m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114712703691275094
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1189861556078424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: 0.033333335
-  m_SyncRotationAxis: 2
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 15
-  m_InterpolateMovement: 1
---- !u!114 &114724225713344480
+--- !u!114 &114782072984207838
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1350,13 +1338,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb3bf28a16366548b8a033e52370be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspectorHealth: 1000
-  inspectorMana: 20
-  inspectorStamina: 30
-  inspectorAttackRange: 5
+  inspectorHealth: 100
+  inspectorMana: 100
+  inspectorStamina: 100
+  inspectorAttackRange: 100
   inspectorMovementSpeed: 10
-  inspectorHealthRegeneration: 1
-  inspectorManaRegeneration: 1
+  inspectorHealthRegeneration: 5
+  inspectorManaRegeneration: 5
 --- !u!114 &114955678691520110
 MonoBehaviour:
   m_ObjectHideFlags: 1

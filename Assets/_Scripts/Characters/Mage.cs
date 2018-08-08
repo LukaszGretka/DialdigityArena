@@ -12,10 +12,10 @@ using UnityEngine;
 
 namespace Assets._Scripts.Characters
 {
-    [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Mage : RangedCharacterClass, ICharacterClass
     {
-        private MageAbilitiesLogic mageAbilitiesLogic;
+        public PlayerClassManager PlayerClassManager { get; private set; }
+        public IAbilityImplementation PlayerClassAbilityImplementation { get; private set; }
 
         private void Awake()
         {
@@ -36,12 +36,13 @@ namespace Assets._Scripts.Characters
             base.SetSecondSpecialAbility(new MagneticWave());
             base.SetThirdSpecialAbility(new Meteor());
 
-            mageAbilitiesLogic = gameObject.AddComponent<MageAbilitiesLogic>();
+            PlayerClassAbilityImplementation = gameObject.AddComponent<MageAbilitiesLogic>();
+            PlayerClassManager = gameObject.AddComponent<PlayerClassManager>();
         }
 
         public IAbilityImplementation GetAbilityImplementation()
         {
-            return mageAbilitiesLogic;
+            return PlayerClassAbilityImplementation;
         }
 
         public new void SetCurrentHealth(float changedHealth)

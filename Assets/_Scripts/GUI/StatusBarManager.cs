@@ -79,6 +79,13 @@ public class StatusBarManager : MonoBehaviour
         changeValueTextAnimator.SetTrigger("ValueChangeTrigger");
     }
 
+    public void SetDeathBarValues()
+    {
+        healthBarFillImage.fillAmount = default(float);
+        manaBarFillImage.fillAmount = default(float);
+        staminaBarFillImage.fillAmount = default(float);
+    }
+
     private void SetStartingBarValues()
     {
         // "1" is the maximum value for image slider
@@ -88,4 +95,5 @@ public class StatusBarManager : MonoBehaviour
         manaBarFillImage.fillAmount = fullFillAmount;
         staminaBarFillImage.fillAmount = fullFillAmount;
     }
+
 }

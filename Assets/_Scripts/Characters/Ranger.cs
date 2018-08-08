@@ -12,10 +12,10 @@ using UnityEngine;
 
 namespace Assets._Scripts.Characters
 {
-    [RequireComponent(typeof(PlayerAbilitiesController))]
     internal class Ranger : RangedCharacterClass, ICharacterClass
     {
-        private RangerAbilitiesLogic rangerAbilitiesLogic;
+        public PlayerClassManager PlayerClassManager { get; private set; }
+        public IAbilityImplementation PlayerClassAbilityImplementation { get; private set; }
 
         private void Awake()
         {
@@ -34,12 +34,13 @@ namespace Assets._Scripts.Characters
             base.SetSecondSpecialAbility(new PenetratingShot());
             base.SetThirdSpecialAbility(new Barrage());
 
-            rangerAbilitiesLogic = gameObject.AddComponent<RangerAbilitiesLogic>();
+            PlayerClassAbilityImplementation = gameObject.AddComponent<RangerAbilitiesLogic>();
+            PlayerClassManager = gameObject.AddComponent<PlayerClassManager>();
         }
 
         IAbilityImplementation ICharacterClass.GetAbilityImplementation()
         {
-            return rangerAbilitiesLogic;
+            return PlayerClassAbilityImplementation;
         }
 
         public new void SetCurrentHealth(float changedHealth)
