@@ -123,5 +123,10 @@ namespace Assets._Scripts.Abilities.Performance
             yield return new WaitForSecondsRealtime(ability.CooldownTime);
             ability.OnCooldown = false;
         }
+
+        public void SetSpellCooldownToAllSpells(IAbility ability)
+        {
+
+        }
     }
 }

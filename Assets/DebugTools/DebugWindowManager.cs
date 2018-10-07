@@ -110,8 +110,11 @@ public class DebugWindowManager : MonoBehaviour
 
     public void StunButton_OnClick()
     {
-        AddConditionToPlayerByDebuger(new Stun(Int32.Parse(stunValue.text)));
-        //TODO Methods for stuns are not implemented
+        conditionValue = Int32.TryParse(stunValue.text, out parsedConditionValue);
+        if (parsedConditionValue != 0)
+            AddConditionToPlayerByDebuger(new Stun(Int32.Parse(stunValue.text)));
+        else
+            Debug.Log(ErrorMessages.InvalidStunValue);
     }
 
     public void ImmobilizeButton_OnClick()
