@@ -30,6 +30,10 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities
 
         public bool OnCooldown { get; set; } = default(bool);
 
-        public List<ICondition> Conditions { get; private set; } = new List<ICondition>();
+        public List<ICondition> Conditions { get; private set; } = new List<ICondition>()
+        {
+            new DamageReduction(durationTime: 4f, damageReductionValue: 30f),
+            new Slow(durationTime: 1f, slowStrength: 0.25f)
+        };
     }
 }

@@ -7,6 +7,7 @@ using Assets._Scripts.Conditions;
 using Assets._Scripts.Player;
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
@@ -40,7 +41,9 @@ namespace Assets._Scripts.Abilities.Characters.MageAbilities.Logic
 
         public IEnumerator SecondDefaultAbilityImplementation()
         {
-            throw new NotImplementedException();
+            //Self buff with damage reduction
+            conditionManager.AddConditionsToTarget(mageClass, mageClass.GetSecondDefaultAbility().Conditions.Where(x => x.GetType() == typeof(DamageReduction)).ToList());
+            yield return new WaitForEndOfFrame();
         }
 
         public IEnumerator SecondSpecialAbilityImplementation()

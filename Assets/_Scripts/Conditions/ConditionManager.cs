@@ -25,7 +25,6 @@ namespace Assets._Scripts.Conditions
 
         internal void DispelConditionEffect(ICharacterClass characterClass, ICondition condition)
         {
-
             characterClass.RemoveConditionEffect(condition);
         }
 
